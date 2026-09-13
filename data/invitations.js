@@ -10,8 +10,8 @@ export const invitations = [
     title: "Andrea",
     eventType: "Quinceañera",
     date: "Mayo 2026",
-    coverImage: "/gallery/andrea-15/portada.jfif",
-    url: "https://andrea-15.vercel.app", // <-- sustituye por la URL real
+    coverImage: "/gallery/andrea-15/portada.webp",
+    url: "https://andrea-15.vercel.app",
   },
   {
     id: "placeholder-boda",
