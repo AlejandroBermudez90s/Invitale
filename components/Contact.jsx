@@ -1,15 +1,21 @@
-export default function Contact() {
-  // Sustituye por tus datos reales
-  const email = "hola@invitale.es";
-  const whatsapp = "https://wa.me/34XXXXXXXXX";
-  const instagram = "https://instagram.com/invitale";
+import {
+  WhatsappIcon,
+  InstagramIcon,
+  TiktokIcon,
+  MailIcon,
+} from "./ContactIcons";
 
+const contactos = [
+  { Icon: WhatsappIcon, label: "633 36 80 59", href: "https://wa.me/34633368059" },
+  { Icon: InstagramIcon, label: "@invitale", href: "https://instagram.com/invitale" },
+  { Icon: TiktokIcon, label: "@invitale", href: "https://tiktok.com/@invitale" },
+  { Icon: MailIcon, label: "invitale@gmail.com", href: "mailto:invitale@gmail.com" },
+];
+
+export default function Contact() {
   return (
-    <section
-      id="contacto"
-      className="bg-navy px-6 py-24 text-center sm:px-10"
-    >
-      <div className="mx-auto max-w-xl">
+    <section id="contacto" className="bg-night px-6 py-24 text-center sm:px-10">
+      <div className="mx-auto max-w-md">
         <p className="font-body text-xs uppercase tracking-[0.25em] text-gold">
           Hablemos de tu evento
         </p>
@@ -19,33 +25,23 @@ export default function Contact() {
         </h2>
 
         <p className="mt-4 font-body text-cream/70">
-          Escríbeme y diseñamos juntos la invitación digital para tu boda,
-          quinceañera, bautizo, comunión, cumpleaños o evento corporativo.
+          Bodas, quinceañeras, bautizos, comuniones, cumpleaños o eventos
+          corporativos — diseñamos juntos tu invitación digital.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 font-body text-sm sm:flex-row sm:justify-center sm:gap-8">
-          <a
-            href={`mailto:${email}`}
-            className="text-cream/90 transition-colors hover:text-gold"
-          >
-            {email}
-          </a>
-          <a
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cream/90 transition-colors hover:text-gold"
-          >
-            WhatsApp
-          </a>
-          <a
-            href={instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cream/90 transition-colors hover:text-gold"
-          >
-            Instagram
-          </a>
+        <div className="mt-10 flex flex-col items-start gap-4 font-display text-lg text-cream/90">
+          {contactos.map(({ Icon, label, href }) => (
+            <a
+              key={label + href}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="group flex items-center gap-3 transition-colors hover:text-gold"
+            >
+              <Icon className="h-6 w-6 text-gold" />
+              {label}
+            </a>
+          ))}
         </div>
       </div>
     </section>

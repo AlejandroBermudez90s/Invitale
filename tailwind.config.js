@@ -7,17 +7,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Paleta de marca InvitAle
-        navy: "#081033",
-        "navy-deep": "#0b306d",
-        gold: "#c9a300",
+        // Paleta real de marca, muestreada del imagotipo y la tarjeta física:
+        gold: "#c9a300", // oro exacto del corazón y el trazo (RGB 204,163,0)
         "gold-light": "#e0c04d",
-        cream: "#f2ece0",
-        ink: "#12162b",
+        night: "#252527", // negro cálido de la trasera de la tarjeta (no azul navy)
+        paper: "#fdfaf5", // crema casi blanco de la delantera de la tarjeta
+        cream: "#f2ece0", // crema secundario, para dar aire entre bloques sobre "paper"
+        ink: "#1c1c1c", // texto sobre fondos claros
       },
       fontFamily: {
         display: ["var(--font-prata)", "serif"],
         body: ["var(--font-jost)", "sans-serif"],
+        script: ["var(--font-script)", "cursive"],
       },
       maxWidth: {
         prose: "68ch",
