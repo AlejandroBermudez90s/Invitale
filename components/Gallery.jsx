@@ -3,12 +3,12 @@ import InvitationCard from "./InvitationCard";
 
 export default function Gallery() {
   return (
-    <section id="galeria" className="bg-cream px-6 pb-24 sm:px-10">
+    <section id="galeria" className="bg-cream dark:bg-night px-6 pb-24 sm:px-10">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-3xl text-ink sm:text-4xl">
+        <h2 className="font-display text-3xl text-ink sm:text-4xl dark:text-cream">
           Invitaciones
         </h2>
-        <p className="mt-3 max-w-prose font-body text-ink/60">
+        <p className="mt-3 max-w-prose font-body text-ink/60 dark:text-cream/60">
           Una selección de proyectos. Cada tarjeta abre la invitación
           publicada en una pestaña nueva.
         </p>

@@ -1,12 +1,12 @@
 export default function About() {
   return (
-    <section id="sobre-mi" className="bg-cream px-6 py-24 sm:px-10">
+    <section id="sobre-mi" className="bg-cream transition-colors duration-300 dark:bg-night px-6 py-24 sm:px-10">
       <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-[1fr_2fr] sm:gap-16">
         <p className="font-body text-xs uppercase tracking-[0.25em] text-gold">
           Sobre InvitAle
         </p>
 
-        <div className="max-w-prose font-body text-lg leading-relaxed text-ink/85">
+        <div className="max-w-prose font-body text-lg leading-relaxed text-ink/85 dark:text-cream/80">
           <p>
             Diseño y desarrollo invitaciones digitales a medida, pensadas para
             que cada evento tenga una presentación tan cuidada como la

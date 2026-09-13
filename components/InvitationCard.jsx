@@ -6,7 +6,7 @@ export default function InvitationCard({ invitation }) {
 
   const CardContent = (
     <>
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-navy/10">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-navy/10 bg-cream dark:bg-cream/10">
         <Image
           src={coverImage}
           alt={`Invitación de ${title}`}
@@ -19,8 +19,8 @@ export default function InvitationCard({ invitation }) {
       {/* Filete oro — separador de marca, no decoración genérica */}
       <div className="mt-4 h-px w-8 bg-gold" />
 
-      <h3 className="mt-3 font-display text-xl text-ink">{title}</h3>
-      <p className="mt-1 font-body text-xs uppercase tracking-[0.2em] text-ink/50">
+      <h3 className="mt-3 font-display text-xl text-ink dark:text-cream">{title}</h3>
+      <p className="mt-1 font-body text-xs uppercase tracking-[0.2em] text-ink/50 dark:text-cream/50">
         {eventType} · {date}
       </p>
     </>
