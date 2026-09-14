@@ -6,7 +6,7 @@ const jost = Jost({ subsets: ["latin"], weight: ["300", "400", "500", "600"], va
 const pinyon = Pinyon_Script({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 
 export const metadata = {
-  title: "InvitAle — Invitaciones digitales diseñadas para recordar",
+  title: "Invitale — Invitaciones digitales diseñadas para recordar",
   description:
     "Invitaciones digitales a medida para bodas, quinceañeras, bautizos, comuniones, cumpleaños y eventos corporativos en la Región de Murcia.",
   icons: { icon: "/favicon.png" },
