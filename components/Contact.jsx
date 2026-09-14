@@ -2,9 +2,9 @@ import { WhatsappIcon, InstagramIcon, TiktokIcon, MailIcon } from "./ContactIcon
 
 const contactos = [
   { Icon: WhatsappIcon, label: "633 36 80 59", href: "https://wa.me/34633368059" },
-  { Icon: InstagramIcon, label: "@invitale", href: "https://instagram.com/invitale" },
-  { Icon: TiktokIcon, label: "@invitale", href: "https://tiktok.com/@invitale" },
-  { Icon: MailIcon, label: "invitale@gmail.com", href: "mailto:invitale@gmail.com" },
+  { Icon: InstagramIcon, label: "@invitalecontacto", href: "https://instagram.com/invitalecontacto" },
+  { Icon: TiktokIcon, label: "@invitalecontacto", href: "https://tiktok.com/@invitalecontacto" },
+  { Icon: MailIcon, label: "invitalecontacto@gmail.com", href: "mailto:invitalecontacto@gmail.com" },
 ];
 
 export default function Contact() {
@@ -14,7 +14,7 @@ export default function Contact() {
         <p className="font-body text-xs uppercase tracking-[0.25em] text-gold">Hablemos de tu evento</p>
         <h2 className="mt-4 font-display text-3xl text-ink dark:text-cream sm:text-4xl">Cuéntame qué estás celebrando</h2>
         <p className="mt-4 font-body text-ink/70 dark:text-cream/70">
-          Bodas, quinceañeras, bautizos, comuniones, cumpleaños o eventos corporativos — diseñamos juntos tu invitación digital.
+          Bodas, bautizos, comuniones, cumpleaños, quinceañeras y todo tipo de eventos  — diseñamos juntos tu invitación digital.
         </p>
         <div className="mt-10 flex flex-col items-start gap-4 font-display text-lg text-ink/90 dark:text-cream/90">
           {contactos.map(({ Icon, label, href }) => (

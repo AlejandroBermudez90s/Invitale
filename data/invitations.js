@@ -18,7 +18,7 @@ export const invitations = [
     title: "Nombre & Nombre",
     eventType: "Boda",
     date: "Próximamente",
-    coverImage: "/gallery/placeholder-boda.jpg",
+    coverImage: "/brand/isotipo-claro.png",
     url: "#",
   },
   {
@@ -26,7 +26,7 @@ export const invitations = [
     title: "Nombre",
     eventType: "Bautizo",
     date: "Próximamente",
-    coverImage: "/gallery/placeholder-bautizo.jpg",
+    coverImage: "/brand/isotipo-claro.png",
     url: "#",
   },
 ];
