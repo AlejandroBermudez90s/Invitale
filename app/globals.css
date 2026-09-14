@@ -12,6 +12,33 @@ html {
   outline-offset: 3px;
 }
 
+/* ============================================
+  HERO — entrada escalonada y micro-interacciones
+   ============================================ */
+
+.stagger-1 { animation-delay: .25s; }
+.stagger-2 { animation-delay: .5s; }
+.stagger-3 { animation-delay: .75s; }
+.stagger-4 { animation-delay: 1s; }
+.stagger-5 { animation-delay: 1.25s; }
+.stagger-6 { animation-delay: 1.5s; }
+.stagger-7 { animation-delay: 1.75s; }
+
+.hero-logo-float {
+  animation:
+    revealUp 1.8s cubic-bezier(0.4, 0, 0.2, 1) both,
+    floatSlow 8s ease-in-out 1.8s infinite;
+}
+
+.hero-divider-grow {
+  transform-origin: center;
+  animation: growLine 1.6s cubic-bezier(0.4, 0, 0.2, 1) .8s both;
+}
+
+.hero-glow {
+  animation: glowPulse 9s ease-in-out infinite;
+}
+
 /* Respeta la preferencia del usuario de reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
   *,

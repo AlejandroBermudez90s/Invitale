@@ -29,10 +29,30 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(18px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        glowPulse: {
+          "0%, 100%": { opacity: "0.35", transform: "scale(1)" },
+          "50%": { opacity: "0.55", transform: "scale(1.08)" },
+        },
+        growLine: {
+          "0%": { transform: "scaleX(0)", opacity: "0" },
+          "100%": { transform: "scaleX(1)", opacity: "1" },
+        },
+        bounceSlow: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(4px)" },
+        },
       },
       animation: {
-        revealUp: "revealUp 1.1s cubic-bezier(0.4, 0, 0.2, 1) both",
-      },
+        revealUp: "revealUp 1.8s cubic-bezier(0.4, 0, 0.2, 1) both",
+        floatSlow: "floatSlow 8s ease-in-out infinite",
+        glowPulse: "glowPulse 9s ease-in-out infinite",
+        growLine: "growLine 1.6s cubic-bezier(0.4, 0, 0.2, 1) both",
+        bounceSlow: "bounceSlow 2.2s ease-in-out infinite",
+      }
     },
   },
   plugins: [],
