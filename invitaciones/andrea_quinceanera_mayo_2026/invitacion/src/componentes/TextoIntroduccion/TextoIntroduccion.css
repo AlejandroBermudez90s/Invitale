@@ -1,0 +1,396 @@
+/* ============================================
+   TIPOGRAFÍAS COMPARTIDAS
+   ============================================ */
+
+.fuente {
+    font-family: "Prata", serif !important;
+    color: #e0e0e0;
+    text-align: center;
+    line-height: 2 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: none;
+}
+
+.fuenteParrafo {
+    font-family: "Prata", serif !important;
+    font-size: 1.1rem !important;
+    color: #f3f1f1 !important;
+    text-align: center;
+    line-height: 1.9 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none;
+    font-weight: 300;
+}
+
+/* ============================================
+   SECCIÓN TEXTO INTRODUCCIÓN - ELEGANTE
+   ============================================ */
+
+.texto-introduccion-section {
+    background: linear-gradient(180deg,
+            #0b306d 0%,
+            #081033 50%,
+            #264c79 100%);
+    height: 100vh; /* Altura exacta de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2vh 5vw; /* Padding más pequeño */
+    box-sizing: border-box; /* IMPORTANTE: incluye padding en el height */
+    overflow: hidden; /* Evita desbordamiento */
+}
+
+.texto-introduccion-section .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Reducido de 2.5rem */
+    width: 100%;
+}
+
+/* ============================================
+   ORNAMENTOS DECORATIVOS
+   ============================================ */
+
+.ornamento-superior,
+.ornamento-inferior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.linea-decorativa {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+}
+
+.corazon-icono {
+    color: rgba(255, 255, 255, 0.815);
+    font-size: 0.9rem;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================
+   CONTENEDOR POÉTICO
+   ============================================ */
+
+.poema-container {
+    border: none;
+    margin: 0;
+    padding: 2rem 1.5rem; /* Reducido padding */
+    position: relative;
+}
+
+.poema-container::before,
+.poema-container::after {
+    content: '"';
+    font-family: "Pinyon Script", cursive;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    line-height: 1;
+}
+
+.poema-container::before {
+    top: 0.5em;
+    left: 0;
+}
+
+.poema-container::after {
+    bottom: 5rem; /* Ajustado para móvil */
+    right: 0.8em;
+    content: '"';
+}
+
+/* ============================================
+   VERSOS - ESTILO POÉTICO
+   ============================================ */
+
+.verso {
+    margin: 0.5rem 0; /* Reducido de 0.8rem */
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.separador-verso {
+    margin: 1.5rem 0; /* Reducido de 2rem */
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    letter-spacing: 0.8rem;
+}
+
+/* ============================================
+   FIRMA ELEGANTE
+   ============================================ */
+
+.firma-elegante {
+    margin-top: 1.5rem !important; /* Reducido de 2rem */
+    color: rgba(255, 255, 255, 0.8) !important;
+    border: none;
+}
+
+.firma-elegante cite {
+    font-family: "Pinyon Script", cursive !important;
+    font-size: 2rem;
+    font-style: normal;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.firma-elegante cite::before {
+    content: '~';
+    margin-right: 0.5rem;
+    opacity: 0.6;
+}
+
+/* ============================================
+   BOTÓN ELEGANTE
+   ============================================ */
+
+.boton-container {
+    margin-top: 0.75rem; /* Reducido de 1rem */
+}
+
+.btn-elegante {
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    color: white !important;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn-elegante:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15) !important;
+}
+
+.btn-elegante i {
+    transition: transform 0.3s ease;
+}
+
+.btn-elegante:hover i {
+    transform: translateY(3px);
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+.animar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s; }
+.delay-6 { transition-delay: 1.2s; }
+.delay-7 { transition-delay: 1.4s; }
+.delay-8 { transition-delay: 1.4s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Móviles muy pequeños */
+@media (max-width: 380px) {
+    .texto-introduccion-section {
+        padding: 1vh 3vw;
+    }
+
+    .texto-introduccion-section .section-header {
+        gap: 1rem;
+    }
+
+    .poema-container {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .poema-container::before,
+    .poema-container::after {
+        font-size: 2rem;
+    }
+
+    .poema-container::after {
+        bottom: 4rem;
+    }
+
+    .verso {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+        margin: 0.4rem 0;
+    }
+
+    .separador-verso {
+        font-size: 1rem;
+        letter-spacing: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .firma-elegante {
+        margin-top: 1rem !important;
+    }
+
+    .firma-elegante cite {
+        font-size: 1.5rem;
+    }
+
+    .ornamento-superior,
+    .ornamento-inferior {
+        max-width: 250px;
+        gap: 1rem;
+    }
+
+    .corazon-icono {
+        font-size: 0.7rem;
+    }
+
+    .btn-elegante {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .boton-container {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Móviles pequeños */
+@media (min-width: 381px) and (max-width: 576px) {
+    .texto-introduccion-section {
+        padding: 1.5vh 4vw;
+    }
+
+    .texto-introduccion-section .section-header {
+        gap: 1.2rem;
+    }
+
+    .poema-container {
+        padding: 2rem 1rem;
+    }
+
+    .verso {
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
+    }
+
+    .separador-verso {
+        margin: 1.3rem 0;
+    }
+
+    .firma-elegante cite {
+        font-size: 1.5rem;
+    }
+
+    .btn-elegante {
+        font-size: 0.85rem;
+    }
+}
+
+/* Móviles normales */
+@media (min-width: 577px) and (max-width: 768px) {
+    .texto-introduccion-section {
+        padding: 2vh 5vw;
+    }
+
+    .verso {
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+    }
+
+    .firma-elegante cite {
+        font-size: 1.75rem;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .texto-introduccion-section {
+        padding: 3vh 5vw;
+    }
+
+    .texto-introduccion-section .section-header {
+        gap: 2rem;
+    }
+
+    .verso {
+        font-size: 1.05rem !important;
+    }
+
+    .poema-container {
+        padding: 3rem 2.5rem;
+    }
+
+    .firma-elegante cite {
+        font-size: 2.2rem;
+    }
+}
+
+/* Laptops y Desktop */
+@media (min-width: 1025px) {
+    .texto-introduccion-section {
+        padding: 4vh 8vw;
+    }
+
+    .texto-introduccion-section .section-header {
+        gap: 2.5rem;
+    }
+
+    .verso {
+        font-size: 1.15rem !important;
+        line-height: 2 !important;
+    }
+
+    .poema-container {
+        padding: 3.5rem 3.5rem;
+    }
+
+    .poema-container::before,
+    .poema-container::after {
+        font-size: 4rem;
+    }
+
+    .poema-container::after {
+        bottom: 6rem;
+    }
+
+    .firma-elegante cite {
+        font-size: 2.5rem;
+    }
+
+    .separador-verso {
+        margin: 2rem 0;
+    }
+}

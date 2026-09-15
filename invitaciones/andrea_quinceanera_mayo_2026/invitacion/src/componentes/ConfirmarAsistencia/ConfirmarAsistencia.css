@@ -1,0 +1,257 @@
+/* ============================================
+   SECCIÓN DE CONFIRMAR ASISTENCIA
+   ============================================ */
+
+.confirmar-asistencia-section {
+    background: linear-gradient(180deg, 
+        #f8f9fa 0%,
+        #e9ecef 100%
+    );
+    min-height: auto;
+    padding: 3rem 0;
+}
+
+/* Card principal */
+.confirmar-card {
+    border-radius: 20px;
+    background: white;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Icono del sobre */
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.icon-wrapper i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* Formulario */
+.form-label {
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: #667eea;
+}
+
+/* Botón de envío */
+.confirmar-card .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.confirmar-card .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.confirmar-card .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.confirmar-card .btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   MENSAJE DE ÉXITO
+   ============================================ */
+
+.success-message-wrapper {
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-card {
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+/* Icono de éxito con checkmark */
+.success-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-checkmark {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+    animation: checkmarkPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-checkmark i {
+    font-size: 4rem;
+    color: white;
+    animation: checkmarkDraw 0.4s ease-out 0.3s both;
+}
+
+@keyframes checkmarkDraw {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Texto de éxito */
+.success-card h3 {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.success-card .lead {
+    color: #166534;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.success-card .alert-success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #166534;
+    border-radius: 12px;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .confirmar-asistencia-section {
+        padding: 2rem 0;
+    }
+
+    .confirmar-card .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon-wrapper i {
+        font-size: 2rem;
+    }
+
+    .success-checkmark {
+        width: 80px;
+        height: 80px;
+    }
+
+    .success-checkmark i {
+        font-size: 3rem;
+    }
+
+    .success-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-label {
+        font-size: 1rem;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.1rem;
+    }
+
+    .form-control::placeholder,
+    textarea.form-control::placeholder {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem !important;
+    }
+}

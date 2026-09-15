@@ -1,0 +1,219 @@
+/* ============================================
+    SECCIÓN DE DETALLES – AZUL CLARO ELEGANTE
+   ============================================ */
+.fuente {
+    font-family: "Prata", serif;
+    color: #e0e0e0;
+    text-align: center;
+    line-height: 2;
+    /* Mucho espacio entre líneas = más lujo */
+    letter-spacing: 1.5px;
+    /* Separa un poco las letras */
+    text-transform: none;
+    /* Mantén minúsculas para que sea más joven */
+}
+
+.fuenteParrafo {
+    font-family: "Prata", serif;
+    color: #f3f1f1;
+    text-align: center;
+    line-height: 2;
+    /* Mucho espacio entre líneas = más lujo */
+    letter-spacing: 1px;
+    /* Separa un poco las letras */
+    text-transform: none;
+    /* Mantén minúsculas para que sea más joven */
+}
+
+.detalles-section {
+    background: linear-gradient(180deg,
+            #0b306d 0%,
+            #081033 50%,
+            #264c79 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Header */
+.section-header h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section-header p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Líneas decorativas */
+.decorative-line {
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ============================================
+    ACORDEÓN SIMPLIFICADO
+   ============================================ */
+
+.accordion-custom .accordion-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 1.25rem;
+    transition: transform 0.4s ease !important;
+}
+
+.accordion-custom .accordion-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Botón */
+.accordion-custom .accordion-button {
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.4rem 1.6rem;
+    border-radius: 16px;
+    box-shadow: none;
+    transition: background-color 0.3s ease !important;
+}
+
+.accordion-custom .accordion-button:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* Flecha - Animación más lenta */
+.accordion-custom .accordion-button::after {
+    filter: brightness(3);
+    transition: transform 0.8s ease !important; /* Rotación más lenta */
+}
+
+.accordion-custom .accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+/* Icono */
+.accordion-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    background: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon-wrapper i {
+    color: #10207a;
+    font-size: 1.25rem;
+}
+
+/* Título */
+.accordion-title {
+    letter-spacing: 0.3px;
+}
+
+/* Cuerpo */
+.accordion-custom .accordion-body {
+    background: rgba(255, 255, 255, 0.829);
+    color: #ffffff;
+    padding: 1.75rem 1.6rem;
+    border-radius: 0 0 16px 16px;
+}
+
+/* ============================================
+    ANIMACIÓN MÁS LENTA DEL ACORDEÓN
+   ============================================ */
+
+/* Sobrescribir la animación de Bootstrap para hacerla MÁS LENTA */
+.accordion-custom .accordion-collapse {
+    transition: height 1.2s ease-in-out !important; /* 1.2 segundos - MUY LENTA */
+}
+
+
+/* ============================================
+    RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .fuente {
+        font-family: "Prata", serif;
+        font-size: 1.2em !important;
+        color: #bbbaba;
+        text-align: center;
+        line-height: 2;
+        /* Mucho espacio entre líneas = más lujo */
+        letter-spacing: 1.5px;
+        /* Separa un poco las letras */
+        text-transform: none;
+        /* Mantén minúsculas para que sea más joven */
+    }
+
+    .fuenteParrafo {
+        font-family: "Prata", serif;
+        font-size: 0.7em !important;
+        color: #f3f1f1;
+        text-align: center;
+        line-height: 2;
+        /* Mucho espacio entre líneas = más lujo */
+        letter-spacing: 0em;
+        /* Separa un poco las letras */
+        text-transform: none;
+        /* Mantén minúsculas para que sea más joven */
+    }
+
+    .accordion-custom .accordion-button {
+        font-size: 1.05rem;
+        padding: 1.2rem;
+    }
+    
+    /* Animación más rápida en móvil para mejor UX */
+    .accordion-custom .accordion-collapse {
+        transition: height 1s ease-in-out !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .accordion-title {
+        font-size: 0.95rem;
+    }
+
+    .fuente {
+        font-family: "Prata", serif;
+        font-size: 1em;
+        color: #e0e0e0;
+        text-align: center;
+        line-height: 2;
+        /* Mucho espacio entre líneas = más lujo */
+        letter-spacing: 1.5px;
+        /* Separa un poco las letras */
+        text-transform: none;
+        /* Mantén minúsculas para que sea más joven */
+    }
+
+    .fuenteParrafo {
+        font-family: "Prata", serif;
+        font-size: 0.6em;
+        color: #f3f1f1;
+        text-align: center;
+        line-height: 2;
+        /* Mucho espacio entre líneas = más lujo */
+        letter-spacing: 1.5px;
+        /* Separa un poco las letras */
+        text-transform: none;
+        /* Mantén minúsculas para que sea más joven */
+    }
+}

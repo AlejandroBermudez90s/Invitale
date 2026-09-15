@@ -1,0 +1,267 @@
+/* ============================================
+   CARDS – ELEGANTES Y SUAVES
+   ============================================ */
+
+.fuente{
+    font-family: "Prata", serif;
+}
+
+.countdown-card,
+.calendar-card {
+    border: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(10, 25, 80, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.countdown-card:hover,
+.calendar-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(10, 25, 80, 0.2);
+}
+
+/* ============================================
+   CUENTA ATRÁS – ESTILO CLÁSICO ELEGANTE
+   ============================================ */
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.countdown-item {
+    background: linear-gradient(
+        160deg,
+        #0f2a5c 0%,
+        #2f4f9f 55%,
+        #6a7bd1 100%
+    );
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(15, 42, 92, 0.35);
+    transition: transform 0.4s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-3px);
+}
+
+.countdown-number {
+    font-size: 2.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+    font-family: "Prata", serif;
+}
+
+.countdown-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* ============================================
+   CALENDARIO – ESTILO CEREMONIA
+   ============================================ */
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3b4a75;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.6rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    background-color: #f3f5fb;
+    color: #2c3563;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: visible;
+}
+
+.calendar-day:not(.empty):hover {
+    background-color: #e4e8f5;
+    transform: translateY(-1px);
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+/* ============================================
+    DÍA DEL EVENTO – PROTAGONISTA PERO FINO
+   ============================================ */
+
+.calendar-day.event-day {
+    background: linear-gradient(
+        160deg,
+        #1c2d6b 0%,
+        #4b63c8 60%,
+        #7a89e6 100%
+    );
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 10px 25px rgba(28, 45, 107, 0.4);
+    position: relative;
+    overflow: visible;
+}
+
+/* Estrella FUERA de la casilla - arriba a la derecha */
+.event-marker {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 1.2rem;
+    opacity: 1;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    z-index: 10;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+
+/* Animación MUY sutil del día */
+.calendar-day.event-day {
+    animation: softPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.10);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - AJUSTES PARA MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+    .countdown-number {
+        font-size: 2.2rem;
+    }
+
+    .calendar-day {
+        font-size: 0.75rem; /* Más pequeño en tablets */
+        border-radius: 8px;
+    }
+    
+    .calendar-day.event-day {
+        font-size: 0.85rem;
+    }
+    
+    .calendar-weekdays {
+        font-size: 0.65rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .calendar-grid {
+        gap: 0.4rem; /* Menos espacio entre días */
+    }
+    
+    .event-marker {
+        font-size: 0.9rem;
+        top: -6px;
+        right: -6px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Countdown */
+    .countdown-item {
+        padding: 1.3rem;
+    }
+
+    .countdown-number {
+        font-size: 1.9rem;
+    }
+    
+    /* Calendario más compacto en móviles pequeños */
+    .calendar-card .card-body {
+        padding: 1rem !important;
+    }
+    
+    .calendar-weekdays {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.4rem;
+    }
+    
+    .calendar-grid {
+        gap: 0.3rem; /* Aún menos espacio */
+    }
+    
+    .calendar-day {
+        font-size: 0.7rem; /* Números más pequeños */
+        border-radius: 6px;
+    }
+    
+    .calendar-day.event-day {
+        font-size: 0.8rem;
+    }
+    
+    .event-marker {
+        font-size: 0.75rem;
+        top: -5px;
+        right: -5px;
+    }
+    
+    /* Badge más compacto */
+    .calendar-card .badge {
+        font-size: 0.75rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
+
+/* Para móviles MUY pequeños (< 360px) */
+@media (max-width: 360px) {
+    .calendar-grid {
+        gap: 0.25rem;
+    }
+    
+    .calendar-day {
+        font-size: 0.65rem;
+        border-radius: 5px;
+    }
+    
+    .calendar-day.event-day {
+        font-size: 0.75rem;
+    }
+    
+    .calendar-weekdays {
+        font-size: 0.55rem;
+    }
+    
+    .event-marker {
+        font-size: 0.65rem;
+        top: -4px;
+        right: -4px;
+    }
+}

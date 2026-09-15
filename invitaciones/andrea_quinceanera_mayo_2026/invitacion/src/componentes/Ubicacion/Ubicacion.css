@@ -1,0 +1,51 @@
+/* Card de ubicación */
+.ubicacion-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ubicacion-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Mapa con bordes redondeados */
+.ubicacion-card .ratio {
+    border: 3px solid #f8f9fa;
+}
+
+/* Botón personalizado */
+.ubicacion-card .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.ubicacion-card .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.ubicacion-card .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Información adicional */
+.ubicacion-card .bg-light {
+    background-color: #f8f9fa !important;
+    border: 1px solid #e9ecef;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .ubicacion-card .btn-primary {
+        font-size: 0.85rem;
+        padding: 0.75rem 1.5rem !important;
+    }
+}

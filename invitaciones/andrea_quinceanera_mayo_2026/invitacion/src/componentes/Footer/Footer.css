@@ -1,0 +1,269 @@
+/* ============================================
+   FOOTER SECTION - PROFESIONAL Y ELEGANTE
+   ============================================ */
+
+.footer-section {
+    background: linear-gradient(180deg,
+            #081033 0%,
+            #050820 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 5vw;
+    color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   ORNAMENTO SUPERIOR
+   ============================================ */
+
+.footer-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 3rem;
+}
+
+.ornament-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+}
+
+.heart-icon {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+/* ============================================
+   MENSAJE DE DESPEDIDA
+   ============================================ */
+
+.footer-thanks {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+.thanks-title {
+    font-family: "Pinyon Script", cursive;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.thanks-text {
+    font-family: "Prata", serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+.footer-heart {
+    font-size: 2rem;
+    margin-top: 2rem;
+    animation: heartBeat 2s infinite;
+}
+
+/* ============================================
+   DIVISOR DECORATIVO
+   ============================================ */
+
+.footer-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    margin: 3rem auto;
+}
+
+/* ============================================
+   SECCIÓN DEL DESARROLLADOR
+   ============================================ */
+
+.developer-section {
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.developer-name {
+    font-family: "Prata", serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.developer-name strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.copyright-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.copyright-text i {
+    font-size: 0.85rem;
+}
+
+.rights-text {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   BADGE PROFESIONAL
+   ============================================ */
+
+.professional-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.professional-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.professional-badge i {
+    font-size: 1rem;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Móviles pequeños */
+@media (max-width: 576px) {
+    .footer-section {
+        padding: 4vh 4vw;
+    }
+
+    .thanks-title {
+        font-size: 2rem;
+    }
+
+    .thanks-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .footer-heart {
+        font-size: 1.5rem;
+    }
+
+    .developer-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .developer-name {
+        font-size: 0.9rem;
+    }
+
+    .copyright-text {
+        font-size: 0.85rem;
+    }
+
+    .rights-text {
+        font-size: 0.7rem;
+    }
+
+    .professional-badge {
+        font-size: 0.75rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .footer-ornament {
+        max-width: 250px;
+        gap: 1rem;
+    }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+    .thanks-title {
+        font-size: 2.5rem;
+    }
+
+    .thanks-text {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .thanks-title {
+        font-size: 3.5rem;
+    }
+
+    .thanks-text {
+        font-size: 1.2rem;
+    }
+
+    .developer-section {
+        max-width: 600px;
+        padding: 2.5rem 3rem;
+    }
+
+    .developer-name {
+        font-size: 1.1rem;
+    }
+}
+
+.firmado{
+    font-size: 1.2em !important;
+}

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:hub": "next build",
+    "build:andrea15": "cd invitaciones/andrea_quinceanera_mayo_2026/invitacion && npm install && npm run build",
+    "build": "npm run build:hub && npm run build:andrea15 && node scripts/merge-build.js",
     "start": "next start",
     "lint": "next lint"
   },

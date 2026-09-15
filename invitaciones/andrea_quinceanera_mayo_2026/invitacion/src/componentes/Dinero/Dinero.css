@@ -1,0 +1,174 @@
+.dinero {
+    scroll-margin-top: 20px;
+    min-height: 100vh;
+}
+
+.regalo-section {
+    min-height: 100vh;
+    /* Ajustado a dvh para móviles modernos */
+    min-height: 100dvh; 
+    background: linear-gradient(
+        180deg,
+        #0b1c3d 0%,
+        #1c2f6b 50%,
+        #3c4fb4 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem; /* Menos padding lateral para ganar espacio */
+}
+
+.regalo-card {
+    width: 100%; /* Fundamental para que sea flexible */
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    /* Asegura que el padding no sume al ancho total */
+    box-sizing: border-box; 
+}
+
+/* ... (Tus estilos de icon, title, etc., se mantienen igual) ... */
+
+.regalo-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.regalo-title {
+    font-family: "Prata", serif;
+    color: #1c2f6b;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.regalo-text {
+    font-size: 1.1rem;
+    color: #2f3c7a;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* ============================================
+   RESPONSIVE - DINERO
+   ============================================ */
+
+@media (max-width: 768px) {
+    .regalo-section {
+        padding: 1rem; /* Margen externo mínimo */
+    }
+
+    .regalo-card {
+        padding: 2.5rem 1.5rem; /* Reducimos padding interno en móvil */
+        border-radius: 20px;
+        /* Evita que la tarjeta se pegue demasiado a los bordes */
+        width: 92%; 
+    }
+
+    .regalo-title {
+        font-size: 1.6rem; /* Título más pequeño para que no rompa líneas */
+        margin-bottom: 1.2rem;
+    }
+
+    .regalo-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .regalo-text.emphasis {
+        font-size: 1.1rem;
+    }
+
+    .regalo-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .regalo-divider {
+        margin: 1.5rem auto;
+    }
+}
+
+/* Bloque de Copiar Alias */
+.copiar-contenedor {
+    margin: 2rem auto 1rem;
+    max-width: 320px; /* Tamaño ideal para móvil y desktop */
+}
+
+.alias-label {
+    font-size: 0.9rem;
+    color: #5a68a5;
+    margin-bottom: 0.5rem;
+    font-family: "Prata", serif;
+}
+
+.alias-box {
+    background: #f8f9fa;
+    border: 1px solid #e0e4f0;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alias-box:hover {
+    border-color: #3c4fb4;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(60, 79, 180, 0.1);
+}
+
+.alias-texto {
+    font-weight: 700;
+    color: #1c2f6b;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btn-copiar {
+    background: #1c2f6b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.1s ease;
+}
+
+.alias-box:hover .btn-copiar {
+    background: #3c4fb4;
+}
+
+/* Ajuste móvil para el bloque de copiar */
+@media (max-width: 480px) {
+    .copiar-contenedor {
+        width: 100%;
+    }
+    
+    .alias-texto {
+        font-size: 1rem;
+    }
+    
+    .btn-copiar {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Teléfonos muy pequeños (iPhone SE / Mini) */
+@media (max-width: 380px) {
+    .regalo-card {
+        padding: 2rem 1.2rem;
+    }
+
+    .regalo-title {
+        font-size: 1.4rem;
+    }
+}

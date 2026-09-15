@@ -1,0 +1,177 @@
+/* Reutilizamos tu degradado para dar continuidad */
+.seguir-bajando-section {
+    background: linear-gradient(180deg,
+            #264c79 0%,
+            #081033 100%);
+    /* Transición hacia el oscuro de la broma */
+    min-height: 100vh;
+    /* No hace falta que sea 100vh para que vean que hay algo más abajo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.fuente-pregunta {
+    font-family: "Prata", serif;
+    color: #ffffff;
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.fuente-pregunta2 {
+    font-family: "Prata", serif;
+    color: #ffffff;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.fuente-subtitulo {
+    font-family: "Prata", serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+}
+
+/* Reutilizamos tus líneas decorativas */
+.decorative-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    margin: 0 auto;
+    opacity: 0.5;
+}
+
+/* Animación de la flecha para incitar al scroll */
+.flecha-animada {
+    color: #ffffff;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fuente-pregunta {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .fuente-pregunta2 {
+        font-family: "Prata", serif;
+        color: #ffffff;
+        font-size: 0.7rem;
+        letter-spacing: 4px;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        text-transform: uppercase;
+    }
+
+    .fuente-subtitulo {
+        font-family: "Prata", serif;
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+        letter-spacing: 2px;
+        font-size: 0.8em;
+    }
+}
+
+
+.btn-outline-light {
+    transition: all 0.9s ease;
+    border-width: 2px;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(18, 20, 95, 0.5) !important;
+    color: #fcfcfc !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(52, 71, 238, 0.3) !important;
+}
+
+.btn-outline-light:active {
+    transform: translateY(-1px);
+}
+
+
+
+.btn-no-tocar {
+    background: transparent !important;
+    border: 2px dashed rgba(255, 255, 255, 0.85) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    border-radius: 50px !important;
+    padding: 0.75rem 2.5rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.35s ease !important;
+
+    /* AÑADIR ESTA LÍNEA */
+    animation: pulso-luz 2s infinite;
+}
+
+/* Animación de pulso constante */
+@keyframes pulso-luz {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+        transform: scale(1);
+    }
+
+    70% {
+        /* Crea un efecto de expansión de luz */
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        transform: scale(1);
+    }
+}
+
+.btn-no-tocar::before {
+    content: "⚠️";
+    position: absolute !important;
+    left: 18px !important;
+    opacity: 0.7 !important;
+}
+
+.btn-no-tocar::after {
+    content: "⚠️";
+    position: absolute !important;
+    right: 18px !important;
+    opacity: 0.7 !important;
+}
+
+.btn-no-tocar:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25) !important;
+    letter-spacing: 4px !important;
+}

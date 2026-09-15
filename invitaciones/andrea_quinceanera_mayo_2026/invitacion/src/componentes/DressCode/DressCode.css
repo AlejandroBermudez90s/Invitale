@@ -1,0 +1,163 @@
+/* ============================================
+   DRESS CODE – MINIMALISTA Y ELEGANTE
+   ============================================ */
+
+.dresscode-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ============================================
+   COLOR RESERVADO – REFINADO
+   ============================================ */
+
+.reserved-color-section {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding: 2rem 1.5rem;
+    background: rgba(175, 180, 250, 0.493);
+    border-radius: 16px;
+    border: 1px solid rgba(24, 0, 243, 0);
+}
+
+.reserved-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(0, 1, 51, 0.7);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+}
+
+.color-sample {
+    width: 140px;
+    height: 50px;
+    margin: 0 auto 1.25rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.color-name {
+    font-size: 0.85rem;
+    color: #dfdfdf;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.reserved-note {
+    font-size: 0.875rem;
+    color: rgba(0, 1, 58, 0.8);
+    font-style: italic;
+    margin: 0;
+}
+
+/* ============================================
+   GRID DE DRESS CODE – LIMPIO
+   ============================================ */
+
+.dresscode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.dresscode-column {
+    padding: 1.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2a3a5a;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   LISTA – SIMPLE Y CLARA
+   ============================================ */
+
+.dresscode-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dresscode-list li {
+    font-size: 0.9rem;
+    color: #4a5a7a;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    line-height: 1.6;
+}
+
+.dresscode-list li:last-child {
+    border-bottom: none;
+}
+
+.dresscode-list li.forbidden {
+    color: #8a5a6a;
+    font-style: italic;
+}
+
+/* ============================================
+   NOTA FINAL – SUTIL
+   ============================================ */
+
+.final-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgba(2, 1, 97, 0.7);
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .dresscode-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .dresscode-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .reserved-color-section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dresscode-column {
+        padding: 1.25rem 1rem;
+    }
+    
+    .color-sample {
+        width: 120px;
+        height: 45px;
+    }
+    
+    .color-name {
+        font-size: 0.75rem;
+    }
+    
+    .dresscode-list li {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,28 @@
+/* Global reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Ensure html, body, and root take full space without margins */
+html,
+body,
+#root {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	font-family: "Prata", serif;
+	scroll-behavior: smooth !important;
+}
+
+.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+.fondo {
+	background-color: rgb(11, 47, 107)
+}
