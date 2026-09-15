@@ -11,7 +11,7 @@ export const invitations = [
     eventType: "Quinceañera",
     date: "Mayo 2026",
     coverImage: "/gallery/andrea-15/portada.webp",
-    url: "https://andrea-15.vercel.app",
+    url: "https://invitale.es/andrea-15",
   },
   {
     id: "placeholder-boda",
