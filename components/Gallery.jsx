@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function Gallery() {
   return (
-    <section id="galeria" className="bg-paper px-6 pb-24 transition-colors duration-300 dark:bg-night sm:px-10">
+    <section id="galeria" className="bg-paper px-6 py-24 transition-colors duration-300 dark:bg-night sm:px-10">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <h2 className="font-display text-3xl text-ink dark:text-cream sm:text-4xl">
