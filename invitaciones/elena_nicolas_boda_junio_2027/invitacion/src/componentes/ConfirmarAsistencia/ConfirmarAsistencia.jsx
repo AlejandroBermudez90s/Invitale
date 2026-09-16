@@ -66,7 +66,7 @@ const ConfirmarAsistencia = () => {
                                             Por favor, completa el formulario para confirmar tu asistencia
                                         </p>
                                         <p className="fecha-limite">
-                                            Antes del 26 de junio de 2036
+                                            Antes del 12 de abril de 2027
                                         </p>
                                     </div>
 

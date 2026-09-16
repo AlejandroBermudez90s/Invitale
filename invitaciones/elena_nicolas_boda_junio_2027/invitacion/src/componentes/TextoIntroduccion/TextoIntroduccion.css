@@ -1,0 +1,116 @@
+/* ============================================
+   SECCIÓN TEXTO INTRODUCCIÓN
+   ============================================ */
+
+.texto-introduccion-section {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 9vh 5vw 8vh;
+    box-sizing: border-box;
+    margin-top: -40px;
+}
+
+.texto-introduccion-fondo {
+    background:
+        radial-gradient(ellipse 60% 40% at 90% 8%, rgba(139, 147, 201, 0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 8% 92%, rgba(31, 92, 120, 0.2) 0%, transparent 65%),
+        var(--cream);
+    filter: drop-shadow(0 -10px 22px rgba(34, 49, 66, 0.14));
+}
+
+.texto-introduccion-section .floral-corner {
+    width: 90px;
+    height: 90px;
+}
+
+.texto-introduccion-section .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    width: 100%;
+}
+
+.verso {
+    margin: 0;
+    font-style: italic;
+    color: var(--charcoal);
+}
+
+.script-quote {
+    font-family: var(--font-script);
+    font-size: 2.4rem;
+    color: var(--terracotta-deep);
+    line-height: 1;
+    margin: 0.6rem 0;
+}
+
+.firma-elegante {
+    margin-top: 0.5rem;
+    color: var(--sage-deep);
+}
+
+.firma-elegante cite {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.boton-container {
+    margin-top: 0.5rem;
+}
+
+.btn-elegante {
+    border: 1px solid var(--sage-deep);
+    color: var(--sage-deep) !important;
+    background: transparent;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+}
+
+.btn-elegante:hover {
+    background: var(--sage-deep);
+    border-color: var(--sage-deep);
+    color: var(--ivory) !important;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 576px) {
+    .verso {
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
+    }
+
+    .script-quote {
+        font-size: 1.9rem;
+    }
+
+    .firma-elegante cite {
+        font-size: 1.1rem;
+    }
+
+    .texto-introduccion-section .floral-corner {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .verso {
+        font-size: 1.15rem !important;
+    }
+}

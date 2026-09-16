@@ -18,6 +18,10 @@ const EVENTOS = [
     carpeta: 'invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion',
     slugUrl: 'alejandro-y-esthefany',
   },
+  {
+    carpeta: 'invitaciones/elena_nicolas_boda_junio_2027/invitacion',
+    slugUrl: 'elena-y-nicolas',
+  },
 ]
 
 function copyDir(src, dest) {

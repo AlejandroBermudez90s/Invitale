@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion", "run", "dev", "--", "--port", "5173"],
       "port": 5173
+    },
+    {
+      "name": "boda-elena-nicolas",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "invitaciones/elena_nicolas_boda_junio_2027/invitacion", "run", "dev", "--", "--port", "5175"],
+      "port": 5175
     }
   ]
 }

@@ -1,6 +1,6 @@
 import './Ubicacion.css'
-import IglesiaMajada from '../Ilustraciones/IglesiaMajada'
-import alcazarSegovia from '../../assets/alcazar-segovia.jpg'
+import ErmitaSantElm from '../Ilustraciones/ErmitaSantElm'
+import FincaGinesters from '../Ilustraciones/FincaGinesters'
 import useReveal from '../../hooks/useReveal'
 
 const Ubicacion = () => {
@@ -9,27 +9,27 @@ const Ubicacion = () => {
 
     const ceremonia = {
         eyebrow: 'Ceremonia',
-        nombre: 'Iglesia de la Majada',
-        direccion: 'Segovia',
+        nombre: 'Ermita de Sant Elm',
+        direccion: 'Costa Brava, Girona',
         hora: '19:00 h',
         parking: 'Cerca',
-        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Majada+Segovia',
+        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Sant+Elm+Costa+Brava',
     }
 
     const banquete = {
         eyebrow: 'Banquete',
-        nombre: 'Alcázar de Segovia',
-        direccion: 'Segovia',
+        nombre: 'Finca Els Ginesters',
+        direccion: 'Costa Brava, Girona',
         hora: '21:00 h',
         parking: 'Cerca',
-        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Alc%C3%A1zar+de+Segovia',
+        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Costa+Brava+Girona',
     }
 
     return (
         <div className="ubicacion-wrapper">
             <div ref={ceremoniaRef} className={`ubicacion-item reveal reveal-left ${ceremoniaVisible ? 'is-visible' : ''}`}>
                 <div className="ubicacion-imagen-wrap recorte-tijeras">
-                    <IglesiaMajada />
+                    <ErmitaSantElm />
                 </div>
 
                 <p className="ubicacion-eyebrow">{ceremonia.eyebrow}</p>
@@ -56,12 +56,7 @@ const Ubicacion = () => {
 
             <div ref={banqueteRef} className={`ubicacion-item reveal reveal-right ${banqueteVisible ? 'is-visible' : ''}`}>
                 <div className="ubicacion-imagen-wrap recorte-tijeras">
-                    <img
-                        className="ken-burns"
-                        src={alcazarSegovia}
-                        alt="Alcázar de Segovia iluminado de noche"
-                        loading="lazy"
-                    />
+                    <FincaGinesters className="ken-burns" />
                 </div>
 
                 <p className="ubicacion-eyebrow">{banquete.eyebrow}</p>
