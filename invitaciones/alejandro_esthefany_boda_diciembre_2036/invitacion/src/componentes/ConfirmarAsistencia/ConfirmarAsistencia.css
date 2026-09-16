@@ -1,0 +1,223 @@
+/* ============================================
+   SECCIÓN DE CONFIRMAR ASISTENCIA
+   ============================================ */
+
+.confirmar-asistencia-section {
+    position: relative;
+    z-index: 6;
+    background: var(--cream);
+    padding: 5rem 0 3rem;
+    margin-top: -40px;
+    clip-path: url(#borde-rasgado);
+    filter: drop-shadow(0 -10px 22px rgba(58, 53, 47, 0.14));
+}
+
+.confirmar-card {
+    border-radius: 36px;
+    background: var(--ivory);
+    animation: slideInUp 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.confirmar-card .floral-corner {
+    width: 76px;
+    height: 76px;
+    opacity: 0.8;
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.icon-wrapper {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto;
+    background: var(--sage-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(95, 111, 82, 0.3);
+}
+
+.icon-wrapper i {
+    font-size: 2.2rem;
+    color: var(--ivory);
+}
+
+.titulo-confirmar {
+    font-family: var(--font-display);
+    color: var(--charcoal);
+}
+
+.texto-confirmar {
+    color: var(--charcoal);
+    opacity: 0.7;
+}
+
+.fecha-limite {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    font-weight: 500;
+}
+
+.form-label {
+    color: var(--sage-deep);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-label i {
+    opacity: 0.7;
+}
+
+.form-control,
+.form-select {
+    border: 1.5px solid rgba(95, 111, 82, 0.22);
+    border-radius: 18px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--charcoal);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sage-deep);
+    box-shadow: 0 0 0 0.2rem rgba(95, 111, 82, 0.15);
+    background: var(--ivory);
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: var(--sage-deep);
+}
+
+.btn-confirmar {
+    background: var(--terracotta);
+    border: none;
+    border-radius: 50px;
+    color: var(--ivory);
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 360px) {
+    .btn-confirmar {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+.btn-confirmar:hover:not(:disabled) {
+    background: var(--terracotta-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(161, 93, 63, 0.35);
+    color: var(--ivory);
+}
+
+.btn-confirmar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   MENSAJE DE ÉXITO
+   ============================================ */
+
+.success-message-wrapper {
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.success-card {
+    border-radius: 36px;
+    background: var(--sage-pale);
+}
+
+.success-checkmark {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto;
+    background: var(--sage-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 26px rgba(95, 111, 82, 0.3);
+    animation: checkmarkPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkmarkPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.success-checkmark i {
+    font-size: 3.5rem;
+    color: var(--ivory);
+}
+
+.success-title {
+    font-family: var(--font-display);
+    color: var(--sage-deep);
+}
+
+.btn-outline-confirmar {
+    border: 1px solid var(--sage-deep);
+    color: var(--sage-deep);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-confirmar:hover {
+    background: var(--sage-deep);
+    color: var(--ivory);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .confirmar-card .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .icon-wrapper {
+        width: 66px;
+        height: 66px;
+    }
+
+    .icon-wrapper i {
+        font-size: 1.9rem;
+    }
+
+    .success-checkmark {
+        width: 76px;
+        height: 76px;
+    }
+
+    .success-checkmark i {
+        font-size: 2.8rem;
+    }
+}

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build:hub": "next build",
     "build:andrea15": "cd invitaciones/andrea_quinceanera_mayo_2026/invitacion && npm install && npm run build",
-    "build": "npm run build:hub && npm run build:andrea15 && node scripts/merge-build.js",
+    "build:alejandro-esthefany": "cd invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion && npm install && npm run build",
+    "build": "npm run build:hub && npm run build:andrea15 && npm run build:alejandro-esthefany && node scripts/merge-build.js",
     "start": "next start",
     "lint": "next lint"
   },

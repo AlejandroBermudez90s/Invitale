@@ -14,12 +14,12 @@ export const invitations = [
     url: "https://invitale.es/andrea-15",
   },
   {
-    id: "placeholder-boda",
-    title: "Nombre & Nombre",
+    id: "alejandro-y-esthefany",
+    title: "Alejandro & Esthefany",
     eventType: "Boda",
-    date: "Próximamente",
-    coverImage: "/brand/isotipo-claro.png",
-    url: "#",
+    date: "Diciembre 2036",
+    coverImage: "/gallery/alejandro-y-esthefany/portada.svg",
+    url: "https://invitale.es/alejandro-y-esthefany",
   },
   {
     id: "placeholder-bautizo",

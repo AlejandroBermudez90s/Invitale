@@ -1,0 +1,79 @@
+.pajarito {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    color: var(--sage-deep);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    animation-name: vuelo-pajarito;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.pajarito.pajarito-reverso {
+    color: var(--terracotta-deep);
+    animation-name: vuelo-pajarito-reverso;
+}
+
+.pajarito.pajarito-claro {
+    color: var(--ivory);
+}
+
+.pajarito-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 3px rgba(182, 144, 90, 0.4));
+}
+
+.pajarito-estela {
+    position: absolute;
+    left: -5px;
+    top: 45%;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    filter: blur(1.5px);
+    opacity: 0.5;
+    animation: pajarito-brillo 2.2s ease-in-out infinite;
+}
+
+.pajarito.pajarito-reverso .pajarito-estela {
+    left: auto;
+    right: -5px;
+}
+
+@keyframes pajarito-brillo {
+    0%, 100% { opacity: 0.15; transform: scale(0.7); }
+    50% { opacity: 0.55; transform: scale(1.2); }
+}
+
+@keyframes vuelo-pajarito {
+    0% { transform: translate(-8vw, 6px); opacity: 0; }
+    10% { opacity: 0.55; }
+    50% { transform: translate(50vw, -22px); }
+    90% { opacity: 0.55; }
+    100% { transform: translate(108vw, 10px); opacity: 0; }
+}
+
+@keyframes vuelo-pajarito-reverso {
+    0% { transform: translate(108vw, 8px) scaleX(-1); opacity: 0; }
+    10% { opacity: 0.5; }
+    50% { transform: translate(50vw, -18px) scaleX(-1); }
+    90% { opacity: 0.5; }
+    100% { transform: translate(-8vw, 4px) scaleX(-1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pajarito {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .pajarito {
+        width: 22px;
+    }
+}

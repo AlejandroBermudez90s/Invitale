@@ -1,0 +1,74 @@
+/* ============================================
+   SECCIÓN DE DETALLES
+   ============================================ */
+
+.detalles-section {
+    position: relative;
+    z-index: 4;
+    margin-top: -40px;
+    padding-top: 1vh;
+}
+
+.detalles-fondo {
+    background:
+        radial-gradient(ellipse 55% 35% at 6% 6%, rgba(138, 154, 126, 0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 35% at 94% 94%, rgba(224, 169, 140, 0.2) 0%, transparent 65%),
+        var(--ivory);
+    filter: drop-shadow(0 -10px 22px rgba(58, 53, 47, 0.14));
+}
+
+.detalles-section .floral-corner {
+    width: 90px;
+    height: 90px;
+}
+
+.section-header h2 {
+    color: var(--charcoal);
+}
+
+.section-header p {
+    color: var(--charcoal);
+    opacity: 0.75;
+}
+
+/* ============================================
+   BLOQUES CONTINUOS (sin acordeón)
+   ============================================ */
+
+.detalle-bloque {
+    margin-bottom: 4.5rem;
+}
+
+.detalle-bloque:last-child {
+    margin-bottom: 0;
+}
+
+.detalle-bloque-eyebrow {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .detalle-bloque {
+        margin-bottom: 3.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+}
