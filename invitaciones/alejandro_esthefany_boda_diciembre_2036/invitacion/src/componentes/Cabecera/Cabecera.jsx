@@ -33,7 +33,7 @@ const Cabecera = () => {
                     </div>
                 </div>
 
-                <p className="cabecera-fecha reveal-item delay-4">26 · 12 · 2036</p>
+                <p className="cabecera-fecha reveal-item delay-4">26 · 12 · 2024</p>
                 <p className="cabecera-lugar reveal-item delay-5">Segovia, España</p>
             </div>
 

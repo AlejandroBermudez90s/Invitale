@@ -38,7 +38,7 @@ const CuentaAtras = () => {
             <div className="fecha-destacada">
                 <span className="fecha-dia-semana">Viernes</span>
                 <span className="fecha-dia-numero">26</span>
-                <span className="fecha-mes-anio">Diciembre de 2036</span>
+                <span className="fecha-mes-anio">Diciembre de 2024</span>
                 <span className="fecha-hora">19:00 h</span>
             </div>
 
