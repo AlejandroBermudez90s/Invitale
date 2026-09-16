@@ -12,10 +12,8 @@ const LugarDestacado = () => {
     return (
         <section className="lugar-destacado-section">
             <div className="postal-fondo lugar-destacado-fondo"></div>
-            <NubeCorner corner="tl" className="floral-corner" />
             <NubeCorner corner="tr" className="floral-corner" />
             <NubeCorner corner="bl" className="floral-corner" />
-            <NubeCorner corner="br" className="floral-corner" />
             <Pajarito top="90%" duration={23} delay={5} />
             <PersonajeToyStory nombre="Woody" src={woody} className="personaje-woody" style={{ top: '22%', left: '2%', width: 'clamp(65px, 15vw, 150px)' }} />
 

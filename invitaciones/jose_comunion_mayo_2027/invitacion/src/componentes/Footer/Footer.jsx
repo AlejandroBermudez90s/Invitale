@@ -28,7 +28,13 @@ const Footer = () => {
 
                 <div className="footer-divider"></div>
 
-                <div className="professional-badge">
+                <a
+                    href="https://invitale.es"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="professional-badge"
+                    aria-label="Invitale - ir a invitale.es"
+                >
                     <span className='firmado'>Diseñado por </span>
                     <img
                         src={`${import.meta.env.BASE_URL}isotipo-oscuro.png`}
@@ -36,7 +42,7 @@ const Footer = () => {
                         className="brand-isotipo"
                     />
                     <span className='firmado'>Invitale</span>
-                </div>
+                </a>
 
                 <div className="footer-social">
                     <a

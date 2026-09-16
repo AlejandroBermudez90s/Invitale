@@ -30,17 +30,17 @@ function App() {
 			<div id="textoIntroduccion" className="textoIntroduccion">
 				<TextoIntroduccion></TextoIntroduccion>
 			</div>
-			<div className="container-fuid">
+			<div id="lugar-destacado" className="container-fuid">
 				<LugarDestacado></LugarDestacado>
 			</div>
 			<div id="detalles" className="container-fuid">
 				<Detalles></Detalles>
 			</div>
-			<div id="regalo" className="container-fuid">
-				<Regalo></Regalo>
-			</div>
 			<div className="container-fuid">
 				<ConfirmarAsistencia></ConfirmarAsistencia>
+			</div>
+			<div id="regalo" className="container-fuid">
+				<Regalo></Regalo>
 			</div>
 			<div className="container-fuid">
 				<Footer></Footer>

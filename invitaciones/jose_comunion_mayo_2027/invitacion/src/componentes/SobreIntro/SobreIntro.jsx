@@ -28,8 +28,6 @@ const SobreIntro = ({ onAbrir }) => {
             aria-label="Abrir invitación"
         >
             <NubeCorner corner="tl" className="floral-corner sobre-corner" />
-            <NubeCorner corner="tr" className="floral-corner sobre-corner" />
-            <NubeCorner corner="bl" className="floral-corner sobre-corner" />
             <NubeCorner corner="br" className="floral-corner sobre-corner" />
 
             <div className="cofre">
@@ -48,9 +46,8 @@ const SobreIntro = ({ onAbrir }) => {
             <div className="carta cabecera-hero entrada">
                 <CieloNubes />
                 <NubeCorner corner="tl" className="floral-corner hero-corner" />
-                <NubeCorner corner="tr" className="floral-corner hero-corner" />
-                <NubeCorner corner="bl" className="floral-corner hero-corner" />
                 <NubeCorner corner="br" className="floral-corner hero-corner" />
+                <div className="cabecera-spotlight" aria-hidden="true"></div>
 
                 <div className="cabecera-marco">
                     <p className="cabecera-eyebrow reveal-item">Toca para abrir</p>

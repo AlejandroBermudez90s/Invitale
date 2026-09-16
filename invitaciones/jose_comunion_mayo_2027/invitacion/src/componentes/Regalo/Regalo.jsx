@@ -6,16 +6,8 @@ import Pajarito from '../Ilustraciones/Pajarito';
 import useReveal from '../../hooks/useReveal';
 
 const Regalo = () => {
-    const [copiado, setCopiado] = useState(false);
     const [revelado, setRevelado] = useState(false);
     const [ref, visible] = useReveal();
-    const alias = "ES12 3456 7890 1234 5678 9012"; // IBAN ficticio de ejemplo
-
-    const copiarAlias = () => {
-        navigator.clipboard.writeText(alias);
-        setCopiado(true);
-        setTimeout(() => setCopiado(false), 2000);
-    };
 
     return (
         <div className='regalo'>
@@ -37,30 +29,21 @@ const Regalo = () => {
                             <NubeCorner corner="tl" className="floral-corner" />
                             <NubeCorner corner="br" className="floral-corner" />
 
-                            <h1 className="regalo-title">Un detalle para José</h1>
+                            <p className="eyebrow mb-2">Mesa de regalos</p>
+                            <h1 className="regalo-title">¡Tu compañía ya es un regalo!</h1>
 
                             <p className="regalo-text">
                                 Lo más bonito de este día será teneros cerca celebrando con nosotros.
                             </p>
 
                             <p className="regalo-text subtle">
-                                Si aun así queréis tener un detalle con José, podéis colaborar para su
-                                primera "misión especial": su cartilla de ahorro.
+                                Si aun así queréis tener un detalle con José, dispondremos de una mesa de
+                                regalos en la propia celebración donde podréis dejarlo el mismo día.
                             </p>
-
-                            <div className="copiar-contenedor mt-4">
-                                <p className="alias-label">Nº de cuenta:</p>
-                                <div className="alias-box" onClick={copiarAlias}>
-                                    <span className="alias-texto">{alias}</span>
-                                    <button className="btn-copiar">
-                                        {copiado ? "¡COPIADO!" : "COPIAR"}
-                                    </button>
-                                </div>
-                            </div>
 
                             <div className="regalo-divider"></div>
 
-                            <p className="regalo-footer">Lo más importante para nosotros es vuestra presencia.</p>
+                            <p className="regalo-footer">¡Gracias por hacer este día aún más especial!</p>
                         </div>
                     )}
                 </div>

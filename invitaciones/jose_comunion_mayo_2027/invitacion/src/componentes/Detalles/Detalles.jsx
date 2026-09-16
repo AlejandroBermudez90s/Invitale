@@ -3,6 +3,8 @@ import Ubicacion from "../Ubicacion/Ubicacion"
 import Itinerario from "../Itinerario/Itinerario"
 import NubeCorner from "../Ilustraciones/NubeCorner"
 import Pajarito from "../Ilustraciones/Pajarito"
+import PersonajeToyStory from "../Ilustraciones/PersonajeToyStory"
+import hamm from "../../assets/hamm.png"
 import './Detalles.css'
 import useReveal from "../../hooks/useReveal"
 
@@ -12,14 +14,13 @@ const Detalles = () => {
 
     return (
         <div className="detalles-section">
+            <div className="detalles-fondo-fill"></div>
             <div className="postal-fondo detalles-fondo"></div>
             <NubeCorner corner="tl" className="floral-corner" />
-            <NubeCorner corner="tr" className="floral-corner" />
-            <NubeCorner corner="bl" className="floral-corner" />
             <NubeCorner corner="br" className="floral-corner" />
             <Pajarito top="4%" duration={25} delay={2} />
-            <Pajarito top="42%" duration={28} delay={12} reverse />
             <Pajarito top="80%" duration={23} delay={6} />
+            <PersonajeToyStory nombre="Hamm" src={hamm} className="personaje-hamm-detalles" style={{ top: '40%', right: '3%', width: 'clamp(70px, 13vw, 140px)' }} />
 
             <div className="container-fluid py-5">
                 <div className="row justify-content-center">

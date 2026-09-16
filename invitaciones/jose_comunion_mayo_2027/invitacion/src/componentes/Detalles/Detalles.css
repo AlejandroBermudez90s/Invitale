@@ -6,10 +6,28 @@
     position: relative;
     z-index: 4;
     margin-top: -40px;
-    padding-top: 1vh;
+    padding-top: 6rem;
+}
+
+/* La sección de Detalles es mucho más alta que el resto (itinerario +
+   cuenta atrás + ubicación seguidos), y el clip-path ondulado de
+   .postal-fondo escala su profundidad con la altura TOTAL del elemento al
+   que se aplica. Si se dejara en inset:0 sobre toda la sección, la onda
+   del borde superior se volvería enorme y se comería el título. Por eso
+   aquí se separa en dos capas: un relleno liso a pantalla completa detrás
+   (mismo tono, sin recorte) y la onda decorativa solo en una franja de
+   altura fija encima, para que la profundidad de la onda no dependa de
+   cuánto contenido tenga la sección. */
+.detalles-fondo-fill {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--cream);
+    pointer-events: none;
 }
 
 .detalles-fondo {
+    height: 640px;
     background:
         radial-gradient(ellipse 55% 35% at 6% 6%, rgba(79, 168, 224, 0.14) 0%, transparent 65%),
         radial-gradient(ellipse 55% 35% at 94% 94%, rgba(255, 205, 41, 0.16) 0%, transparent 65%),
@@ -19,6 +37,23 @@
 .detalles-section .floral-corner {
     width: 90px;
     height: 90px;
+}
+
+.personaje-hamm-detalles {
+    position: absolute;
+    z-index: 2;
+    animation: flotar-hamm-detalles 5.5s ease-in-out infinite;
+}
+
+@keyframes flotar-hamm-detalles {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .personaje-hamm-detalles {
+        animation: none;
+    }
 }
 
 .section-header h2 {

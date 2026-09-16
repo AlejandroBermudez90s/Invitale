@@ -24,14 +24,31 @@
     content: '';
     position: absolute;
     inset: 22px;
-    border: 4px dashed rgba(255, 255, 255, 0.55);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
     border-radius: 60px;
     pointer-events: none;
 }
 
 .hero-corner {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.7;
+}
+
+/* Sombra circular oscura centrada detrás del nombre/fecha/lugar: separa el
+   contenido del cielo de nubes y los personajes, y da el contraste que
+   necesita el texto claro (eyebrow/fecha/lugar) para leerse bien encima de
+   un fondo que va de azul a casi blanco */
+.cabecera-spotlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(130vw, 820px);
+    height: min(95vh, 760px);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center, rgba(15, 35, 60, 0.38) 0%, rgba(15, 35, 60, 0.22) 40%, rgba(15, 35, 60, 0.08) 65%, transparent 82%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .cabecera-marco {
@@ -63,12 +80,12 @@
 
 .cabecera-eyebrow {
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    letter-spacing: 2px;
+    font-size: 1.15rem;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--ivory);
-    font-weight: 700;
-    text-shadow: 0 2px 6px rgba(47, 126, 196, 0.5);
+    color: var(--star);
+    font-weight: 800;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55), 0 0 18px rgba(0, 0, 0, 0.3);
 }
 
 /* Insignia: estrella de sheriff detrás del nombre */
@@ -119,37 +136,34 @@
 }
 
 .cabecera-fecha {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 4px;
-    color: var(--ivory);
-    text-shadow: 0 2px 6px rgba(47, 126, 196, 0.5);
+    font-family: var(--font-poster);
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    color: var(--star);
+    -webkit-text-stroke: 1.5px var(--charcoal);
+    text-shadow: 2px 2px 0 var(--charcoal), 0 6px 14px rgba(0, 0, 0, 0.35);
+    line-height: 1;
 }
 
 .cabecera-lugar {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 1.15rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 700;
-    color: var(--ivory);
-    opacity: 0.9;
+    font-weight: 800;
+    color: var(--star);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55), 0 0 18px rgba(0, 0, 0, 0.3);
 }
 
 /* Personajes flotando en la cabecera */
 .personaje-buzz,
-.personaje-hamm-hero,
-.personaje-jessie,
-.personaje-rex {
+.personaje-jessie {
     position: absolute;
     z-index: 2;
     animation: flotar-personaje 5s ease-in-out infinite;
 }
 
-.personaje-hamm-hero { animation-delay: 0.3s; }
 .personaje-jessie { animation-delay: 0.6s; }
-.personaje-rex { animation-delay: 1.2s; }
 
 @keyframes flotar-personaje {
     0%, 100% { transform: translateY(0); }
@@ -159,11 +173,11 @@
 /* Indicador de scroll */
 .cabecera-scroll {
     position: absolute;
-    bottom: 4vh;
+    bottom: 3.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     color: var(--ivory) !important;
     text-decoration: none;
     z-index: 3;
@@ -171,12 +185,20 @@
 
 .linea-scroll {
     width: 1px;
-    height: 34px;
-    background: linear-gradient(180deg, transparent, var(--ivory));
+    height: 26px;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.8));
 }
 
 .cabecera-scroll i {
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(15, 35, 60, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-size: 1.05rem;
     animation: flotarSuave 2.6s ease-in-out infinite;
 }
 
@@ -204,13 +226,18 @@
     }
 
     .cabecera-fecha {
-        font-size: 1.1rem;
-        letter-spacing: 3px;
+        font-size: 1.9rem;
+        letter-spacing: 1px;
     }
 
     .cabecera-eyebrow {
         letter-spacing: 1px;
-        font-size: 0.72rem;
+        font-size: 0.85rem;
+    }
+
+    .cabecera-lugar {
+        font-size: 0.95rem;
+        letter-spacing: 1.5px;
     }
 
     .cabecera-monograma {
@@ -228,9 +255,7 @@
     .reveal-item,
     .cabecera-monograma.reveal-item,
     .personaje-buzz,
-    .personaje-hamm-hero,
-    .personaje-jessie,
-    .personaje-rex {
+    .personaje-jessie {
         transition: none;
         opacity: 1;
         transform: none;

@@ -1,6 +1,8 @@
 import './TextoIntroduccion.css'
 import NubeCorner from '../Ilustraciones/NubeCorner'
 import Pajarito from '../Ilustraciones/Pajarito'
+import PersonajeToyStory from '../Ilustraciones/PersonajeToyStory'
+import rex from '../../assets/rex.png'
 import useReveal from '../../hooks/useReveal'
 
 const TextoIntroduccion = () => {
@@ -10,10 +12,9 @@ const TextoIntroduccion = () => {
         <div className="texto-introduccion-section">
             <div className="postal-fondo texto-introduccion-fondo"></div>
             <NubeCorner corner="tl" className="floral-corner" />
-            <NubeCorner corner="tr" className="floral-corner" />
-            <NubeCorner corner="bl" className="floral-corner" />
             <NubeCorner corner="br" className="floral-corner" />
             <Pajarito top="10%" duration={24} delay={3} reverse />
+            <PersonajeToyStory nombre="Rex" src={rex} className="personaje-rex-intro" style={{ bottom: '3%', right: '2%', width: 'clamp(80px, 15vw, 165px)' }} />
 
             <div className="container-fluid py-5">
                 <div className="row justify-content-center">
@@ -45,7 +46,7 @@ const TextoIntroduccion = () => {
                             </p>
 
                             <div className="boton-container">
-                                <a href="#detalles" className="btn btn-elegante px-4 py-2">
+                                <a href="#lugar-destacado" className="btn btn-elegante px-4 py-2">
                                     <span>Ver detalles de la misión</span>
                                 </a>
                             </div>

@@ -27,6 +27,23 @@
     height: 90px;
 }
 
+.personaje-rex-intro {
+    position: absolute;
+    z-index: 2;
+    animation: flotar-rex-intro 5.5s ease-in-out infinite;
+}
+
+@keyframes flotar-rex-intro {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .personaje-rex-intro {
+        animation: none;
+    }
+}
+
 .texto-introduccion-section .section-header {
     display: flex;
     flex-direction: column;
@@ -67,7 +84,8 @@
     margin-top: 0.5rem;
 }
 
-.btn-elegante {
+.btn-elegante,
+.btn-elegante:visited {
     border: 2px solid var(--sky-deep);
     color: var(--sky-deep) !important;
     background: transparent;
@@ -77,14 +95,21 @@
     font-size: 0.82rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
-.btn-elegante:hover {
-    background: var(--sky-deep);
-    border-color: var(--sky-deep);
+.btn-elegante:hover,
+.btn-elegante:focus,
+.btn-elegante:focus-visible,
+.btn-elegante:active {
+    background: var(--sky-deep) !important;
+    border-color: var(--sky-deep) !important;
     color: var(--ivory) !important;
     transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(47, 126, 196, 0.35);
+    outline: none;
 }
 
 /* ============================================
