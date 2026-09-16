@@ -1,0 +1,167 @@
+/* ============================================
+   TARJETA CUENTA ATRÁS
+   ============================================ */
+
+.countdown-card {
+    border: 3px solid var(--yellow);
+    border-radius: 42px;
+    background: var(--ivory);
+    box-shadow: 0 14px 30px rgba(47, 126, 196, 0.18);
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2.75rem 2rem;
+}
+
+/* ============================================
+   FECHA ESTILIZADA
+   ============================================ */
+
+.fecha-destacada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.25rem;
+}
+
+.fecha-dia-semana {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--sky-deep);
+    line-height: 1;
+}
+
+.fecha-dia-numero {
+    font-size: 4.5rem;
+    line-height: 1.15;
+    margin: 0.3rem 0;
+}
+
+.fecha-mes-anio {
+    display: inline-block;
+    position: relative;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    padding: 0 1.75rem;
+}
+
+.fecha-mes-anio::before,
+.fecha-mes-anio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 26px;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.fecha-mes-anio::before { left: -6px; }
+.fecha-mes-anio::after { right: -6px; }
+
+.fecha-hora {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--sky-deep);
+    margin-top: 0.85rem;
+}
+
+/* ============================================
+   CUENTA ATRÁS
+   ============================================ */
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+}
+
+.countdown-item {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, var(--sky) 0%, var(--sky-deep) 78%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--ivory);
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(47, 126, 196, 0.32);
+    transition: transform 0.4s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.countdown-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    font-family: var(--font-display);
+}
+
+.countdown-label {
+    font-size: 0.56rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    font-family: var(--font-body);
+    font-weight: 700;
+    margin-top: 0.3rem;
+}
+
+.countdown-nota {
+    margin: 1.75rem 0 0;
+    font-family: var(--font-poster);
+    font-size: 1.2rem;
+    color: var(--red);
+    -webkit-text-stroke: 0.6px var(--charcoal);
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 576px) {
+    .countdown-card {
+        padding: 2rem 1.25rem;
+    }
+
+    .fecha-dia-numero {
+        font-size: 3.4rem;
+    }
+
+    .fecha-dia-semana {
+        font-size: 1.3rem;
+    }
+
+    .fecha-mes-anio {
+        font-size: 0.68rem;
+        padding: 0 1.4rem;
+        letter-spacing: 2px;
+    }
+
+    .fecha-mes-anio::before,
+    .fecha-mes-anio::after {
+        width: 18px;
+    }
+
+    .countdown-grid {
+        gap: 0.5rem;
+    }
+
+    .countdown-number {
+        font-size: 1.15rem;
+    }
+
+    .countdown-label {
+        font-size: 0.5rem;
+    }
+}

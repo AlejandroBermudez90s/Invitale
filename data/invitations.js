@@ -30,6 +30,14 @@ export const invitations = [
     url: "https://invitale.es/elena-y-nicolas",
   },
   {
+    id: "jose-comunion",
+    title: "José",
+    eventType: "Comunión",
+    date: "Mayo 2027",
+    coverImage: "/gallery/jose-comunion/portada.png",
+    url: "https://invitale.es/jose-comunion",
+  },
+  {
     id: "placeholder-bautizo",
     title: "Nombre",
     eventType: "Bautizo",

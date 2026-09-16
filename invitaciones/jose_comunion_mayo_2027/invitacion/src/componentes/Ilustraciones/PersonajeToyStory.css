@@ -1,0 +1,30 @@
+.personaje-toystory {
+    position: absolute;
+    pointer-events: none;
+    width: 100px;
+}
+
+.personaje-toystory img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28));
+}
+
+.personaje-placeholder {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    border: 2px dashed var(--sky-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sky-deep);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 6px;
+}

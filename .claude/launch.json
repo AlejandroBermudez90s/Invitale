@@ -18,6 +18,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "invitaciones/elena_nicolas_boda_junio_2027/invitacion", "run", "dev", "--", "--port", "5175"],
       "port": 5175
+    },
+    {
+      "name": "jose-comunion",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "invitaciones/jose_comunion_mayo_2027/invitacion", "run", "dev", "--", "--port", "5177"],
+      "port": 5177
     }
   ]
 }

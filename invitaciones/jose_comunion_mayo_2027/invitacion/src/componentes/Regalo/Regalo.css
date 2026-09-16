@@ -1,0 +1,251 @@
+.regalo {
+    scroll-margin-top: 20px;
+    min-height: 100vh;
+}
+
+.regalo-section {
+    position: relative;
+    z-index: 5;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--sky-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem 2rem;
+    margin-top: -40px;
+    clip-path: url(#borde-rasgado);
+}
+
+.regalo-teaser {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2rem;
+    margin: 0 auto;
+    color: var(--ivory);
+}
+
+.regalo-svg {
+    width: 130px;
+    height: 130px;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.3));
+    transition: transform 0.35s ease;
+}
+
+.regalo-teaser:hover .regalo-svg {
+    transform: scale(1.06) rotate(-3deg);
+}
+
+.regalo-teaser-texto {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    animation: regalo-pulso 2.2s ease-in-out infinite;
+}
+
+@keyframes regalo-pulso {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.regalo-card {
+    width: 100%;
+    max-width: 600px;
+    background: var(--ivory);
+    border-radius: 40px;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.regalo-card-revelada {
+    animation: regalo-abrir 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes regalo-abrir {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .regalo-teaser-texto {
+        animation: none;
+    }
+
+    .regalo-card-revelada {
+        animation: none;
+    }
+}
+
+.regalo-card .floral-corner {
+    width: 80px;
+    height: 80px;
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    .regalo-card .floral-corner {
+        width: 52px;
+        height: 52px;
+    }
+
+    .regalo-title {
+        padding: 0 1.5rem;
+    }
+}
+
+.regalo-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--sky-deep);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.regalo-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.regalo-text.subtle {
+    opacity: 0.75;
+}
+
+.regalo-divider {
+    width: 60px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--yellow);
+    margin: 2rem auto;
+}
+
+.regalo-footer {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .regalo-section {
+        padding: 1rem;
+    }
+
+    .regalo-card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 32px;
+        width: 92%;
+    }
+
+    .regalo-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .regalo-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .regalo-divider {
+        margin: 1.5rem auto;
+    }
+}
+
+/* Bloque de copiar cuenta */
+.copiar-contenedor {
+    margin: 2rem auto 1rem;
+    max-width: 340px;
+}
+
+.alias-label {
+    font-size: 0.85rem;
+    color: var(--sky-deep);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.alias-box {
+    background: var(--cream);
+    border: 2px solid rgba(47, 126, 196, 0.25);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alias-box:hover {
+    border-color: var(--sky-deep);
+    background: var(--ivory);
+    box-shadow: 0 5px 15px rgba(47, 126, 196, 0.15);
+}
+
+.alias-texto {
+    font-weight: 700;
+    color: var(--charcoal);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-copiar {
+    background: var(--red);
+    color: var(--ivory);
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+.alias-box:hover .btn-copiar {
+    background: var(--red-deep);
+}
+
+@media (max-width: 480px) {
+    .copiar-contenedor {
+        width: 100%;
+    }
+
+    .alias-texto {
+        font-size: 0.85rem;
+    }
+
+    .btn-copiar {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .regalo-card {
+        padding: 2rem 1.2rem;
+    }
+
+    .regalo-title {
+        font-size: 1.3rem;
+    }
+}

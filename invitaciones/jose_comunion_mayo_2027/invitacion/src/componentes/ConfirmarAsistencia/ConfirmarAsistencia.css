@@ -1,0 +1,251 @@
+/* ============================================
+   SECCIÓN DE CONFIRMAR ASISTENCIA
+   ============================================ */
+
+.confirmar-asistencia-section {
+    position: relative;
+    z-index: 6;
+    background:
+        radial-gradient(ellipse 55% 35% at 8% 10%, rgba(79, 168, 224, 0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 35% at 92% 90%, rgba(255, 205, 41, 0.16) 0%, transparent 65%),
+        var(--cream);
+    padding: 5rem 0 3rem;
+    margin-top: -40px;
+    clip-path: url(#borde-rasgado);
+}
+
+.confirmar-card {
+    background: transparent;
+    animation: slideInUp 0.6s ease-out;
+    position: relative;
+}
+
+.confirmar-card .floral-corner {
+    width: 76px;
+    height: 76px;
+    opacity: 0.85;
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.icon-wrapper {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto;
+    background: var(--sky-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(47, 126, 196, 0.32);
+}
+
+.icon-wrapper i {
+    font-size: 2.2rem;
+    color: var(--star);
+}
+
+.titulo-confirmar {
+    font-family: var(--font-display);
+    color: var(--charcoal);
+}
+
+.texto-confirmar {
+    color: var(--charcoal);
+    opacity: 0.75;
+    font-weight: 600;
+}
+
+.fecha-limite {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+}
+
+.form-label {
+    color: var(--sky-deep);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-label i {
+    opacity: 0.7;
+}
+
+.confirmar-asistencia-section .form-control,
+.confirmar-asistencia-section .form-select {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid rgba(47, 126, 196, 0.3) !important;
+    border-radius: 0 !important;
+    padding: 0.6rem 0.2rem !important;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--charcoal);
+    box-shadow: none !important;
+}
+
+.confirmar-asistencia-section .form-control:focus,
+.confirmar-asistencia-section .form-select:focus {
+    border-bottom-color: var(--sky-deep) !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.confirmar-asistencia-section .form-control:hover,
+.confirmar-asistencia-section .form-select:hover {
+    border-bottom-color: var(--sky-deep) !important;
+}
+
+.confirmar-asistencia-section .form-control::placeholder {
+    color: var(--charcoal);
+    opacity: 0.4;
+}
+
+.confirmar-asistencia-section textarea.form-control {
+    border: 2px solid rgba(47, 126, 196, 0.25) !important;
+    border-radius: 14px !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.confirmar-asistencia-section textarea.form-control:focus {
+    border-color: var(--sky-deep) !important;
+}
+
+.confirmar-asistencia-section .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%232f7ec4' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' d='M4 6l4 4 4-4'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.25rem center !important;
+    background-size: 16px 16px !important;
+}
+
+.btn-confirmar {
+    background: var(--red);
+    border: none;
+    border-radius: 50px;
+    color: var(--ivory);
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 360px) {
+    .btn-confirmar {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+.btn-confirmar:hover:not(:disabled) {
+    background: var(--red-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(224, 67, 43, 0.35);
+    color: var(--ivory);
+}
+
+.btn-confirmar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   MENSAJE DE ÉXITO
+   ============================================ */
+
+.success-message-wrapper {
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.success-card {
+    border-radius: 36px;
+    background: var(--sky-pale);
+}
+
+.success-checkmark {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto;
+    background: var(--sky-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 26px rgba(47, 126, 196, 0.32);
+    animation: checkmarkPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkmarkPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.success-checkmark i {
+    font-size: 3.5rem;
+    color: var(--ivory);
+}
+
+.success-title {
+    font-family: var(--font-display);
+    color: var(--sky-deep);
+}
+
+.btn-outline-confirmar {
+    border: 2px solid var(--sky-deep);
+    color: var(--sky-deep);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-confirmar:hover {
+    background: var(--sky-deep);
+    color: var(--ivory);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .confirmar-card .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .icon-wrapper {
+        width: 66px;
+        height: 66px;
+    }
+
+    .icon-wrapper i {
+        font-size: 1.9rem;
+    }
+
+    .success-checkmark {
+        width: 76px;
+        height: 76px;
+    }
+
+    .success-checkmark i {
+        font-size: 2.8rem;
+    }
+}

@@ -8,7 +8,8 @@
     "build:andrea15": "cd invitaciones/andrea_quinceanera_mayo_2026/invitacion && npm install && npm run build",
     "build:alejandro-esthefany": "cd invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion && npm install && npm run build",
     "build:elena-nicolas": "cd invitaciones/elena_nicolas_boda_junio_2027/invitacion && npm install && npm run build",
-    "build": "npm run build:hub && npm run build:andrea15 && npm run build:alejandro-esthefany && npm run build:elena-nicolas && node scripts/merge-build.js",
+    "build:jose-comunion": "cd invitaciones/jose_comunion_mayo_2027/invitacion && npm install && npm run build",
+    "build": "npm run build:hub && npm run build:andrea15 && npm run build:alejandro-esthefany && npm run build:elena-nicolas && npm run build:jose-comunion && node scripts/merge-build.js",
     "start": "next start",
     "lint": "next lint"
   },

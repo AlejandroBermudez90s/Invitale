@@ -1,0 +1,239 @@
+/* ============================================
+   CABECERA — HERO CIELO DE JUGUETES
+   ============================================ */
+
+.cabecera-hero {
+    width: 100vw;
+    height: 100svh;
+    background:
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 45% at 88% 85%, rgba(255, 205, 41, 0.25) 0%, transparent 60%),
+        linear-gradient(180deg, var(--sky) 0%, var(--sky-pale) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 6vh 6vw;
+    box-sizing: border-box;
+}
+
+.cabecera-hero::before {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    border: 4px dashed rgba(255, 255, 255, 0.55);
+    border-radius: 60px;
+    pointer-events: none;
+}
+
+.hero-corner {
+    width: 140px;
+    height: 140px;
+}
+
+.cabecera-marco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 700px;
+    position: relative;
+    z-index: 3;
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1), transform 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cabecera-hero.entrada .reveal-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.35s; }
+.delay-4 { transition-delay: 1.1s; }
+.delay-5 { transition-delay: 1.3s; }
+.delay-6 { transition-delay: 1.7s; }
+
+.cabecera-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(47, 126, 196, 0.5);
+}
+
+/* Insignia: estrella de sheriff detrás del nombre */
+.cabecera-monograma {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(78vw, 380px);
+    aspect-ratio: 1;
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.cabecera-hero .cabecera-monograma.reveal-item {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cabecera-hero.entrada .cabecera-monograma.reveal-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.cabecera-wreath {
+    position: absolute;
+    inset: 0;
+}
+
+.cabecera-nombres {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.cabecera-nombres .nombre {
+    font-size: 4.2rem;
+    line-height: 1;
+}
+
+.cabecera-banner {
+    margin-top: 0.2rem;
+}
+
+.cabecera-fecha {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: var(--ivory);
+    text-shadow: 0 2px 6px rgba(47, 126, 196, 0.5);
+}
+
+.cabecera-lugar {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ivory);
+    opacity: 0.9;
+}
+
+/* Personajes flotando en la cabecera */
+.personaje-buzz,
+.personaje-hamm-hero,
+.personaje-jessie,
+.personaje-rex {
+    position: absolute;
+    z-index: 2;
+    animation: flotar-personaje 5s ease-in-out infinite;
+}
+
+.personaje-hamm-hero { animation-delay: 0.3s; }
+.personaje-jessie { animation-delay: 0.6s; }
+.personaje-rex { animation-delay: 1.2s; }
+
+@keyframes flotar-personaje {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Indicador de scroll */
+.cabecera-scroll {
+    position: absolute;
+    bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ivory) !important;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.linea-scroll {
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(180deg, transparent, var(--ivory));
+}
+
+.cabecera-scroll i {
+    font-size: 1.2rem;
+    animation: flotarSuave 2.6s ease-in-out infinite;
+}
+
+@keyframes flotarSuave {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .cabecera-hero::before {
+        inset: 14px;
+    }
+
+    .hero-corner {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cabecera-nombres .nombre {
+        font-size: 3rem;
+    }
+
+    .cabecera-fecha {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+    }
+
+    .cabecera-eyebrow {
+        letter-spacing: 1px;
+        font-size: 0.72rem;
+    }
+
+    .cabecera-monograma {
+        width: min(84vw, 300px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cabecera-nombres .nombre {
+        font-size: 5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-item,
+    .cabecera-monograma.reveal-item,
+    .personaje-buzz,
+    .personaje-hamm-hero,
+    .personaje-jessie,
+    .personaje-rex {
+        transition: none;
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}

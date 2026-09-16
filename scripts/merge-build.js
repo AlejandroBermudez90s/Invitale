@@ -22,6 +22,10 @@ const EVENTOS = [
     carpeta: 'invitaciones/elena_nicolas_boda_junio_2027/invitacion',
     slugUrl: 'elena-y-nicolas',
   },
+  {
+    carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
+    slugUrl: 'jose-comunion',
+  },
 ]
 
 function copyDir(src, dest) {
