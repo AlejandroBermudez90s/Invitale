@@ -54,46 +54,48 @@ const VentanaMar = ({ className = '' }) => (
             <path d="M320,600 Q330,590 340,600" fill="none" stroke="var(--charcoal)" strokeWidth="4" opacity="0.5" />
         </g>
 
-        {/* Macetas con flores a cada lado */}
-        <g transform="translate(96,660)">
-            <path d="M-22,0 L22,0 L16,52 L-16,52 Z" fill="var(--rock)" opacity="0.85" />
-            <path d="M0,-6 Q-16,-30 -4,-52 Q4,-34 0,-6 Z" fill="var(--leaf)" opacity="0.9" />
-            <path d="M0,-6 Q16,-34 8,-58 Q-2,-38 0,-6 Z" fill="var(--sage)" opacity="0.9" />
+        {/* Macetas con flores a cada lado, cerca del centro para que no se
+            recorten en encuadres muy estrechos (móvil) */}
+        <g transform="translate(146,700)">
+            <path d="M-18,0 L18,0 L13,44 L-13,44 Z" fill="var(--rock)" opacity="0.85" />
+            <path d="M0,-5 Q-13,-26 -3,-44 Q3,-29 0,-5 Z" fill="var(--leaf)" opacity="0.9" />
+            <path d="M0,-5 Q13,-29 7,-50 Q-2,-32 0,-5 Z" fill="var(--sage)" opacity="0.9" />
             {[0, 72, 144, 216, 288].map((a) => (
-                <ellipse key={a} cx="0" cy="-46" rx="6" ry="11" fill="var(--blush)" opacity="0.9" transform={`rotate(${a} 0 -46)`} />
+                <ellipse key={a} cx="0" cy="-40" rx="5" ry="9" fill="var(--blush)" opacity="0.9" transform={`rotate(${a} 0 -40)`} />
             ))}
-            <circle cx="0" cy="-46" r="4" fill="var(--gold)" />
+            <circle cx="0" cy="-40" r="3.4" fill="var(--gold)" />
         </g>
-        <g transform="translate(504,660) scale(-1,1)">
-            <path d="M-22,0 L22,0 L16,52 L-16,52 Z" fill="var(--rock)" opacity="0.85" />
-            <path d="M0,-6 Q-16,-30 -4,-52 Q4,-34 0,-6 Z" fill="var(--leaf)" opacity="0.9" />
-            <path d="M0,-6 Q16,-34 8,-58 Q-2,-38 0,-6 Z" fill="var(--sage)" opacity="0.9" />
+        <g transform="translate(454,700) scale(-1,1)">
+            <path d="M-18,0 L18,0 L13,44 L-13,44 Z" fill="var(--rock)" opacity="0.85" />
+            <path d="M0,-5 Q-13,-26 -3,-44 Q3,-29 0,-5 Z" fill="var(--leaf)" opacity="0.9" />
+            <path d="M0,-5 Q13,-29 7,-50 Q-2,-32 0,-5 Z" fill="var(--sage)" opacity="0.9" />
             {[0, 72, 144, 216, 288].map((a) => (
-                <ellipse key={a} cx="0" cy="-46" rx="6" ry="11" fill="var(--blush)" opacity="0.9" transform={`rotate(${a} 0 -46)`} />
+                <ellipse key={a} cx="0" cy="-40" rx="5" ry="9" fill="var(--blush)" opacity="0.9" transform={`rotate(${a} 0 -40)`} />
             ))}
-            <circle cx="0" cy="-46" r="4" fill="var(--gold)" />
+            <circle cx="0" cy="-40" r="3.4" fill="var(--gold)" />
         </g>
 
-        {/* Marco del arco */}
+        {/* Marco del arco — estrecho y centrado para sobrevivir al recorte
+            horizontal en encuadres muy verticales (móvil) */}
         <path
-            d="M-10,800 V210 Q-10,-40 300,-40 Q610,-40 610,210 V800"
+            d="M212,770 V260 Q212,88 300,88 Q388,88 388,260 V770"
             fill="none"
             stroke="var(--ivory)"
-            strokeWidth="70"
+            strokeWidth="46"
         />
         <path
-            d="M-10,800 V210 Q-10,-40 300,-40 Q610,-40 610,210 V800"
+            d="M212,770 V260 Q212,88 300,88 Q388,88 388,260 V770"
             fill="none"
             stroke="var(--gold)"
-            strokeWidth="3"
+            strokeWidth="2.4"
             opacity="0.6"
         />
 
-        {/* Cortinas veladas recogidas */}
-        <path d="M40,760 C10,540 34,300 92,150 C104,270 92,520 116,760 Z" fill="var(--ivory)" opacity="0.35" />
-        <path d="M560,760 C590,540 566,300 508,150 C496,270 508,520 484,760 Z" fill="var(--ivory)" opacity="0.35" />
-        <ellipse cx="92" cy="430" rx="14" ry="30" fill="var(--gold)" opacity="0.5" />
-        <ellipse cx="508" cy="430" rx="14" ry="30" fill="var(--gold)" opacity="0.5" />
+        {/* Cortinas veladas recogidas, justo dentro del arco */}
+        <path d="M228,748 C210,600 220,420 250,262 C258,350 251,540 264,748 Z" fill="var(--ivory)" opacity="0.4" />
+        <path d="M372,748 C390,600 380,420 350,262 C342,350 349,540 336,748 Z" fill="var(--ivory)" opacity="0.4" />
+        <ellipse cx="252" cy="440" rx="9" ry="20" fill="var(--gold)" opacity="0.55" />
+        <ellipse cx="348" cy="440" rx="9" ry="20" fill="var(--gold)" opacity="0.55" />
     </svg>
 )
 
