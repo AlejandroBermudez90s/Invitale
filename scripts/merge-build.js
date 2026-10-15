@@ -23,6 +23,11 @@ const EVENTOS = [
     slugUrl: 'elena-y-nicolas',
   },
   {
+    carpeta: 'invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion',
+    slugUrl: 'alejandro-y-esthefany-v2',
+    buildDir: 'dist-v2',
+  },
+  {
     carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
     slugUrl: 'jose-comunion',
   },
@@ -40,7 +45,7 @@ function main() {
   const entradas = [
     path.join(HUB_OUT_DIR, 'index.html'),
     path.join(HUB_OUT_DIR, '404.html'),
-    ...EVENTOS.map(({ carpeta }) => path.join(ROOT, carpeta, 'dist', 'index.html')),
+    ...EVENTOS.map(({ carpeta, buildDir = 'dist' }) => path.join(ROOT, carpeta, buildDir, 'index.html')),
   ]
   for (const entrada of entradas) {
     if (!fs.existsSync(entrada) || !fs.statSync(entrada).isFile()) {
@@ -54,8 +59,8 @@ function main() {
   console.log(`Copiando hub (${HUB_OUT_DIR}) -> ${PUBLISH_DIR}`)
   copyDir(HUB_OUT_DIR, PUBLISH_DIR)
 
-  for (const { carpeta, slugUrl } of EVENTOS) {
-    const distDir = path.join(ROOT, carpeta, 'dist')
+  for (const { carpeta, slugUrl, buildDir = 'dist' } of EVENTOS) {
+    const distDir = path.join(ROOT, carpeta, buildDir)
     const destDir = path.join(PUBLISH_DIR, slugUrl)
     console.log(`Copiando evento ${slugUrl} (${distDir}) -> ${destDir}`)
     copyDir(distDir, destDir)

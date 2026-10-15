@@ -4,6 +4,7 @@ node_modules
 out
 publish
 dist
+dist-v2
 .wrangler/
 .dev.vars*
 .env

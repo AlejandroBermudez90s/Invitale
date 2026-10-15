@@ -16,7 +16,7 @@ Node.js: versión de `.node-version`. Instalar dependencias con `npm ci`.
 - `npm run deploy`: publica el último `publish/` generado; ejecutar antes `npm run build`.
 
 Los builds de cada invitación usan `npm ci` y sus propios lockfiles para mantener versiones
-reproducibles. `merge-build.js` comprueba que existan el hub, su 404 y las cuatro invitaciones
+reproducibles. `merge-build.js` comprueba que existan el hub, su 404 y todas las invitaciones
 antes de sustituir `publish/`.
 
 ## Configuración de Cloudflare
@@ -60,12 +60,17 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/`
 - `/andrea-15/`
 - `/alejandro-y-esthefany/`
+- `/alejandro-y-esthefany-v2/` — muestra artística comparativa, con imágenes generadas y formulario de demostración explícito.
 - `/elena-y-nicolas/`
 - `/jose-comunion/`
 
 Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invitación debe
 cargar sus propios scripts, estilos, imágenes y audio. Los formularios de las muestras de
 Alejandro/Esthefany, Elena/Nicolás y José simulan el envío y no son un backend RSVP real.
+
+La versión artística de Alejandro y Esthefany se genera con `vite build --mode artistic`
+en `dist-v2/`, desde `src/v2/`. El comando raíz la construye e incluye en el despliegue;
+la galería continúa enlazando a la versión original hasta elegir la definitiva.
 
 ## Añadir un evento
 
