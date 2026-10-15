@@ -11,7 +11,7 @@ export const invitations = [
     eventType: "Quinceañera",
     date: "Mayo 2026",
     coverImage: "/gallery/andrea-15/portada.webp",
-    url: "https://invitale.es/andrea-15",
+    url: "/andrea-15/",
   },
   {
     id: "alejandro-y-esthefany",
@@ -19,7 +19,7 @@ export const invitations = [
     eventType: "Boda",
     date: "Diciembre 2024",
     coverImage: "/gallery/alejandro-y-esthefany/portada.png",
-    url: "https://invitale.es/alejandro-y-esthefany",
+    url: "/alejandro-y-esthefany/",
   },
   {
     id: "elena-y-nicolas",
@@ -27,7 +27,7 @@ export const invitations = [
     eventType: "Boda",
     date: "Junio 2027",
     coverImage: "/gallery/elena-y-nicolas/portada.png",
-    url: "https://invitale.es/elena-y-nicolas",
+    url: "/elena-y-nicolas/",
   },
   {
     id: "jose-comunion",
@@ -35,7 +35,7 @@ export const invitations = [
     eventType: "Comunión",
     date: "Mayo 2027",
     coverImage: "/gallery/jose-comunion/portada.png",
-    url: "https://invitale.es/jose-comunion",
+    url: "/jose-comunion/",
   },
   {
     id: "placeholder-bautizo",
