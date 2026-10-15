@@ -1,5 +1,11 @@
 # InvitAle — Arquitectura del monorepo
 
+> Actualización de despliegue (15/10/2026): Alejandro ha autorizado migrar a Cloudflare
+> Workers Static Assets. La configuración está en `wrangler.jsonc` y las instrucciones
+> actuales en `README.md`. Se conserva el build estático fusionado en `publish/` y todas
+> las rutas. Las referencias a Netlify de este documento describen la plataforma anterior;
+> el cambio del dominio solo se completa tras validar el despliegue en Cloudflare.
+
 ## Qué es
 `invitale` es el repo del hub de marca (Next.js App Router + Tailwind CSS) de InvitAle, negocio
 de invitaciones digitales de Alejandro Bermúdez. Desde este mismo repo y el mismo site de

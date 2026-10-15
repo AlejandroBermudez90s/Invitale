@@ -1,50 +1,84 @@
-# InvitAle — Web portfolio
+# InvitAle — Web e invitaciones digitales
 
-Página principal de InvitAle: hero, presentación breve, galería de
-invitaciones (cada tarjeta abre la invitación real en pestaña nueva) y
-contacto.
+Hub de marca en Next.js con export estático y cuatro invitaciones React/Vite independientes.
+Todos los builds se fusionan en `publish/`, que es el único directorio que se despliega.
+La migración a Cloudflare Workers Static Assets está preparada en este repositorio; la
+activación de la cuenta, la conexión con GitHub y el cambio del dominio se realizan en Cloudflare.
 
-## Arrancar
+## Desarrollo
 
-```bash
-npm install
-npm run dev
-```
+Node.js: versión de `.node-version`. Instalar dependencias con `npm ci`.
 
-Abre `http://localhost:3000`.
+- `npm run dev`: hub en desarrollo. No sirve los builds Vite de las invitaciones.
+- `npm run build`: compila el hub y todas las invitaciones, y genera `publish/`.
+- `npm run preview:site`: sirve el resultado completo con Wrangler para probar las rutas reales.
+- `npm run check:deploy`: comprueba la configuración de Cloudflare sin publicar.
+- `npm run deploy`: publica el último `publish/` generado; ejecutar antes `npm run build`.
 
-## Qué tocar para dejarlo listo
+Los builds de cada invitación usan `npm ci` y sus propios lockfiles para mantener versiones
+reproducibles. `merge-build.js` comprueba que existan el hub, su 404 y las cuatro invitaciones
+antes de sustituir `publish/`.
 
-1. **`data/invitations.js`** — añade una entrada por cada invitación que
-   hayas entregado: `title`, `eventType`, `date`, `coverImage` (ruta en
-   `/public/gallery/`) y `url` (el enlace real a la invitación publicada).
-2. **`public/gallery/`** — coloca ahí las fotos de portada de cada
-   invitación (ratio 4:5 recomendado, para que la galería quede alineada).
-3. **`components/Contact.jsx`** — cambia `email`, `whatsapp` (número real
-   con prefijo internacional) e `instagram`.
-4. **Metadatos** — en `app/layout.jsx`, ajusta `title`/`description` si
-   quieres afinar el SEO.
+## Configuración de Cloudflare
 
-## Estructura
+Crear un **Worker** conectado al repositorio `AlejandroBermudez90s/Invitale` con:
 
-```
-app/
-  layout.jsx      → fuentes (Prata + Jost), metadatos
-  page.jsx         → compone las secciones
-  globals.css       → Tailwind + accesibilidad base
-components/
-  Navbar, Hero, About, Gallery, InvitationCard, Contact, Footer
-data/
-  invitations.js   → tus proyectos
-```
+| Ajuste | Valor |
+| --- | --- |
+| Nombre del Worker | `invitale` |
+| Rama de producción | `main` |
+| Directorio raíz | Raíz del repositorio |
+| Comando de build | `npm run build` |
+| Comando de deploy | `npm run deploy` |
 
-## Notas de marca
+Wrangler está fijado en `package.json`. La carpeta de archivos estáticos se define en
+`wrangler.jsonc` como `./publish`; no debe cambiarse a `out`, porque allí solo está el hub.
+El sitio no necesita un servidor Next.js, un adaptador SSR ni un script Worker.
 
-- Colores en `tailwind.config.js`: `navy`, `navy-deep`, `gold`, `cream`,
-  `ink` — son los mismos tonos de tu identidad ya definida.
-- Tipografías: `font-display` (Prata) para titulares y `font-body` (Jost)
-  para el resto.
-- El isotipo (corazón/lazo de líneas) no está incrustado como imagen —
-  el hero usa un trazo SVG ligero como guiño, para no bloquear la decisión
-  pendiente sobre las tres líneas diagonales. Cuando cierres esa decisión,
-  puedes sustituirlo por tu isotipo final en `components/Hero.jsx`.
+Las URLs de carpeta se normalizan con barra final. Una ruta inexistente devuelve la página
+404 exportada por Next.js, sin reenviar al hub ni a otra invitación.
+
+### Activación del dominio
+
+1. Crear/iniciar sesión en la cuenta Cloudflare y autorizar su integración de GitHub para
+   este repositorio. Completar personalmente las contraseñas y la aceptación de términos.
+2. Desplegar y comprobar primero la dirección `workers.dev` asignada por Cloudflare.
+3. Añadir `invitale.es` a Cloudflare y revisar que se conserven todos los registros DNS
+   existentes, incluidos correo y verificaciones. El dominio puede seguir registrado en DonDominio.
+4. Aplicar en DonDominio los nameservers concretos que asigne Cloudflare y esperar a que la
+   zona quede activa. Revisar DNSSEC si está habilitado antes de cambiar nameservers.
+5. En el Worker, añadir `invitale.es` y `www.invitale.es` como dominios personalizados.
+   Resolver con el asistente los registros web que todavía apunten al hosting anterior.
+6. Verificar HTTPS, la portada, imágenes, las cuatro rutas y el 404 usando el dominio final.
+   Después retirar los despliegues automáticos de Netlify para evitar builds duplicados.
+
+La configuración no incluye rutas del dominio todavía: así la primera publicación puede
+probarse en `workers.dev` sin modificar el sitio que esté en producción.
+
+## Rutas que deben funcionar
+
+- `/`
+- `/andrea-15/`
+- `/alejandro-y-esthefany/`
+- `/elena-y-nicolas/`
+- `/jose-comunion/`
+
+Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invitación debe
+cargar sus propios scripts, estilos, imágenes y audio. Los formularios de las muestras de
+Alejandro/Esthefany, Elena/Nicolás y José simulan el envío y no son un backend RSVP real.
+
+## Añadir un evento
+
+1. Crear `invitaciones/<carpeta>/invitacion/` con su tema y documentación local.
+2. Añadir su script de build en `package.json` y encadenarlo en `build`.
+3. Registrarlo en `EVENTOS` dentro de `scripts/merge-build.js`.
+4. Configurar `base: '/<slug>/'` en su `vite.config.js`.
+
+Añadirlo a `data/invitations.js` y `public/gallery/` únicamente si está autorizado como
+muestra pública. Los estilos y recursos de cada evento son independientes de la marca.
+
+## Referencias
+
+- [Archivos estáticos en Workers](https://developers.cloudflare.com/workers/static-assets/)
+- [Builds conectados a Git](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+- [Dominios personalizados](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)

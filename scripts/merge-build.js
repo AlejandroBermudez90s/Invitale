@@ -1,5 +1,5 @@
 // Fusiona el build del hub (out/) y el build de cada evento (dist/) en publish/,
-// para que Netlify sirva todo como un único site.
+// para servir todo desde un único despliegue estático en Cloudflare.
 //
 // Para añadir un evento nuevo, añade una línea a EVENTOS.
 const fs = require('fs')
@@ -36,6 +36,18 @@ function copyDir(src, dest) {
 }
 
 function main() {
+  // Un despliegue incompleto no debe sustituir al sitio completo.
+  const entradas = [
+    path.join(HUB_OUT_DIR, 'index.html'),
+    path.join(HUB_OUT_DIR, '404.html'),
+    ...EVENTOS.map(({ carpeta }) => path.join(ROOT, carpeta, 'dist', 'index.html')),
+  ]
+  for (const entrada of entradas) {
+    if (!fs.existsSync(entrada) || !fs.statSync(entrada).isFile()) {
+      throw new Error(`Build incompleto: falta ${path.relative(ROOT, entrada)}. Ejecuta npm run build.`)
+    }
+  }
+
   fs.rmSync(PUBLISH_DIR, { recursive: true, force: true })
   fs.mkdirSync(PUBLISH_DIR, { recursive: true })
 
