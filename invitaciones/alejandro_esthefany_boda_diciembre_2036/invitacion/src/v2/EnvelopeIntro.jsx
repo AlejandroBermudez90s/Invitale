@@ -38,16 +38,15 @@ export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
         <div className="ae-envelope-front"><div className="ae-envelope-paper-patch" /></div>
         <div className="ae-envelope-flap"><div className="ae-envelope-flap-face"><div className="ae-envelope-paper-patch" /></div><div className="ae-envelope-flap-back" /></div>
         <div className="ae-envelope-seal" />
+        <div className="ae-envelope-closed-art" />
       </div>
-      <button className="ae-envelope-touch" disabled={opening} onClick={() => setOpening(true)} aria-label="Romper el sello y abrir la invitación" />
+      <button className="ae-envelope-touch" autoFocus disabled={opening} onClick={() => setOpening(true)} aria-label="Romper el sello y abrir la invitación" />
     </div>
 
     <div className="ae-envelope-actions">
-      <p id="ae-envelope-instruction" className="ae-envelope-dedication">Una carta. Una promesa. Toda una vida.</p>
-      <button className="ae-button ae-button-solid" autoFocus disabled={opening} onClick={() => setOpening(true)}>Abrir nuestro sobre <span aria-hidden="true">↗</span></button>
-      <p className="ae-envelope-hint" role="status">{opening ? 'Nuestra historia está a punto de comenzar…' : 'Toca para descubrir la invitación'}</p>
+      <p id="ae-envelope-instruction" className="ae-envelope-dedication">Toca el sello para abrir</p>
+      <p className="ae-envelope-hint" role="status">{opening ? 'Nuestra historia está a punto de comenzar…' : 'Una carta, para ti'}</p>
     </div>
     {opening && <button ref={skipRef} className="ae-intro-skip" onClick={onOpened}>Saltar introducción <span aria-hidden="true">↗</span></button>}
-    <span className="ae-envelope-signature">Diseñado para recordar · InvitAle</span>
   </section>
 }
