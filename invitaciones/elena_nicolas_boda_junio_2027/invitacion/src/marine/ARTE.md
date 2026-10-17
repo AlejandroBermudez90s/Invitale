@@ -1,6 +1,6 @@
 # Elena y Nicolás · Carta del Mediterráneo
 
-Propuesta comparativa del 18 de octubre de 2026. La invitación anterior y la galería se conservan.
+Versión marina elegida como definitiva el 18 de octubre de 2026. Se publica únicamente en `/elena-y-nicolas/`; la invitación anterior se ha retirado y la galería muestra la nueva portada. Los enlaces con `-v2` redirigen con 301.
 
 ## Dirección de arte
 
@@ -52,17 +52,17 @@ Use case: illustration-story. Asset type: wedding stationery fictional venue ill
 
 ## Construcción
 
-`npm run build:marine` produce `dist-marine/` para `/elena-y-nicolas-v2/`. El build estándar sigue generando la versión anterior. El script raíz construye ambas y `scripts/merge-build.js` las fusiona en `publish/`.
+`npm run build` genera únicamente `dist/`, con base `/elena-y-nicolas/`. `src/main.jsx` importa directamente MarineApp. El script raíz fusiona este build una sola vez en `publish/`. Canonical, Open Graph, Twitter y favicon usan la ruta definitiva; el hub redirige los enlaces con `-v2` y sus recursos.
 
-## Validación · 18/10/2026
+## Validación de la versión definitiva · 18/10/2026
 
-- Build completo correcto y `npm run check:deploy` correcto: 131 archivos estáticos.
-- Wrangler local: hub y cinco invitaciones en 200; rutas y recursos inexistentes en 404.
-- 21 comprobaciones HTTP correctas, incluidos los 13 archivos de la nueva ruta.
-- Navegador: escritorio de 1280 × 720, móviles de 393 × 851 y 320 × 740, sin desbordamiento horizontal.
-- Apertura del sobre y foco del título, música con reproducción y pausa, navegación por ancla,
-  cuatro imágenes cargadas y formulario de demostración con foco en el resultado.
-- Consola del build de producción sin errores. La revisión móvil es de navegador;
-  no se ha realizado la prueba física en Redmi Note 12 Pro 5G.
-- Despliegue Cloudflare verificado en invitale.es y workers.dev: 21 comprobaciones correctas
-  en cada origen; versión ff385d0b-3acb-48e7-97e5-de6f41b3d396.
+- `npm run build` completo y `npm run check:deploy` correctos; 112 recursos estáticos.
+- Una sola invitación en `/elena-y-nicolas/`; se ha retirado el build comparativo y el código anterior.
+- 23 comprobaciones HTTP correctas en Wrangler local y en `https://invitale.es`:
+  hub, cuatro invitaciones, 404, recursos referenciados por el HTML, canonical, galería y tres redirecciones 301.
+- Los scripts de la implementación anterior y la portada PNG retirada devuelven 404.
+- Galería: captura de la portada abierta optimizada a WebP de 600 × 750, con nombres, fecha y costa.
+- Navegador: galería nueva y enlace definitivo correctos; apertura, cuatro acuarelas, veinte burbujas
+  y consola sin errores en la ruta final. Las revisiones a 320 y 393 píxeles corresponden al mismo diseño.
+- La revisión móvil es de navegador; no se ha realizado una prueba física en Redmi Note 12 Pro 5G.
+- Despliegue Cloudflare verificado: versión 92f7f687-680e-4535-9766-488a3e1767f3.

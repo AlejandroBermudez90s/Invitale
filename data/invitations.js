@@ -26,7 +26,7 @@ export const invitations = [
     title: "Elena & Nicolás",
     eventType: "Boda",
     date: "Junio 2027",
-    coverImage: "/gallery/elena-y-nicolas/portada.png",
+    coverImage: "/gallery/elena-y-nicolas/portada-mar-v1.webp",
     url: "/elena-y-nicolas/",
   },
   {

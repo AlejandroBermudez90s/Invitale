@@ -5,7 +5,6 @@ out
 publish
 dist
 dist-v2
-dist-marine
 .wrangler/
 .dev.vars*
 .env

@@ -61,7 +61,6 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/andrea-15/`
 - `/alejandro-y-esthefany/`
 - `/elena-y-nicolas/`
-- `/elena-y-nicolas-v2/` (rediseño marino comparativo; conserva la invitación actual)
 - `/jose-comunion/`
 
 Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invitación debe
@@ -73,6 +72,11 @@ Vite normal en `dist/` y se publica en `/alejandro-y-esthefany/`. La versión an
 se ha retirado. La galería muestra la portada posterior a la apertura del sobre.
 `public/_redirects` conserva los enlaces compartidos con `/alejandro-y-esthefany-v2/`,
 redirigiéndolos permanentemente a la dirección definitiva, incluidos sus recursos.
+
+Elena y Nicolás utiliza la invitación marina de `src/marine/` como única versión en
+`/elena-y-nicolas/`. La implementación anterior se ha retirado y la galería muestra la
+portada costera elegida. Los enlaces con `/elena-y-nicolas-v2/` y sus recursos redirigen
+permanentemente a la dirección definitiva. El build estándar genera únicamente `dist/`.
 
 ## Añadir un evento
 
