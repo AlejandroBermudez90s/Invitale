@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="hero-logo-float">
           <Image
             src="/brand/imagotipo-claro.png"
-            alt="InvitAle — Diseñado para recordar"
+            alt="Invitale — Diseñado para recordar"
             width={950}
             height={1250}
             priority
@@ -37,7 +37,7 @@ export default function Hero() {
           />
           <Image
             src="/brand/imagotipo-oscuro.png"
-            alt="InvitAle — Diseñado para recordar"
+            alt="Invitale — Diseñado para recordar"
             width={725}
             height={525}
             priority

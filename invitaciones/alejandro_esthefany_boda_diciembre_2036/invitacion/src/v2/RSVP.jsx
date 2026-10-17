@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import WrittenText from './WrittenText'
 import InvitationIcon from './InvitationIcon'
 import BotanicalAccent from './BotanicalAccent'
+import EnvironmentalSketch from './EnvironmentalSketch'
 
 export default function RSVP() {
   const [expanded, setExpanded] = useState(false)
@@ -50,5 +51,6 @@ export default function RSVP() {
       </form>}
       <button className="ae-text-button ae-form-close" onClick={() => { setExpanded(false); triggerRef.current?.focus() }}>Cerrar confirmación</button>
     </div>
+    <EnvironmentalSketch motif="rings" />
   </section>
 }

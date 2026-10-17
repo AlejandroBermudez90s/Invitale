@@ -10,10 +10,10 @@ const Ubicacion = () => {
     const ceremonia = {
         eyebrow: 'Ceremonia',
         nombre: 'Iglesia de la Majada',
-        direccion: 'Segovia',
+        direccion: 'La Majada, Mazarrón (Murcia)',
         hora: '19:00 h',
         parking: 'Cerca',
-        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Majada+Segovia',
+        mapaLink: 'https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Purisima+La+Majada+Mazarron+Murcia',
     }
 
     const banquete = {

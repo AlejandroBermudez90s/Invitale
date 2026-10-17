@@ -1,13 +1,13 @@
 # Alejandro & Esthefany — Boda (invitación de ejemplo, datos ficticios)
 
-Invitación construida como ejemplo de portfolio para InvitAle. **Todos los datos (nombres,
+Invitación construida como ejemplo de portfolio para Invitale. **Todos los datos (nombres,
 lugares, fecha, cuenta bancaria) son ficticios**, salvo los propios lugares reales usados
 como localización de ejemplo (Iglesia de la Majada y Alcázar de Segovia).
 
 ## Datos del evento
 - Novios: Alejandro & Esthefany
 - Fecha: 26 de diciembre de 2036, 19:00 (ceremonia)
-- Ceremonia: Iglesia de la Majada, Segovia
+- Ceremonia: Iglesia de la Purísima de La Majada, Mazarrón, Murcia
 - Banquete: Alcázar de Segovia, 21:00
 - Fecha límite RSVP: 26 de junio de 2036
 - Slug de URL pública: `invitale.es/alejandro-y-esthefany`

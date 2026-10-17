@@ -6,8 +6,8 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b border-gold/20 bg-paper/95 backdrop-blur-sm transition-colors duration-300 dark:bg-night/95">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:px-10">
         <a href="#top" className="flex items-center gap-2">
-          <Image src="/brand/isotipo-claro.png" alt="InvitAle" width={707} height={715} className="block h-8 w-auto dark:hidden" />
-          <Image src="/brand/isotipo-oscuro.png" alt="InvitAle" width={320} height={300} className="hidden h-8 w-auto dark:block" />
+          <Image src="/brand/isotipo-claro.png" alt="Invitale" width={707} height={715} className="block h-8 w-auto dark:hidden" />
+          <Image src="/brand/isotipo-oscuro.png" alt="Invitale" width={320} height={300} className="hidden h-8 w-auto dark:block" />
           <span className="font-display text-lg tracking-wide text-ink dark:text-cream">Invitale</span>
         </a>
 

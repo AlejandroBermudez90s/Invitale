@@ -21,7 +21,7 @@ export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
     <div className="ae-envelope-heading">
       <p className="ae-kicker">Hay historias que merecen una carta</p>
       <h1 id="ae-envelope-title">Alejandro <span>&amp;</span> Esthefany</h1>
-      <p className="ae-envelope-date">26 de diciembre de 2036 · Segovia</p>
+      <p className="ae-envelope-date">26 de diciembre de 2036</p>
     </div>
 
     <div className="ae-envelope-stage">

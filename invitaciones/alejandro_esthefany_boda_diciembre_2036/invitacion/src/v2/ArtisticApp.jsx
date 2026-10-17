@@ -1,18 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import botanica from './assets/botanica-contemporanea.webp'
+import botanica from './assets/botanica-lisianthus.webp'
 import alcazar from './assets/alcazar-acuarela.webp'
 import EnvelopeIntro from './EnvelopeIntro'
 import MusicButton from './MusicButton'
-import FallingLeaves from './FallingLeaves'
+import FallingPetals from './FallingPetals'
 import './ArtisticApp.css'
 import './CinematicMotion.css'
 import './Atmosphere.css'
 import './Editorial.css'
+import './IllustratedDetails.css'
 import WrittenText from './WrittenText'
 import InvitationIcon from './InvitationIcon'
 import BotanicalAccent from './BotanicalAccent'
 import RSVP from './RSVP'
 import FloralMonogram from './FloralMonogram'
+import VenueSketch from './VenueSketch'
+import EnvironmentalSketch from './EnvironmentalSketch'
 
 const weddingDate = new Date('2036-12-26T19:00:00+01:00')
 const itinerary = [
@@ -56,6 +59,7 @@ function Gift() {
       <button className="ae-text-button" onClick={copy}>Copiar cuenta de ejemplo</button>
       <p className="ae-copy-status" role="status">{copyStatus}</p>
     </details>
+    <EnvironmentalSketch motif="letter" />
   </section>
 }
 
@@ -93,7 +97,7 @@ export default function ArtisticApp() {
     const targets = []
     sections.forEach(section => {
       section.classList.add('ae-scene')
-      const children = section.querySelectorAll(':scope > :not(.ae-section-number):not(.ae-botanical):not(.ae-botanical-accent), .ae-story-copy > p, .ae-locations > article, .ae-itinerary li')
+      const children = section.querySelectorAll(':scope > :not(.ae-section-number):not(.ae-botanical):not(.ae-botanical-accent):not(.ae-environment), .ae-story-copy > p, .ae-locations > article, .ae-itinerary li')
       children.forEach((element, index) => {
         element.classList.add('ae-reveal')
         element.style.setProperty('--ae-delay', `${Math.min(index * 100, 400)}ms`)
@@ -136,14 +140,14 @@ export default function ArtisticApp() {
 
   return <div ref={rootRef} className="ae-v2" data-motion={reducedMotion ? 'reduced' : 'full'} style={{ '--ae-botanica': `url("${botanica}")` }}>
     {!opened && <EnvelopeIntro reducedMotion={reducedMotion} onReveal={revealInvitation} onOpened={finishOpening} />}
-    {opened && <><FallingLeaves /><MusicButton /></>}
+    {opened && <><FallingPetals /><MusicButton /></>}
 
     <main inert={!opened} className={revealing ? 'ae-opened' : 'ae-awaiting'}>
       <a className="ae-skip" href="#confirmar">Ir a confirmar asistencia</a>
       <header className="ae-hero">
         <div className="ae-botanical ae-botanical-top" aria-hidden="true" />
         <div className="ae-botanical ae-botanical-bottom" aria-hidden="true" />
-        <div className="ae-hero-top"><span>Segovia, España</span><span>26 · 12 · 2036</span></div>
+        <div className="ae-hero-top"><span>Murcia · Segovia</span><span>26 · 12 · 2036</span></div>
         <div className="ae-hero-content">
           <p className="ae-kicker"><WrittenText text="Con toda la ilusión del mundo" /></p>
           <h1 ref={headingRef} tabIndex={-1}><WrittenText text="Alejandro" pace={100} /><span className="ae-ampersand">&amp;</span><WrittenText text="Esthefany" pace={100} /></h1>
@@ -160,6 +164,7 @@ export default function ArtisticApp() {
         <h2 id="ae-story-title"><WrittenText text="Lo nuestro," /><br /><em><WrittenText text="para siempre." /></em></h2>
         <div className="ae-story-copy"><p><WrittenText text="Hay historias que empiezan sin darse cuenta y terminan escribiendo toda una vida." /></p><p><WrittenText text="La nuestra empezó cuando menos lo esperábamos, en una cita casual. Hoy nos trae hasta aquí, listos para prometernos para siempre." /></p><p><WrittenText text="Queremos compartir este día contigo, rodeados de quienes más queremos, brindando por lo que fuimos, lo que somos y lo que seremos." /></p></div>
         <p className="ae-script">Alejandro &amp; Esthefany</p>
+        <EnvironmentalSketch motif="birds" />
       </section>
 
       <section className="ae-venue" aria-labelledby="ae-venue-title">
@@ -167,6 +172,7 @@ export default function ArtisticApp() {
         <div className="ae-venue-heading"><p className="ae-kicker"><WrittenText text="Nuestro rincón favorito" /></p><h2 id="ae-venue-title"><WrittenText text="Donde empieza" /><br /><em><WrittenText text="nuestro siempre." /></em></h2></div>
         <figure><img src={alcazar} alt="Acuarela del Alcázar de Segovia, con sus torres sobre la colina y el paisaje castellano" width="1536" height="1024" loading="lazy" /><figcaption>El Alcázar de Segovia · Nuestro lugar para recordar</figcaption></figure>
         <p className="ae-venue-text"><WrittenText text="Bajo las torres del Alcázar, entre piedra dorada y cielos de atardecer, celebraremos el comienzo de nuestra nueva vida juntos." /></p>
+        <EnvironmentalSketch motif="butterfly" />
       </section>
 
       <section className="ae-celebration ae-section" id="celebracion" aria-labelledby="ae-celebration-title">
@@ -176,8 +182,8 @@ export default function ArtisticApp() {
         <p className="ae-year">Viernes · 2036 · 19:00 h</p>
         <Countdown />
         <div className="ae-locations">
-          <article><span className="ae-location-number" aria-hidden="true">I.</span><p className="ae-kicker">La ceremonia · 19:00 h</p><h3><WrittenText text="Iglesia de" /><br /><WrittenText text="la Majada" /></h3><p>Segovia · Aparcamiento cercano</p><a className="ae-text-link" href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Majada+Segovia" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
-          <article><span className="ae-location-number" aria-hidden="true">II.</span><p className="ae-kicker">El banquete · 21:00 h</p><h3><WrittenText text="Alcázar de" /><br /><WrittenText text="Segovia" /></h3><p>Segovia · Aparcamiento cercano</p><a className="ae-text-link" href="https://www.google.com/maps/search/?api=1&query=Alc%C3%A1zar+de+Segovia" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
+          <article><VenueSketch kind="church" /><p className="ae-kicker">La ceremonia · 19:00 h</p><h3><WrittenText text="Iglesia de" /><br /><WrittenText text="la Majada" /></h3><p>La Majada · Mazarrón, Murcia</p><a className="ae-text-link" href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Purisima+La+Majada+Mazarron+Murcia" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
+          <article><VenueSketch kind="castle" /><p className="ae-kicker">El banquete · 21:00 h</p><h3><WrittenText text="Alcázar de" /><br /><WrittenText text="Segovia" /></h3><p>Segovia · Aparcamiento cercano</p><a className="ae-text-link" href="https://www.google.com/maps/search/?api=1&query=Alc%C3%A1zar+de+Segovia" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
@@ -185,6 +191,7 @@ export default function ArtisticApp() {
         <BotanicalAccent side="right" birds />
         <p className="ae-kicker"><WrittenText text="Cada momento, contigo" /></p><h2 id="ae-itinerary-title"><WrittenText text="Así será nuestro día" /></h2>
         <ol>{itinerary.map(([hour, title, description, icon]) => <li key={hour}><span className="ae-moment-icon"><InvitationIcon name={icon} /></span><div className="ae-moment-copy"><time>{hour}</time><h3><WrittenText text={title} /></h3><p><WrittenText text={description} /></p></div></li>)}</ol>
+        <EnvironmentalSketch motif="ribbon" />
       </section>
 
       <Gift /><RSVP />
@@ -195,7 +202,7 @@ export default function ArtisticApp() {
         <div className="ae-footer-copy"><FloralMonogram />
         <p className="ae-kicker"><WrittenText text="El principio de todo" /></p><h2><WrittenText text="¡Os esperamos!" /></h2>
         <p><WrittenText text="Vuestra presencia hará este día inolvidable." /></p>
-        <p className="ae-footer-brand">Diseñado para recordar <span>InvitAle</span></p></div>
+        <p className="ae-footer-brand">Diseñado para recordar <span>Invitale</span></p></div>
       </footer>
     </main>
   </div>

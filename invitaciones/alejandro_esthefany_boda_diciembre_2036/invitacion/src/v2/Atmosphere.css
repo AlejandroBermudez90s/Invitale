@@ -1,14 +1,15 @@
-.ae-v2 .ae-falling-leaves { position: fixed; inset: 0; z-index: 4; overflow: hidden; pointer-events: none; }
-.ae-v2 .ae-falling-leaf { position: absolute; top: -32px; width: 8px; height: 15px; opacity: 0; animation: ae-leaf-fall var(--leaf-duration) var(--leaf-delay) linear infinite; }
-.ae-v2 .ae-falling-leaf i { display: block; width: 100%; height: 100%; border-radius: 2% 88% 4% 90%; background: linear-gradient(120deg, #a5af8c, #6c805d); transform: rotate(25deg); }
-.ae-v2 .ae-falling-leaf i::after { content: ''; position: absolute; top: 25%; left: 50%; height: 80%; width: 1px; background: #556749; transform: rotate(-27deg); }
-@keyframes ae-leaf-fall {
+.ae-v2 .ae-falling-petals { position: fixed; inset: 0; z-index: 4; overflow: hidden; pointer-events: none; }
+.ae-v2 .ae-falling-petal { position: absolute; top: -32px; width: var(--petal-size); height: calc(var(--petal-size) * 1.25); opacity: 0; animation: ae-petal-fall var(--petal-duration) var(--petal-delay) linear infinite; }
+.ae-v2 .ae-falling-petal i { display: block; width: 100%; height: 100%; border-radius: 75% 18% 70% 38% / 70% 28% 85% 40%; background: radial-gradient(ellipse at 22% 22%, #fff3ed 0, transparent 56%), linear-gradient(140deg, #ecc0bb, #c87588); box-shadow: inset -1px -1px 2px #a9576b26; animation: ae-petal-flutter var(--petal-turn) ease-in-out infinite alternate; }
+.ae-v2 .ae-petal-tone-1 i { background: radial-gradient(ellipse at 22% 22%, #fff5ed 0, transparent 56%), linear-gradient(140deg, #f0d6bd, #d99e99); }
+.ae-v2 .ae-petal-tone-2 i { background: radial-gradient(ellipse at 22% 22%, #fff8ef 0, transparent 56%), linear-gradient(140deg, #f2d8d3, #dbaeb6); }
+@keyframes ae-petal-fall {
   0% { transform: translate3d(0, -25px, 0) rotate(-25deg); opacity: 0; }
-  12% { opacity: .2; }
-  45% { transform: translate3d(var(--leaf-drift), 48dvh, 0) rotate(85deg); }
-  85% { opacity: .2; }
-  100% { transform: translate3d(0, calc(100dvh + 65px), 0) rotate(190deg); opacity: 0; }
+  12%, 85% { opacity: var(--petal-opacity); }
+  45% { transform: translate3d(var(--petal-drift), 48dvh, 0) rotate(85deg); }
+  100% { transform: translate3d(0, calc(100dvh + 65px), 0) rotate(195deg); opacity: 0; }
 }
+@keyframes ae-petal-flutter { from { transform: perspective(100px) rotateY(-40deg) rotateX(20deg); } to { transform: perspective(100px) rotateY(45deg) rotateX(-25deg); } }
 .ae-v2 .ae-music { position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 20; }
 .ae-v2 .ae-music-button { display: grid; place-items: center; width: 52px; height: 52px; padding: 7px; border: 1px solid #9da88d; border-radius: 50%; background: #fffdf8; color: var(--ae-sage); box-shadow: 0 3px 18px #3a352f16; cursor: pointer; transition: background .3s, box-shadow .3s; }
 .ae-v2 .ae-music-button:hover:not(:disabled) { background: #e8ecdf; box-shadow: 0 4px 22px #3a352f25; }
@@ -22,7 +23,7 @@
 .ae-v2 .ae-music-status:empty { display: none; }
 @keyframes ae-music-dance { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-3px) rotate(5deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .ae-v2 .ae-falling-leaves { display: none; }
+  .ae-v2 .ae-falling-petals { display: none; }
   .ae-v2 .ae-music-note { animation: none; }
   .ae-v2 .ae-music-playing { background: #e8ecdf; }
 }
