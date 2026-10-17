@@ -10,10 +10,6 @@
 .ae-v2 .ae-locations article > p:not(.ae-kicker) { line-height: 1.4; }
 /* Una portada completa, con ambas esquinas dentro del primer encuadre móvil. */
 @media (max-width: 767px) {
-  .ae-v2 .ae-music { right: auto; left: max(18px, env(safe-area-inset-left)); }
-  .ae-v2 .ae-music-status { right: auto; left: 0; }
-  .ae-v2 .ae-music-hint { right: auto; left: 72px; }
-  .ae-v2 .ae-music-hint svg { right: auto; left: -38px; transform: scaleX(-1); }
   .ae-v2 .ae-hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: clamp(48px, 8svh, 80px) clamp(32px, 9vw, 52px); }
   .ae-v2 .ae-hero .ae-botanical { width: min(62vw, 27svh, 250px); }
   .ae-v2 .ae-hero-top { font-size: 9px; line-height: 1.5; gap: 4px 14px; }

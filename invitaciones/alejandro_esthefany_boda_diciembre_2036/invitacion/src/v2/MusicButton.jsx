@@ -41,8 +41,7 @@ export default function MusicButton() {
   return <div className="ae-music">
     <audio ref={audioRef} src={backgroundMusicUrl || undefined} loop preload="none" onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onError={() => { setPlaying(false); setLoading(false); setError('La música no está disponible en este momento.') }} />
     {showHint && <p id="ae-music-hint" className="ae-music-hint">
-      <span>Ponle música a<br />este momento</span>
-      <small>Toca el disco</small>
+      <span>reproducir música</span>
       <svg viewBox="0 0 40 32" fill="none" aria-hidden="true"><path d="M3 4c17-2 13 19 32 19m-7-6 7 6-8 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </p>}
     <button className={`ae-music-button${playing ? ' ae-music-playing' : ''}`} onClick={toggle} disabled={!backgroundMusicUrl || loading} aria-describedby={showHint ? 'ae-music-hint' : undefined} aria-pressed={playing} aria-busy={loading} aria-label={!backgroundMusicUrl ? 'Música disponible próximamente' : loading ? 'Cargando música' : playing ? 'Pausar música' : 'Reproducir música'} title={!backgroundMusicUrl ? 'Música disponible próximamente' : playing ? 'Pausar música' : 'Reproducir música'}>
