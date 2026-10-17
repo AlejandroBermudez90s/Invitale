@@ -23,11 +23,6 @@ const EVENTOS = [
     slugUrl: 'elena-y-nicolas',
   },
   {
-    carpeta: 'invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion',
-    slugUrl: 'alejandro-y-esthefany-v2',
-    buildDir: 'dist-v2',
-  },
-  {
     carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
     slugUrl: 'jose-comunion',
   },

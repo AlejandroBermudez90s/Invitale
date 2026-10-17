@@ -1,115 +1,64 @@
-# Alejandro & Esthefany · versión artística
+# Alejandro & Esthefany · invitación definitiva
 
-## Imagen al compartir el enlace
+La versión artística elegida se publica como única invitación en
+`https://invitale.es/alejandro-y-esthefany/`. El código conserva la carpeta `src/v2/`
+para evitar cambios innecesarios en los componentes, pero ya no existe una entrada alternativa.
+`vite build` genera `dist/` con la base definitiva. Se han retirado los componentes,
+fotografías, portadas y propuestas descartadas de la versión anterior.
 
-- El favicon solo estaba declarado como icono del navegador. Se incorporan metadatos Open Graph y Twitter al HTML inicial, exclusivamente en modo artístico: título, descripción, URL canónica pública sin fragmento, idioma e imagen HTTPS absoluta con tipo, dimensiones y texto alternativo. El robot no necesita ejecutar React ni abrir el sobre.
-- `public/social/alejandro-esthefany-monograma-v1.jpg` es una exportación de `FloralMonogram.jsx` con sus tipografías y colores, centrada sobre marfil a 1200 × 630 px. JPEG optimizado y ruta pública estable, independiente del hash de los bundles. Si se cambia la imagen en el futuro, se debe versionar el nombre para distinguirla de copias almacenadas por las aplicaciones de mensajería.
-- El enlace para invitados es `https://www.invitale.es/alejandro-y-esthefany-v2/`. Las direcciones `localhost` y `127.0.0.1` solo funcionan en el propio equipo y no sirven para compartir con invitados. Una vista previa de mensajes ya enviados puede conservar la versión anterior; se comprueban los metadatos y la imagen publicados, sin afirmar una prueba de envío real en WhatsApp.
-- Build raíz y `check:deploy` correctos (128 recursos). En la vista previa de Cloudflare, solicitudes con los agentes `WhatsApp/2.24.0` y `facebookexternalhit/1.1` reciben HTML y JPEG en 200; imagen de 1200 × 630, 24.712 bytes e idéntica al recurso guardado. Propiedades sin duplicados, URL pública absoluta y versión original sin metadatos de la v2; invitaciones en 200 y ruta desconocida en 404.
+## Recursos activos
 
-## Aviso musical y disco en movimiento · 17 de octubre de 2026
+- `assets/botanica-lisianthus.webp`: dos arreglos de lisianthus blancos, rosados y melocotón,
+  con hojas salvia; sin frutos verdes. Ilustración generada y editada, 1024 × 1536.
+- `assets/sobre-floral-ligero.webp`: sobre marfil con dos arreglos pequeños, 948 × 1659.
+- `assets/sobre-floral-papel.webp`: misma composición sin sello, para separar la solapa y el sello.
+- `assets/iglesia-majada-ilustracion.webp`: interpretación de la Iglesia de la Purísima,
+  La Majada, Mazarrón, Murcia; referencia Turismo de Mazarrón:
+  https://visitamazarron.com/page/show/la-majada .
+- `assets/alcazar-ilustracion-detallada.webp`: retrato arquitectónico ilustrado del Alcázar,
+  con tinta, lápiz y acuarela, a juego con la iglesia. Referencia https://www.alcazardesegovia.com/ .
+- `assets/alcazar-acuarela.webp`: acuarela panorámica de la sección del lugar.
+- `assets/favicon-monograma.png`: monograma floral del cierre exportado a PNG de 96 × 96.
+- `assets/musica-fondo.mp3`: pista aportada por Alejandro, bucle con volumen inicial del 30%,
+  carga al pulsar y sin autoplay. `media.js` permite sustituirla mediante variable Vite.
+- `public/social/alejandro-esthefany-monograma-v1.jpg`: el mismo monograma renderizado
+  sobre marfil a 1200 × 630, JPEG optimizado para compartir enlaces.
+- `public/gallery/alejandro-y-esthefany/portada-v2.webp`, en la raíz del hub: captura de
+  la portada posterior al sobre, encuadrada en 4:5 como la tarjeta de la galería.
 
-- `MusicButton.jsx` muestra únicamente «reproducir música» en serif cursiva de 13 px y una flecha de 26 × 20 px, sin fondo, recuadro, borde, sombra, relleno ni texto adicional. El control queda en el margen inferior izquierdo también en escritorio para dejar libre la esquina floral derecha. El mensaje se retira en la primera pulsación, incluso si la reproducción falla, y se recuerda mediante una preferencia local exclusiva de esta invitación (`invitale:alejandro-esthefany-v2:music-hint-dismissed`). Si el almacenamiento está bloqueado, la pulsación sigue ocultándolo durante la visita.
-- El icono incorpora surcos y una etiqueta central de disco en SVG. Gira cada 12 segundos y conserva el ángulo al pausar; las notas siguen su movimiento suave. Disco y notas responden a los eventos reales del audio, sin iniciar música automáticamente. La preferencia de movimiento reducido mantiene los controles y desactiva el giro.
-- Revisión del aviso reducido en vistas de 390 × 844, 320 × 568 y 1280 × 900: texto de aproximadamente 82 × 16 px y flecha completa, fuera de los textos y flores de portada. Estilos calculados: fondo transparente, borde y relleno de 0 px, sin sombra. Se conservan las comprobaciones de reproducción real, avance de la rotación, pausa con detención del disco y ausencia del aviso al recargar y volver a abrir la invitación.
-- Build raíz y `check:deploy` correctos (124 recursos). Vista previa de Cloudflare comprobada con reproducción y pausa reales; todas las rutas de invitaciones en 200 y una ruta inexistente en 404.
+## Animación y lectura
 
-## Sobre floral ligero y apertura sin cámara · 17 de octubre de 2026
+`EnvelopeIntro` abre la solapa y disuelve el sobre sin mover la cámara. El contenido
+se habilita al terminar y el foco vuelve al título. `WrittenText` conserva texto accesible
+completo mientras escribe los caracteres visibles. La botánica y los dibujos ambientales
+aparecen progresivamente. Quince pétalos atraviesan toda la invitación sin capturar pulsaciones.
+El movimiento reducido elimina las esperas y animaciones decorativas.
 
-- La única indicación visible del sobre es «toca el sello para abrir la invitación», en serif cursiva de 14 px, sin fondo, recuadro, borde, sombra, relleno ni segundo mensaje. Se coloca en papel libre debajo del sello y antes de las flores; en horizontal de poca altura pasa al margen inferior izquierdo. Revisión visual en 390 × 844, 320 × 568, 1280 × 900 y 844 × 390. El foco de teclado se indica mediante subrayado del texto, sin dibujar un recuadro.
+`MusicButton` tiene un aviso pequeño sin fondo, flecha y texto «reproducir música».
+Se oculta tras la primera pulsación y recuerda la preferencia local. Se conserva su clave
+`invitale:alejandro-esthefany-v2:music-hint-dismissed` para respetar visitas anteriores.
+El disco y las notas siguen los eventos reales del audio.
 
-- `assets/sobre-floral-ligero.webp`: edición con la herramienta integrada de imágenes de Codex del sobre anterior, usando la botánica de la invitación como referencia de color. Papel marfil con dos arreglos pequeños de lisianthus blanco, rosa y melocotón y hojas salvia; se retiran los relieves barrocos y el marco floral denso. Se conserva el original de comparación, sin referencias desde el build. Conversión a WebP, 948 × 1659, calidad 88.
-- `assets/sobre-floral-papel.webp`: segunda edición del mismo arte para retirar solo el sello y reconstruir el pliegue. Permite separar el sello de las capas de papel sin duplicarlo al abrir. Mismas dimensiones y conversión.
-- `EnvelopeIntro.jsx` y su CSS mantienen el sobre al 100% de pantalla y el encuadre inmóvil. El sello se disuelve en 0,85 s; la solapa triangular gira alrededor de su pliegue durante 3,4 s, con inicio a los 0,65 s. El sobre empieza a desvanecerse a los 2,6 s durante 3,6 s, dejando ver la portada debajo. No hay carta que salga, desplazamiento del sobre ni cambio de escala. A los 6,2 s se retira el diálogo, se habilita el desplazamiento y se devuelve el foco al título. Con movimiento reducido, ambos callbacks se ejecutan sin espera.
-- Comprobado en vistas de 390 × 844, 320 × 568 y 1280 × 900: cobertura completa, apertura con pulsación y con teclado, solapa hacia arriba y cámara sin animación ni transformación durante el recorrido. Al terminar, el título recibe el foco, el contenido deja de estar inerte y se restaura el desplazamiento; también al acceder con `#historia`. Build raíz, `check:deploy` (124 recursos) y vista previa de Cloudflare correctos; todas las invitaciones responden 200 y una ruta inexistente responde 404.
+`RSVP` se abre con «Rellenar confirmación de asistencia» y simula el envío localmente.
+No hay servicio de confirmaciones real en esta muestra.
 
-### Prompt final del sobre cerrado
+## Compartir y publicar
 
-Use case: precise-object-edit. Asset type: closed-envelope full-screen opening artwork for an elegant mobile wedding invitation. Input image 1 is the EDIT TARGET: the closed ivory envelope. Input image 2 is ONLY the color and flower reference from the invitation. Keep the first image's exact straight-on viewpoint, portrait 9:16 composition, full-frame close-up paper envelope, V-shaped flap seam running from x=0 y=29% through x=50% y=52% to x=100% y=29%, and wax seal centered at x=50%, y=53%. Keep that geometry and alignment for animation. Radically simplify the decoration: remove ALL ornate baroque flourishes, large sculpted roses, gold leaves, scrolling flourishes and dense botanical relief. Make at least 85 percent of the paper area calm unadorned warm ivory #f6f1e7 with a fine natural cotton paper texture. Add ONLY TWO SMALL AIRY hand-painted sprigs: one near the upper-left area and one near the lower-right area, each with just one or two delicate lisianthus flowers and a few slender sage/eucalyptus green leaves. Use soft blush pink, apricot/peach and cream white matching image 2, with quiet but clearly visible fresh color. Decorations should occupy less than 15 percent of the total surface combined, no all-around floral border. Maintain the envelope's tactile premium stationery look, soft natural shadows at the folded paper seams, an elegant small ivory wax seal with a single very simple botanical imprint, not a bouquet. Modern, restrained and romantic, not antique. No letters, no text, no names, no watermark, no extra objects, no camera angle, no hands. Output portrait 1024x1792.
+El HTML inicial incluye canonical, Open Graph y Twitter con la URL definitiva e imagen
+HTTPS absoluta; el robot puede leerlos sin ejecutar React ni abrir el sobre. El favicon
+es el icono del navegador; la vista previa de WhatsApp utiliza la imagen Open Graph.
+Si se cambia esa imagen, versionar el nombre para distinguirla de las copias en caché.
+Los mensajes ya enviados pueden conservar su vista previa anterior.
 
-### Prompt final de la capa de papel sin sello
+La dirección comparativa y sus recursos redirigen con 301 mediante `public/_redirects`
+del hub. La galería enlaza a la dirección definitiva. Comprobar las respuestas públicas y
+los recursos referenciados por el HTML desplegado, no los hashes del build local.
 
-Use case: precise-object-edit. This image is an edit target and will be used as the openable paper layers of an animated web invitation. Remove ONLY the central ivory wax seal at x=50%, y=53%. Reconstruct the warm ivory cotton paper underneath with the V-shaped folded envelope seam meeting at x=50%, y=52%. Preserve EVERYTHING else pixel-aligned as closely as possible: exact composition, crop, paper texture, colors, flower positions, leaves, shadows, envelope size and all fold lines. The small pink, peach and white lisianthus arrangements must remain exactly unchanged. No other edits, no new objects, no text. Same portrait dimensions.
+## Validación de la sustitución · 17 de octubre de 2026
 
-## Revisión de arquitectura y favicon · 17 de octubre de 2026
-
-- Se sustituyen los dibujos vectoriales sencillos por `assets/iglesia-majada-ilustracion.webp` y `assets/alcazar-ilustracion-detallada.webp`. Generación con la herramienta integrada de imágenes de Codex, modo edición con fotografía de referencia, 1536 × 1024; conversión a WebP, calidad 88. Fachadas, perspectiva, piedra, tejas y sombras reciben más detalle, con una técnica común de tinta, lápiz y acuarela. El fondo marfil se integra mediante multiplicación y las imágenes mantienen su proporción sin recortes. La acuarela panorámica anterior del Alcázar se conserva.
-- `assets/favicon-monograma.png`: exportación del monograma floral existente del cierre, con sus tipografías ya renderizadas y fondo marfil; PNG de 96 × 96. Se inyecta únicamente en el HTML del modo artístico antes de que Vite procese los recursos, para obtener una URL con hash. El favicon de la versión original se conserva.
-- Verificación: build completo y `check:deploy` correctos (123 recursos); vista previa de Cloudflare con todas las rutas de invitaciones en 200 y una ruta inexistente en 404. Ilustraciones completas y sin desbordamiento horizontal a 390 y 320 px; revisión visual de escritorio. Los bordes se funden con dos máscaras graduales, sin recortar la arquitectura. El favicon compilado responde como PNG de 96 × 96 y aparece una sola vez en el HTML de la v2.
-
-### Prompt final · Iglesia de La Majada
-
-Use case: style-transfer. Asset type: detailed architectural illustration for the ceremony section of an elegant wedding invitation. The supplied photograph is the architectural reference: Iglesia de la Purísima in La Majada, Mazarrón, Murcia. Translate this exact building and same three-quarter viewpoint into a refined realistic hand-drawn architectural portrait in fine warm-gray ink, delicate colored pencil and restrained transparent watercolor washes. Preserve its recognizable asymmetrical whitewashed façade, single small curving bell gable, actual roofline, arched dark wooden door, small balcony on the left wing, reddish lower wall and trim, ochre tiled roof and small rear crossing roof, low white posts with black iron fence. Make proportions, perspective, roof tiles, doorway depth, shadows and plaster detail believable and much more realistic than a flat vector icon. Still unmistakably an illustration, not a photograph or a 3D render. Soft daylight. Isolate the COMPLETE building with generous breathing room, light sage grasses and a very subtle grounding wash fading naturally into an absolutely smooth uniform warm ivory #f6f1e7 background on all four sides. Landscape 3:2, building centered and occupies about 78 percent width, no crop. Modern luxury wedding stationery, same medium and quiet palette as a matching illustration of the Alcázar de Segovia. Remove street lamps, overhead wires, people, cars, bench, signage and neighboring buildings. Do not invent a church tower, dome or gothic details absent in the photo. No text, no lettering, no logos, no watermark, no border, no decorative flowers.
-
-### Prompt final · Alcázar de Segovia detallado
-
-Use case: style-transfer. Asset type: detailed architectural illustration for the banquet section of an elegant wedding invitation. The supplied photograph is the exact architectural reference: Alcázar de Segovia. Translate this same three-quarter viewpoint into a refined realistic hand-drawn architectural portrait in fine warm-gray ink, delicate colored pencil and restrained transparent watercolor washes. Preserve the precise identifiable silhouette, placement and proportions of the conical slate-roofed towers at left, long palace façade, the tall square crenellated Torre de Juan II behind at right, stone walls and rocky hill. Make perspective, stonework, windows, roof details and gentle dimensional shadows believable and much more realistic than a flat vector icon. Transform the night photo into soft natural daylight, warm limestone stone, muted blue-gray slate and sage greenery, no yellow artificial illumination. Still unmistakably an illustration, not a photograph or a 3D render. Isolate the COMPLETE castle with generous breathing room and a small suggestion of its rocky base, with pale washes fading naturally into an absolutely smooth uniform warm ivory #f6f1e7 background on all four sides. Landscape 3:2, castle centered and occupies about 78 percent width, nothing cropped. Modern luxury wedding stationery, same fine ink / pencil / watercolor medium and quiet palette as a matching whitewashed church illustration. Remove city skyline and cathedral beyond the castle, no streetlights, no night sky, no imaginary fairytale towers, no people, no cars, no text, no lettering, no logos, no watermark, no border, no decorative flowers.
-
-Muestra comparativa en `/alejandro-y-esthefany-v2/`. La invitación original conserva su ruta y sus componentes. Ambas se compilan desde el mismo proyecto Vite, con entradas y estilos separados según el modo de compilación.
-
-Se conservan la paleta salvia, terracota y crema, los nombres, los lugares y el itinerario del ejemplo. La fecha se unifica en el 26 de diciembre de 2036 a las 19:00 de España peninsular. El formulario es una demostración explícita: no realiza peticiones ni conserva respuestas. La cuenta bancaria es ficticia.
-
-## Recursos
-
-Generados con la herramienta integrada de imágenes de Codex. Se conservan los originales en la carpeta de imágenes generadas del usuario; las copias WebP optimizadas que usa la web están en `assets/`.
-
-- `botanica-contemporanea.webp`: nueva botánica editorial con eucalipto, olivo, cosmos y flores coral; fondo liso, sin papel envejecido. Se genera con la herramienta integrada y se convierte a WebP a 1024 × 1536, calidad 88. `botanica.webp` conserva la propuesta anterior como recurso de comparación.
-- `alcazar-acuarela.webp`: ilustración generada utilizando como referencia la fotografía existente `src/assets/alcazar-segovia.jpg`; no sustituye una representación arquitectónica documental.
-- `sobre-relieve.webp`: propuesta anterior marfil con relieve floral y sello de cera, conservada como comparación; la apertura actual utiliza los dos recursos `sobre-floral-*`. El texto y la apertura se implementan en HTML/React.
-
-## Prompts finales de las nuevas ilustraciones
-
-### Botánica
-
-Use case: illustration-story. Asset type: finished background art for a luxury mobile wedding invitation, portrait 2:3 composition. Create original fine-art botanical watercolor on warm ivory handmade cotton paper (#f6f1e7), sophisticated Spanish wedding stationery. Delicate loose garden roses and peonies in muted terracotta and pale peach, tiny ivory blossoms, airy olive and eucalyptus branches in dusty sage green. Flowers concentrated in upper left corner and lower right corner, some very fine botanical stems near the border. Painterly pigment blooms, detailed translucent petals, visible paper tooth, organic deckled watercolor washes. The central 65% must be very calm blank ivory negative space for live typography, no lettering or text, no frame line, no inset cards, no people, no objects except botanicals. Refined and richly artistic, restrained saturation, editorial wedding illustration, not vector clipart, not a photograph, no watermark.
-
-### Alcázar
-
-Use case: style-transfer. Asset type: landscape watercolor illustration for an elegant wedding invitation. Use the attached photograph as the exact architectural reference: retain the recognizable Alcázar de Segovia silhouette, the left tall conical roof and towers, the large square crenellated keep at right, rocky hill and stone walls, this precise viewpoint. Translate it into a masterful loose watercolor painting on warm ivory cotton paper. Warm limestone and restrained terracotta, gray slate roofs, dusty sage greenery, luminous pale peach afternoon sky instead of night illumination. Atmospheric soft washes, subtly inked architectural details, richly textured pigments, irregular watercolor edges fading naturally into blank ivory around ALL four sides. Castle sits in middle with breathing room, landscape 3:2 composition, nothing cropped. Romantic, graceful, premium bespoke wedding stationery. No text, no typography, no imaginary fairy-tale towers, no people, no watermark.
-
-## Verificación
-
-- `npm run build` desde la raíz compila también la v2 y la incluye en `publish/`.
-- `npm run check:deploy` comprueba el paquete de Cloudflare.
-- `npm run preview:site` sirve ambas versiones para revisar apertura, formulario de demostración, enlaces, cuenta atrás y desbordamientos en móvil y escritorio.
-- Desarrollo solo de esta versión: `npm run dev -- --mode artistic` dentro de esta invitación.
-- Apertura de 6,2 segundos: sello que se disuelve, solapa con giro 3D y fundido coordinado con la aparición escalonada de los nombres, fecha y dedicatoria. `EnvelopeIntro.jsx` separa el papel y el sello en capas CSS; no añade vídeo ni librerías.
-- Al entrar, el sobre cerrado ocupa el 100% del ancho y alto visibles, sin márgenes ni desplazamiento. La ilustración conserva su proporción y se recorta según la pantalla. Toda la superficie permite abrirlo; una indicación discreta invita a tocar el sello. El encuadre permanece fijo durante toda la apertura. La secuencia no ofrece un botón para saltarla; al terminar se restaura el desplazamiento y se lleva el foco al título. La preferencia de movimiento reducido mantiene la apertura inmediata.
-- Las flores aparecen desde opacidad cero durante 3,6–4 segundos al llegar a cada escena; después oscilan en capas independientes con ciclos de 17 y 21 segundos. Quince pétalos de rosa caen por toda la pantalla, incluidos los espacios centrales, con opacidad máxima de 0,2 en el centro y 0,3 en los márgenes; no reciben pulsaciones. Los textos alcanzan opacidad completa antes de terminar su desplazamiento lento. IntersectionObserver activa las apariciones sin bloquear el desplazamiento.
-- La botánica de portada y cierre recupera opacidad completa y conserva sus colores, sin capas de papel superpuestas que la oculten. Se separan los grupos florales superior e inferior y se sitúa el contenido en el espacio central, con mayores márgenes interiores. Los textos conservan el contraste y los tamaños legibles. Se retiran los controles de pausar movimiento, ver la original y volver a abrir el sobre. El cierre conserva la firma de Invitale sin navegación.
-- La preferencia del sistema de movimiento reducido omite la secuencia y todas las animaciones, y oculta las hojas. El texto y los controles siguen siendo HTML, no texto incrustado en imágenes.
-- `MusicButton.jsx` reproduce y pausa el archivo aportado por Alejandro (`assets/musica-fondo.mp3`), en bucle, con volumen inicial del 30% y carga solo al pulsar. Las notas se animan con el evento real `playing` y se detienen con `pause`, `ended` o error. `media.js` importa el archivo para que Vite publique su URL con hash y conserva `VITE_INVITATION_MUSIC_URL` como sustitución opcional. No se inicia automáticamente ni se solicita el audio al entrar.
-- Solo la v2 declara su paleta clara y el marcador de fidelidad cromática [documentado por Dark Reader](https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site): la recoloración del navegador de pruebas estaba ocultando las acuarelas de fondo. No se cambia ninguna preferencia del navegador.
-
-## Revisión editorial y botánica contemporánea
-
-- Bodoni Moda para títulos, Cormorant Garamond para textos de lectura y Alex Brush para dedicatorias; Work Sans solo para pequeños indicadores y controles. La hoja adicional de Google Fonts se inyecta exclusivamente en modo artístico.
-- `WrittenText.jsx` conserva una versión completa para el lector de pantalla y otra visual oculta a accesibilidad. Cada carácter aparece al entrar el texto en pantalla, con un ritmo máximo de 3,2 segundos por fragmento y sin cambios de tamaño de la composición. No anima campos, controles ni los números de la cuenta atrás. Con movimiento reducido o sin IntersectionObserver, el texto aparece completo.
-- Fecha superior y tarjeta del sobre: 26 · 12 · 2036. Se elimina la línea inferior de portada «Una nueva vida juntos / 19:00 h».
-- Seis ramitas vectoriales, de trazos sencillos y hojas frescas, aparecen suavemente al llegar a cada sección. Cuatro pares de pequeños pájaros acompañan algunos márgenes. Los ornamentos no reciben pulsaciones y quedan fuera del centro de lectura.
-- El itinerario incorpora seis dibujos propios en SVG (ramo, iglesia, copas, mesa, alianzas y fiesta), círculos salvia/coral/dorado/azul y horarios terracota, inspirándose en la claridad de la referencia sin reproducirla.
-- El formulario solo aparece al pulsar «Rellenar confirmación de asistencia», con un lápiz. Se despliega dentro del mismo papel, con campos transparentes y líneas finas; `aria-expanded`, foco inicial y devolución del foco al cerrar. Conserva validación y confirmación local de demostración, sin enviar datos.
-
-### Prompt final de la botánica contemporánea
-
-Use case: illustration-story. Asset type: contemporary luxury wedding invitation botanical artwork for a portrait mobile web invitation. Create a clean modern botanical illustration on an absolutely smooth uniform warm ivory background color #f6f1e7, portrait 2:3. Two airy asymmetric arrangements only: upper left corner and lower right corner. Fresh eucalyptus and olive sprigs, elegant elongated sage and mint green leaves, a few simple white cosmos flowers, soft apricot and muted coral blossoms, fine fluid stems. Modern editorial gouache and light watercolor, crisp sophisticated shapes with delicate translucent color, artful and custom, graceful negative space. The central 65% must stay completely empty for live typography; arrangements follow the outer edges. Contemporary wedding stationery from an independent designer, fresh and light. No dried flowers, no dense old fashioned roses, no baroque or vintage ornament, no sepia, no aged paper, no grain, no faded antique look, no text, no letters, no frame, no watermark. Rich clear botanical color concentrated at the corners, not a washed out overlay.
-
-- `FloralMonogram.jsx` sustituye el círculo simple por una corona abierta vectorial: doble arco fino, ramitas salvia, pequeñas flores melocotón, detalles dorados e iniciales Bodoni Moda con ampersand Alex Brush. Se mantiene nítido en cualquier pantalla y entra con la aparición suave del cierre.
-
-## Portada completa, lisianthus y dibujos de los lugares
-
-- La portada móvil usa `100svh` como mínimo y un contenido compacto que conserva todos los textos. Las dos esquinas florales se reducen según la altura disponible, también en pantallas de 320 × 568. Se conserva desplazamiento natural si el contenido necesita más espacio, sin recortar texto.
-- `botanica-lisianthus.webp`: edición de la botánica contemporánea con la herramienta integrada de imágenes; conserva las dos esquinas, elimina todas las aceitunas/frutos verdes y añade lisianthus blancos, rosados y melocotón. Conversión a WebP de 1024 × 1536, calidad 88. Sustituye la ilustración de portada y cierre.
-- `FallingPetals.jsx` sustituye las hojas por quince pétalos rosados y marfil con caída y giro suaves. También pasan por el centro; los tamaños de 10–15 px y la transparencia protegen la lectura. Capa fija sin pulsaciones, presente en todas las secciones; oculta con movimiento reducido.
-- `VenueSketch.jsx` presenta dos ilustraciones arquitectónicas del mismo estilo: iglesia de La Majada y Alcázar de Segovia, para los detalles de ceremonia y banquete. La acuarela grande del Alcázar sigue en su sección. La iglesia parte de la fotografía de Turismo de Mazarrón: fachada blanca asimétrica, espadaña, zócalo rojizo, balcón lateral y cubierta posterior. El Alcázar toma la silueta de la fotografía ya disponible, con torres de pizarra y torre almenada.
-- Se corrige la ceremonia a La Majada, pedanía de Mazarrón (Murcia), en texto y mapa de ambas versiones. La cabecera de la v2 indica Murcia · Segovia; el sobre conserva solo la fecha. La marca se escribe Invitale en la invitación y en los textos del hub.
-- `EnvironmentalSketch.jsx` aporta pequeñas escenas de pájaros, mariposa y flor, lazo, carta y alianzas entre secciones. Aparecen suavemente y ocupan espacios propios fuera de los párrafos.
-
-### Referencias de los dibujos
-
-- Iglesia: Turismo de Mazarrón, https://visitamazarron.com/page/show/la-majada ; fotografía de referencia https://visitamazarron.com/storage/contentbuilder_uploads/20240802pmn_pm16124_la-majada-2pedanias-mazarron-5h86fq.jpg . Las fotos consultadas permanecen fuera del build y del repositorio.
-- Alcázar: fotografía existente `src/assets/alcazar-segovia.jpg` y silueta documentada por https://www.alcazardesegovia.com/ . Las ilustraciones son interpretaciones artísticas, no planos documentales.
-
-### Prompt final de la edición floral
-
-Use case: precise-object-edit. Asset type: floral corner illustration for a contemporary elegant wedding invitation. Edit the supplied illustration. Keep its refined fresh modern botanical gouache/watercolor style, smooth warm ivory background #f6f1e7, sage green and eucalyptus foliage, airy sophistication and large empty center. Keep TWO separate floral arrangements, ONLY at the upper left and lower right corners, each compact and self-contained within the outer 55 percent of the width and 35 percent of the height; the center must remain completely blank for live text. Replace the large flat cosmos flowers with beautiful LIS IAN THUS / LISIANTHUS / Eustoma flowers: softly ruffled, layered cup-shaped petals, cream white, pale blush pink and light apricot, delicate modern fresh wedding bouquet. Show several recognizable open lisianthus flowers in each corner, some side-facing. Remove EVERY green olive-like oval fruit and ALL round berry clusters from both arrangements. Replace those with simple fresh leaves, slender stems and flowers. No olives, no fruit, no berries, no green balls, no grapes. Avoid closed green round buds. Maintain fine illustrated botanical detail and clean contemporary colors without sepia, paper grain or antique styling. Portrait 2:3. No text, no letters, no watermark, no frame. The two groups should feel balanced in size, allowing both to be displayed on one mobile screen around a central block of typography.
+Build completo y `check:deploy` correctos (109 recursos). La vista previa de Cloudflare
+sirve las cuatro invitaciones y el hub en 200, y una ruta inexistente en 404. Las dos
+reglas 301 llevan la ruta comparativa y sus recursos a la dirección definitiva. Se comprueba
+el HTML con agentes WhatsApp y Facebook: metadatos únicos y públicos, JPEG de 1200 × 630,
+favicon PNG de 96 × 96 y scripts/estilos en 200. La galería muestra la captura de 600 × 750
+con ambas esquinas, fecha de diciembre de 2036 y enlace a la invitación definitiva.

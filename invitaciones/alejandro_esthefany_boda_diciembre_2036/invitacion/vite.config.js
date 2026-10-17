@@ -1,22 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-const invitationUrl = 'https://www.invitale.es/alejandro-y-esthefany-v2/'
+const invitationUrl = 'https://invitale.es/alejandro-y-esthefany/'
 const shareImageUrl = `${invitationUrl}social/alejandro-esthefany-monograma-v1.jpg`
 const shareTitle = 'Alejandro & Esthefany · Nuestra boda'
 const shareDescription = '26 de diciembre de 2036 · Nos elegimos. Nos casamos. Y queremos celebrarlo contigo.'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === 'artistic' ? '/alejandro-y-esthefany-v2/' : '/alejandro-y-esthefany/',
-  build: { outDir: mode === 'artistic' ? 'dist-v2' : 'dist' },
-  plugins: [react(), ...(mode === 'artistic' ? [{
-    name: 'artistic-color-fidelity',
+export default defineConfig({
+  base: '/alejandro-y-esthefany/',
+  plugins: [react(), {
+    name: 'invitation-metadata',
     transformIndexHtml: {
       order: 'pre',
       handler(html) {
         return {
-          html: html.replace(/<link\s+rel="icon"[^>]*\/?>/, '<link rel="icon" type="image/png" sizes="96x96" href="/src/v2/assets/favicon-monograma.png" />'),
+          html,
           // La recoloración automática puede borrar las acuarelas de fondo.
           tags: [
             { tag: 'link', attrs: { rel: 'canonical', href: invitationUrl }, injectTo: 'head' },
@@ -49,5 +48,5 @@ export default defineConfig(({ mode }) => ({
         }
       },
     },
-  }] : [])],
-}))
+  }],
+})

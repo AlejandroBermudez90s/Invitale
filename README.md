@@ -60,7 +60,6 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/`
 - `/andrea-15/`
 - `/alejandro-y-esthefany/`
-- `/alejandro-y-esthefany-v2/` — muestra artística comparativa, con imágenes generadas y formulario de demostración explícito.
 - `/elena-y-nicolas/`
 - `/jose-comunion/`
 
@@ -68,9 +67,11 @@ Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invi
 cargar sus propios scripts, estilos, imágenes y audio. Los formularios de las muestras de
 Alejandro/Esthefany, Elena/Nicolás y José simulan el envío y no son un backend RSVP real.
 
-La versión artística de Alejandro y Esthefany se genera con `vite build --mode artistic`
-en `dist-v2/`, desde `src/v2/`. El comando raíz la construye e incluye en el despliegue;
-la galería continúa enlazando a la versión original hasta elegir la definitiva.
+La invitación definitiva de Alejandro y Esthefany se genera desde `src/v2/` con el build
+Vite normal en `dist/` y se publica en `/alejandro-y-esthefany/`. La versión anterior
+se ha retirado. La galería muestra la portada posterior a la apertura del sobre.
+`public/_redirects` conserva los enlaces compartidos con `/alejandro-y-esthefany-v2/`,
+redirigiéndolos permanentemente a la dirección definitiva, incluidos sus recursos.
 
 ## Añadir un evento
 

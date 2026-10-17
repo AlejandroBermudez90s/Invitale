@@ -17,8 +17,8 @@ export const invitations = [
     id: "alejandro-y-esthefany",
     title: "Alejandro & Esthefany",
     eventType: "Boda",
-    date: "Diciembre 2024",
-    coverImage: "/gallery/alejandro-y-esthefany/portada.png",
+    date: "Diciembre 2036",
+    coverImage: "/gallery/alejandro-y-esthefany/portada-v2.webp",
     url: "/alejandro-y-esthefany/",
   },
   {
