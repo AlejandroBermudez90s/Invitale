@@ -20,12 +20,15 @@ Vista previa local: http://127.0.0.1:8787/jose-comunion-v2/
 - No se ha realizado prueba física en Redmi ni emulación de movimiento reducido; esta preferencia
   está contemplada por código para evitar la secuencia de despegue y los revelados.
 
-## Publicación pendiente
+## Publicación verificada
 
-No se ha publicado. El 18 de octubre de 2026 la revisión automática de permisos rechazó
-`npm run deploy`: cambiaría el Worker de producción completo y exige autorización explícita
-del usuario para el despliegue externo. El build está preparado para publicar cuando la dé.
-El dominio real `https://invitale.es/jose-comunion/` se verificó respondiendo 200 desde Cloudflare.
+Publicada el 18 de octubre de 2026 tras la autorización explícita del usuario: «sí, publica en v2».
+URL: https://invitale.es/jose-comunion-v2/
+Cloudflare Worker: https://invitale.alejandro2003bermudez.workers.dev/jose-comunion-v2/
+Versión de Cloudflare: `39fce938-a3e7-475e-9e0c-0832bd7441ed`.
+Se comprobaron ambas direcciones: seis rutas con respuesta 200, rutas inexistentes con 404
+y los 13 recursos extraídos del HTML, JavaScript y CSS publicados con respuesta 200.
+La invitación original y el enlace de la galería permanecen en `/jose-comunion/`.
 
 ## Arte y capturas
 
