@@ -4,7 +4,8 @@
 - La versión actual se conserva en `/elena-y-nicolas/`; su galería no cambia.
 - `src/marine/MarineApp.jsx` y `MarineApp.css` implementan el rediseño en `/elena-y-nicolas-v2/`.
 - `npm run build:marine` genera `dist-marine/`; el build raíz compila ambas y las fusiona.
-- Mantiene paleta Costa Azul y tipografías originales. Decoración de conchas, oleaje y aves;
+- Mantiene paleta Costa Azul; el rediseño usa únicamente Cormorant Garamond, incluida la interfaz.
+- Decoración de conchas, oleaje, aves, náutilos, perlas y cabos trenzados en los márgenes;
   sin guirnaldas florales. Cuatro acuarelas propias optimizadas en WebP, ver `src/marine/ARTE.md`.
 - Sobre interactivo, monograma E/N, lectura progresiva, cuenta atrás, lugares e itinerario.
 - Música ambiental propia sintetizada con Web Audio al pulsar, sin autoplay ni pista compartida.
@@ -12,6 +13,12 @@
 - Los nombres/lugares siguen siendo de muestra. La finca no tiene una dirección real; su enlace
   indica «Ver la zona». No presentar ninguna respuesta del formulario como un envío real.
 - Metadatos propios, favicon marino y `noindex` para la versión de comparación.
+- Revisión: burbujas transparentes que caen por toda la invitación; veinte partículas sin
+  interacción y desactivadas con movimiento reducido. Acuarelas reveladas con trece pinceladas
+  alternas en aproximadamente cuatro segundos al entrar en pantalla; grabados con trazado progresivo.
+- Sin ilustración grande en vestimenta. Los detalles marinos son pequeños y repartidos.
+- El cierre no lleva aviso de muestra/ficticio por indicación del usuario; la marca se firma
+  en dos líneas. El formulario conserva información veraz sobre su funcionamiento local.
 
 Invitación construida como ejemplo de portfolio para InvitAle, replicando el estilo de una
 invitación digital ilustrada tipo "wooowinvites" (acuarela costera, sello de lacre, cuenta

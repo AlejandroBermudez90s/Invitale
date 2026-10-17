@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     transformIndexHtml(html) {
       if (mode !== 'marine') return html
       return html
+        .replace(/https:\/\/fonts.googleapis.com\/css2\?[^\"]+/, 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap')
         .replace(/<link rel="icon"[^>]+>/, '<link rel="icon" type="image/svg+xml" href="/elena-y-nicolas-v2/favicon-mar.svg">')
         .replace(/\s*<link rel="stylesheet" href="https:\/\/cdn.jsdelivr.net[^>]+>/, '')
         .replace(/\s*<script src="https:\/\/cdn.jsdelivr.net[^>]+><\/script>/, '')

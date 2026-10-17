@@ -1,0 +1,176 @@
+/* Una sola familia serif: los cambios de voz se resuelven con tamaño, peso y cursiva. */
+.en-marine { font-size: 20px; line-height: 1.7; }
+.en-marine h2 { font-size: clamp(38px, 4vw, 60px); line-height: 1.15; }
+.en-marine h3 { font-size: 34px; }
+.en-kicker { font-size: 13px; letter-spacing: .16em; }
+.en-section-no { font-size: 12px; letter-spacing: .13em; }
+.en-script { font-size: 29px; font-style: italic; }
+.en-topline { font-size: 12px; letter-spacing: .13em; }
+.en-hero h1 { font-size: clamp(78px, 8vw, 112px); }
+.en-hero-note { font-size: 23px; line-height: 1.55; }
+.en-date strong { font-size: 23px; }
+.en-date > span, .en-date-sub { font-size: 13px; }
+.en-button { font-size: 16px !important; letter-spacing: .05em; }
+.en-text-button { font-size: 16px !important; }
+.en-text-link { font-size: 14px; letter-spacing: .1em; }
+.en-scroll { font-size: 12px; }
+.en-cover-label { font-size: 16px; }
+.en-story-copy p:not(.en-kicker) { max-width: 560px; }
+.en-coast-figure figcaption { font-size: 12px; letter-spacing: .1em; }
+.en-place-note { font-size: 24px; line-height: 1.6; }
+.en-countdown strong { font-size: 52px; }
+.en-countdown span { font-size: 12px; }
+.en-venues article > p:not(.en-kicker) { font-size: 18px; }
+.en-venue-note { font-size: 13px; }
+.en-timeline h3 { font-size: 29px; }
+.en-timeline p { font-size: 17px; }
+.en-timeline time { font-size: 14px; }
+.en-dress { display: block; max-width: 1200px; text-align: center; padding-top: 120px; padding-bottom: 130px; }
+.en-dress-copy { max-width: 640px; margin: auto; }
+.en-dress h2 { margin-bottom: 26px; }
+.en-palette { justify-content: center; }
+.en-palette small { font-size: 12px; }
+.en-dress-note { font-size: 19px; }
+.en-demo { font-size: 15px; }
+.en-form-paper label { font-size: 18px; }
+.en-form-paper input, .en-form-paper textarea, .en-form-paper select { font-size: 19px; }
+.en-success p { font-size: 19px; }
+.en-footer .en-script { font-size: 27px; }
+.en-footer-date { font-size: 16px; }
+.en-footer-bottom { justify-content: center; font-size: 16px; }
+.en-footer-bottom a { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 20px; }
+.en-footer-bottom strong { display: block; margin: 0; font-size: 31px; line-height: 1.2; font-weight: 500; }
+.en-music-hint { font-size: 15px; }
+.en-envelope-letter > span { font-size: 13px; }
+.en-envelope-letter small { font-size: 16px; }
+.en-envelope-hint { font-size: 16px; }
+.en-envelope-top-shells { width: 175px; left: -22px; top: -40px; }
+.en-envelope-shells { width: 190px; right: -24px; bottom: 18px; }
+.en-hero-shells { width: 90px; right: 5%; bottom: 11%; }
+
+/* Burbujas transparentes que atraviesan la pantalla sin interceptar gestos ni pulsaciones. */
+.en-water-bubbles { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 8; }
+.en-water-bubbles > span { position: absolute; left: var(--bubble-x); top: -45px; width: var(--bubble-size); height: var(--bubble-size); border: 1px solid #77a6b168; border-radius: 50%; background: radial-gradient(circle at 28% 22%, #ffffffb0 0, #ffffff00 30%, #a6ccd014 65%, #5c91a52b 100%); box-shadow: inset -1px -2px 3px #85acb124, 0 0 2px #ffffff70; animation: en-bubble-fall var(--bubble-time) var(--bubble-delay) linear infinite; will-change: transform; }
+.en-water-bubbles i { position: absolute; width: 22%; height: 11%; top: 15%; left: 20%; border-radius: 50%; background: #ffffffcf; transform: rotate(-36deg); }
+@keyframes en-bubble-fall {
+  0% { transform: translate3d(0, -20px, 0); opacity: 0; }
+  8% { opacity: .65; }
+  30% { transform: translate3d(var(--bubble-drift), 30vh, 0); }
+  60% { transform: translate3d(calc(var(--bubble-drift) * -.6), 65vh, 0); }
+  90% { opacity: .55; }
+  100% { transform: translate3d(var(--bubble-drift), calc(100vh + 70px), 0); opacity: 0; }
+}
+
+/* Pinceladas: 13 pasadas que se solapan hasta descubrir toda la imagen. */
+.en-painted-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; overflow: visible; mix-blend-mode: multiply; }
+.en-paint-stroke { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.en-paint-ready .en-paint-stroke { stroke-dashoffset: 1; }
+.en-paint-ready.en-visible.en-image-loaded .en-paint-stroke { animation: en-watercolor-stroke 1.35s var(--stroke-delay) cubic-bezier(.35, .05, .2, 1) both; }
+@keyframes en-watercolor-stroke { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* Pequeños grabados marinos distribuidos en los márgenes de cada escena. */
+.en-section, .en-footer { isolation: isolate; }
+.en-marine-decoration { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.en-sea-motif { position: absolute; width: 90px; color: #47788a; }
+.en-sea-motif svg { display: block; width: 100%; height: auto; stroke: currentColor; stroke-width: .8; stroke-linecap: round; stroke-linejoin: round; }
+.en-sea-motif .en-sea-wash { fill: #b7c8d136; stroke: none; }
+.en-sea-motif svg path:not(.en-sea-wash) { stroke-dasharray: 420; stroke-dashoffset: 0; }
+.en-sea-motif.en-pending svg path:not(.en-sea-wash) { stroke-dashoffset: 420; }
+.en-sea-motif.en-visible svg path:not(.en-sea-wash) { animation: en-marine-ink 3.3s ease forwards; }
+@keyframes en-marine-ink { to { stroke-dashoffset: 0; } }
+.en-sea-motif .en-rope-shadow { stroke: #a68a5b50; stroke-width: 6; }
+.en-sea-motif .en-rope-strand { stroke: #d5bd8f; stroke-width: 3.5; }
+.en-sea-motif .en-rope-braid { stroke: #8b7959; stroke-width: 3.7; stroke-dasharray: 1 4 !important; }
+.en-sea-motif-1 { top: 65px; right: 4%; transform: rotate(18deg); }
+.en-sea-motif-2 { bottom: 42px; left: 4%; width: 115px; transform: rotate(-16deg); }
+.en-sea-motif-3 { bottom: 65px; right: 5%; width: 62px; transform: rotate(12deg); }
+.en-decoration-story .en-sea-motif-1 { left: 4%; right: auto; top: 100px; }
+.en-decoration-story .en-sea-motif-2 { left: 30%; bottom: 70px; }
+.en-decoration-place .en-sea-motif-1 { top: 88px; }
+.en-decoration-celebration .en-sea-motif-1 { top: 80px; }
+.en-decoration-dress .en-sea-motif-1 { top: 135px; left: 4%; right: auto; }
+.en-decoration-dress .en-sea-motif-2 { left: auto; right: 4%; width: 95px; bottom: 90px; }
+.en-decoration-dress .en-sea-motif-3 { left: 8%; right: auto; bottom: 58px; width: 100px; }
+.en-decoration-rsvp .en-sea-motif-1 { top: 85px; right: 5%; width: 125px; }
+.en-decoration-footer .en-sea-motif-1 { left: 8%; right: auto; top: 155px; }
+.en-decoration-footer .en-sea-motif-2 { left: auto; right: 8%; bottom: 140px; }
+
+@media (max-width: 760px) {
+  .en-marine { font-size: 19px; line-height: 1.65; }
+  .en-section { padding-top: 110px; padding-bottom: 115px; }
+  .en-marine h2 { font-size: 37px; line-height: 1.14; }
+  .en-marine h3 { font-size: 31px; }
+  .en-kicker { font-size: 11px; letter-spacing: .13em; }
+  .en-section-no { font-size: 11px; letter-spacing: .1em; }
+  .en-topline { font-size: 10px; letter-spacing: .08em; }
+  .en-hero { min-height: max(950px, 100svh); padding-top: 105px; }
+  .en-hero h1 { font-size: 82px; }
+  .en-hero h1 > i { font-size: 36px; }
+  .en-hero .en-kicker { font-size: 11px; margin-bottom: 22px !important; }
+  .en-hero-note { font-size: 20px; line-height: 1.45; }
+  .en-date { margin: 20px auto 17px; }
+  .en-date strong { font-size: 20px; }
+  .en-date > span { font-size: 11px; }
+  .en-scroll { font-size: 11px; }
+  .en-hero-shells { width: 64px; bottom: 95px; right: 5%; }
+  .en-envelope-top-shells { width: 145px; top: -24px; left: -33px; }
+  .en-envelope-shells { width: 155px; right: -25px; bottom: 15px; }
+  .en-envelope-address { font-size: 22px; left: 15%; right: 15%; }
+  .en-envelope-hint { font-size: 14px; }
+  .en-envelope-letter > span { font-size: 11px; }
+  .en-envelope-letter small { font-size: 13px; }
+  .en-story { padding-top: 115px; }
+  .en-story-copy p:not(.en-kicker) { max-width: 430px; }
+  .en-script { font-size: 27px; }
+  .en-coast-figure figcaption { font-size: 11px; }
+  .en-place-note { font-size: 22px; }
+  .en-date-sub { font-size: 13px; }
+  .en-countdown strong { font-size: 39px; }
+  .en-countdown span { font-size: 10px; }
+  .en-venues { gap: 75px; }
+  .en-venues article > p:not(.en-kicker) { font-size: 18px; }
+  .en-timeline { max-width: 330px; }
+  .en-timeline li { grid-template-columns: 53px 1fr; gap: 20px; padding-bottom: 36px; }
+  .en-timeline li:not(:last-child)::after { left: 26px; }
+  .en-timeline h3 { font-size: 27px; }
+  .en-timeline p { font-size: 16px; line-height: 1.4; }
+  .en-timeline time { font-size: 13px; }
+  .en-dress { padding-top: 125px; }
+  .en-dress h2 { font-size: 36px; }
+  .en-palette { gap: 21px; }
+  .en-palette small { font-size: 10px; }
+  .en-dress-note { font-size: 18px; }
+  .en-rsvp .en-button { font-size: 15px !important; }
+  .en-form-paper .en-button { font-size: 14px !important; }
+  .en-footer h2 { font-size: 40px; }
+  .en-footer .en-script { font-size: 26px; }
+  .en-footer-date { font-size: 14px; }
+  .en-footer-bottom { font-size: 16px; }
+  .en-music-hint { font-size: 13px; }
+  .en-sea-motif { width: 52px; opacity: .85; }
+  .en-sea-motif-1 { top: 62px; right: 5%; }
+  .en-sea-motif-2 { bottom: 27px; left: 4%; width: 65px; }
+  .en-sea-motif-3 { bottom: 40px; right: 4%; width: 42px; }
+  .en-decoration-story .en-sea-motif-1 { top: 80px; left: 6%; }
+  .en-decoration-story .en-sea-motif-2 { left: 6%; bottom: 35px; }
+  .en-decoration-place .en-sea-motif-1, .en-decoration-celebration .en-sea-motif-1 { top: 40px; }
+  .en-decoration-dress .en-sea-motif-1 { top: 62px; left: 5%; width: 48px; }
+  .en-decoration-dress .en-sea-motif-2 { width: 55px; right: 5%; bottom: 38px; }
+  .en-decoration-dress .en-sea-motif-3 { width: 65px; left: auto; right: 5%; top: 55px; bottom: auto; }
+  .en-decoration-rsvp .en-sea-motif-1 { top: 38px; width: 70px; }
+  .en-decoration-footer .en-sea-motif-1 { top: 120px; left: 5%; }
+  .en-decoration-footer .en-sea-motif-2 { right: 4%; bottom: 165px; width: 60px; }
+}
+@media (max-width: 360px) {
+  .en-hero { min-height: max(900px, 100svh); }
+  .en-hero h1 { font-size: 75px; }
+  .en-topline { font-size: 9px; }
+  .en-marine h2 { font-size: 34px; }
+  .en-marine { font-size: 18px; }
+  .en-timeline li { gap: 16px; }
+  .en-timeline h3 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .en-water-bubbles { display: none; }
+  .en-paint-stroke, .en-sea-motif svg path { stroke-dashoffset: 0 !important; animation: none !important; }
+}

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { DayIcon, Monogram, Shell, Waves } from './MarineArt'
+import { MarineDecoration, PaintedImage, WaterBubbles } from './MarineAtmosphere'
 import coast from './assets/costa-brava.webp'
 import shells from './assets/conchas.webp'
 import chapel from './assets/ermita.webp'
 import finca from './assets/finca.webp'
 import './MarineApp.css'
+import './MarineAtmosphere.css'
 
 const weddingDate = new Date('2027-06-12T19:00:00+02:00')
 const moments = [
@@ -107,6 +109,7 @@ function RSVP() {
   }, [expanded])
   useEffect(() => { if (sent) result.current?.focus() }, [sent])
   return <section className="en-rsvp en-section" id="confirmar" aria-labelledby="en-rsvp-title">
+    <MarineDecoration scene="rsvp" />
     <div className="en-reveal"><Shell className="en-section-shell" /><p className="en-kicker">La última pieza de este día eres tú</p>
       <h2 id="en-rsvp-title"><Written>¿Nos acompañas?</Written></h2>
       <p>Nos hace ilusión guardarte un sitio.<br />Confírmanos antes del <strong>12 de abril de 2027.</strong></p>
@@ -141,17 +144,17 @@ export default function MarineApp() {
   }, [opened])
   useEffect(() => {
     if (!opened || reduced || !('IntersectionObserver' in window)) return
-    const elements = root.current.querySelectorAll('.en-reveal')
-    elements.forEach(el => el.classList.add('en-pending'))
+    const elements = root.current.querySelectorAll('.en-reveal, .en-paint-reveal, .en-decor-reveal')
+    elements.forEach(el => el.classList.add(el.classList.contains('en-paint-reveal') ? 'en-paint-ready' : 'en-pending'))
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('en-visible'); observer.unobserve(entry.target) }
     }), { threshold: .08 })
     elements.forEach(el => observer.observe(el))
-    return () => { observer.disconnect(); elements.forEach(el => el.classList.remove('en-pending', 'en-visible')) }
+    return () => { observer.disconnect(); elements.forEach(el => el.classList.remove('en-pending', 'en-paint-ready', 'en-visible')) }
   }, [opened, reduced])
   return <div ref={root} className="en-marine" data-motion={reduced ? 'reduced' : 'full'}>
     {!opened && <Envelope reduced={reduced} onOpen={() => setOpened(true)} />}
-    {opened && <SeaMusic />}
+    {opened && <><SeaMusic />{!reduced && <WaterBubbles />}</>}
     <main inert={!opened} className={opened ? 'en-is-open' : 'en-is-closed'}>
       <a className="en-skip" href="#confirmar">Ir a confirmar asistencia</a>
       <header className="en-hero" id="inicio">
@@ -161,7 +164,7 @@ export default function MarineApp() {
           <div className="en-date"><span>Sábado</span><strong>12 . 06 . 27</strong><span>A las 19:00 h</span></div>
           <p className="en-hero-note">Una vida juntos.<br /><em>Y el Mediterráneo de testigo.</em></p>
         </div>
-        <figure className="en-hero-landscape"><img src={coast} alt="Acuarela de una cala de la Costa Brava, con rocas doradas y un velero sobre el Mediterráneo" width="1536" height="1024" fetchPriority="high" /></figure>
+        <figure className="en-hero-landscape"><PaintedImage src={coast} alt="Acuarela de una cala de la Costa Brava, con rocas doradas y un velero sobre el Mediterráneo" /></figure>
         <svg className="en-gulls" viewBox="0 0 160 70" fill="none" aria-hidden="true"><path d="M5 35q13-12 26 0 13-12 26 0m12-18q10-9 20 0 10-9 20 0m8 37q8-8 16 0 8-8 16 0" /></svg>
         <img className="en-hero-shells" src={shells} alt="" width="1024" height="1024" />
         <a href="#historia" className="en-scroll">Nuestra historia <span aria-hidden="true">↓</span></a>
@@ -169,6 +172,7 @@ export default function MarineApp() {
       </header>
 
       <section className="en-story en-section" id="historia" aria-labelledby="en-story-title">
+        <MarineDecoration scene="story" />
         <span className="en-section-no">01 / La historia</span>
         <div className="en-story-mark en-reveal"><Monogram /></div>
         <div className="en-story-copy en-reveal"><p className="en-kicker">Hay lugares que siempre serán casa</p>
@@ -181,34 +185,36 @@ export default function MarineApp() {
       </section>
 
       <section className="en-place en-section" aria-labelledby="en-place-title">
+        <MarineDecoration scene="place" />
         <div className="en-reveal"><p className="en-kicker">Nuestro rincón del mundo</p><h2 id="en-place-title"><Written>Donde el tiempo</Written><br /><em><Written>se queda en la orilla.</Written></em></h2></div>
-        <figure className="en-coast-figure en-reveal"><img src={coast} alt="Paisaje ilustrado de la Costa Brava en tonos azul océano y arena" width="1536" height="1024" loading="lazy" /><figcaption>Costa Brava, Girona · El horizonte de nuestra historia</figcaption></figure>
+        <figure className="en-coast-figure"><PaintedImage src={coast} alt="Paisaje ilustrado de la Costa Brava en tonos azul océano y arena" /><figcaption>Costa Brava, Girona · El horizonte de nuestra historia</figcaption></figure>
         <p className="en-place-note en-reveal">La luz de junio, la brisa salada y esa manera que tiene el mar de hacerlo todo un poco más bonito. Aquí empieza nuestro siempre.</p>
       </section>
 
       <section className="en-celebration en-section" id="celebracion" aria-labelledby="en-date-title">
+        <MarineDecoration scene="celebration" />
         <span className="en-section-no">02 / La celebración</span>
         <div className="en-reveal"><p className="en-kicker">Guarda un día para nosotros</p><h2 id="en-date-title"><Written>12 de junio de 2027</Written></h2><p className="en-date-sub">Sábado · Costa Brava · 19:00 h</p><Countdown /></div>
         <div className="en-venues">
-          <article className="en-reveal"><figure><img src={chapel} alt="Interpretación en acuarela de la Ermita de Sant Elm, frente al Mediterráneo" width="1536" height="1024" loading="lazy" /></figure><p className="en-kicker">El sí, quiero · 19:00 h</p><h3>Ermita de Sant Elm</h3><p>Costa Brava, Girona</p><a className="en-text-link" href="https://www.google.com/maps/search/?api=1&query=Ermita+de+Sant+Elm+Sant+Feliu+de+Guixols" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
-          <article className="en-reveal"><figure><img src={finca} alt="Ilustración de la finca de muestra Els Ginesters, con su terraza preparada para la celebración" width="1536" height="1024" loading="lazy" /></figure><p className="en-kicker">La celebración · 21:00 h</p><h3>Finca Els Ginesters</h3><p>Costa Brava, Girona</p><a className="en-text-link" href="https://www.google.com/maps/search/?api=1&query=Costa+Brava+Girona" target="_blank" rel="noopener noreferrer">Ver la zona <span aria-hidden="true">↗</span></a><small className="en-venue-note">Finca de muestra · ubicación ilustrativa</small></article>
+          <article className="en-reveal"><figure><PaintedImage src={chapel} alt="Interpretación en acuarela de la Ermita de Sant Elm, frente al Mediterráneo" /></figure><p className="en-kicker">El sí, quiero · 19:00 h</p><h3>Ermita de Sant Elm</h3><p>Costa Brava, Girona</p><a className="en-text-link" href="https://www.google.com/maps/search/?api=1&query=Ermita+de+Sant+Elm+Sant+Feliu+de+Guixols" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a></article>
+          <article className="en-reveal"><figure><PaintedImage src={finca} alt="Ilustración de Els Ginesters, con su terraza preparada para la celebración" /></figure><p className="en-kicker">La celebración · 21:00 h</p><h3>Finca Els Ginesters</h3><p>Costa Brava, Girona</p><a className="en-text-link" href="https://www.google.com/maps/search/?api=1&query=Costa+Brava+Girona" target="_blank" rel="noopener noreferrer">Ver la zona <span aria-hidden="true">↗</span></a><small className="en-venue-note">Finca de muestra · ubicación ilustrativa</small></article>
         </div>
       </section>
 
-      <section className="en-day en-section" aria-labelledby="en-day-title"><span className="en-section-no">03 / El día, despacio</span>
+      <section className="en-day en-section" aria-labelledby="en-day-title"><MarineDecoration scene="day" /><span className="en-section-no">03 / El día, despacio</span>
         <div className="en-reveal"><p className="en-kicker">De la primera llegada al último baile</p><h2 id="en-day-title"><Written>Sin prisa,</Written> <em><Written>contigo.</Written></em></h2></div>
         <ol className="en-timeline">{moments.map(([hour, title, description, icon]) => <li className="en-reveal" key={hour}><div className="en-moment-art"><DayIcon name={icon} /></div><div><time>{hour}</time><h3>{title}</h3><p>{description}</p></div></li>)}</ol><Waves />
       </section>
 
       <section className="en-dress en-section" aria-labelledby="en-dress-title"><span className="en-section-no">04 / Los pequeños detalles</span>
-        <img className="en-dress-shells en-reveal" src={shells} alt="" width="1024" height="1024" loading="lazy" />
+        <MarineDecoration scene="dress" />
         <div className="en-dress-copy en-reveal"><p className="en-kicker">Elegancia con brisa de mar</p><h2 id="en-dress-title"><Written>Vestirse de verano.</Written></h2><p>Colores suaves, telas ligeras y calzado apto para arena y césped. Queremos verte elegante, pero sobre todo, disfrutar.</p>
           <ul className="en-palette">{[['Océano', '#1f5c78'], ['Hortensia', '#8b93c9'], ['Arena', '#c9a35c'], ['Verde mar', '#7c9b8e']].map(([label, color]) => <li key={label}><span style={{ '--swatch': color }} /><small>{label}</small></li>)}</ul>
           <p className="en-dress-note">Un pequeño favor: reservamos el blanco y el marfil completo para la novia.</p>
         </div>
       </section>
       <RSVP />
-      <footer className="en-footer"><Waves /><div className="en-reveal"><Monogram /><p className="en-kicker">Todos los caminos nos traen a este día</p><h2>Nos vemos <em>junto al mar.</em></h2><p>Vuestra presencia lo hará inolvidable.</p><span className="en-script">Con todo nuestro cariño</span><p className="en-footer-date">Elena &amp; Nicolás · 12 de junio de 2027</p></div><div className="en-footer-bottom"><span>Invitación de muestra · Datos ficticios</span><a href="/">Diseñado para recordar <strong>Invitale</strong></a></div></footer>
+      <footer className="en-footer"><MarineDecoration scene="footer" /><Waves /><div className="en-reveal"><Monogram /><p className="en-kicker">Todos los caminos nos traen a este día</p><h2>Nos vemos <em>junto al mar.</em></h2><p>Vuestra presencia lo hará inolvidable.</p><span className="en-script">Con todo nuestro cariño</span><p className="en-footer-date">Elena &amp; Nicolás · 12 de junio de 2027</p></div><div className="en-footer-bottom"><a href="/"><span>Diseñado para recordar</span><strong>Invitale</strong></a></div></footer>
     </main>
   </div>
 }

@@ -6,6 +6,22 @@ Propuesta comparativa del 18 de octubre de 2026. La invitación anterior y la ga
 
 Papelería marfil con azul océano, hortensia, verde mar y arena de la invitación original. Composición costera propia: acuarela de cala y velero, conchas con cordón fino, sello azul con relieve de concha, monograma E/N y oleaje dibujado. Las plantas que aparecen forman parte del paisaje; no hay decoración floral.
 
+### Revisión de ambientación, animación y tipografía
+
+Se reduce el tamaño de las conchas del sobre y la portada y se elimina la ilustración grande
+de vestimenta. `MarineAtmosphere.jsx` añade veintiún pequeños motivos distribuidos entre siete
+secciones: conchas, caracolas, náutilos, estrellas, perlas, cabos y nudos. Son grabados SVG editables
+que amplían los motivos vectoriales existentes; no se han generado nuevas imágenes raster.
+
+Veinte burbujas transparentes caen lentamente sobre la lectura, sin capturar pulsaciones.
+Las cuatro acuarelas se descubren mediante trece pasadas de pincel alternas, en 3,75 segundos,
+cuando entran en pantalla y la imagen está cargada. Con movimiento reducido aparecen completas
+y se eliminan las burbujas. La decoración de tinta también tiene trazado progresivo.
+
+Todos los textos e interfaz de esta versión usan únicamente Cormorant Garamond (regular,
+seminegrita y cursiva). Se elimina el aviso de muestra del cierre y «Diseñado para recordar»
+queda encima de «Invitale». El formulario sigue indicando que no envía respuestas.
+
 Se trasladan las ideas de apertura, lectura progresiva, ilustración, música opcional, ritmo editorial y RSVP desplegable de Alejandro y Esthefany. Se conservan fecha, lugares, historia y vestimenta de Elena y Nicolás. No se añade cuenta bancaria a una invitación que no tenía regalos.
 
 ## Recursos y procedencia
