@@ -2,16 +2,14 @@
 .ae-v2 { --ae-ease: cubic-bezier(.22, .61, .36, 1); }
 .ae-v2 .ae-hero, .ae-v2 .ae-footer { position: relative; background: var(--ae-cream); isolation: isolate; overflow: hidden; }
 .ae-v2 .ae-hero > :not(.ae-botanical), .ae-v2 .ae-footer > :not(.ae-botanical) { position: relative; z-index: 1; }
-.ae-v2 .ae-botanical { position: absolute; inset: -1.5%; z-index: 0; background: var(--ae-botanica) center/cover no-repeat; pointer-events: none; opacity: 0; }
-.ae-v2 .ae-botanical-top { mask-image: linear-gradient(145deg, #000 24%, transparent 57%); transform-origin: 0 0; }
-.ae-v2 .ae-botanical-bottom { mask-image: linear-gradient(325deg, #000 24%, transparent 57%); transform-origin: 100% 100%; }
+.ae-v2 .ae-botanical { position: absolute; width: min(100%, 620px); aspect-ratio: 2 / 3; z-index: 0; background: var(--ae-botanica) center/cover no-repeat; pointer-events: none; opacity: 0; }
+.ae-v2 .ae-botanical-top { left: 0; top: 0; mask-image: linear-gradient(145deg, #000 0 35%, transparent 55%); transform-origin: 0 0; }
+.ae-v2 .ae-botanical-bottom { right: 0; bottom: 0; mask-image: linear-gradient(325deg, #000 0 35%, transparent 55%); transform-origin: 100% 100%; }
 .ae-v2 .ae-awaiting .ae-hero-content > *, .ae-v2 .ae-awaiting .ae-hero-top, .ae-v2 .ae-awaiting .ae-hero-bottom { opacity: 0; }
 .ae-v2[data-motion="full"] .ae-opened .ae-hero .ae-botanical-top, .ae-v2[data-motion="full"] .ae-decoration-ready .ae-botanical-top { animation: ae-botanical-appear 3.6s .4s var(--ae-ease) both, ae-botanical-breathe 17s 4s ease-in-out infinite alternate; }
 .ae-v2[data-motion="full"] .ae-opened .ae-hero .ae-botanical-bottom, .ae-v2[data-motion="full"] .ae-decoration-ready .ae-botanical-bottom { animation: ae-botanical-appear 4s 1s var(--ae-ease) both, ae-botanical-breathe 21s 5s ease-in-out infinite alternate-reverse; }
-/* Papel opaco bajo las letras, con bordes difuminados hacia la acuarela. */
-.ae-v2 .ae-hero-content::before, .ae-v2 .ae-footer-copy::before { content: ''; position: absolute; inset: -10px -24px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse, var(--ae-cream) 0 64%, #f6f1e7ed 77%, #f6f1e700 100%); }
-.ae-v2 .ae-footer-copy { position: relative; width: min(100%, 650px); margin-inline: auto; padding: 28px 12px; isolation: isolate; }
-.ae-v2 .ae-footer-copy::before { inset: -30px -40px; }
+/* La lectura ocupa el centro libre de la composición, sin velos sobre las flores. */
+.ae-v2 .ae-footer-copy { position: relative; width: min(100%, 480px); margin-inline: auto; isolation: isolate; }
 .ae-v2 .ae-opened .ae-hero-top, .ae-v2 .ae-opened .ae-hero-bottom { animation: ae-soft-arrival 2.5s .25s var(--ae-ease) both; }
 .ae-v2 .ae-opened .ae-hero-content > .ae-kicker { animation: ae-soft-arrival 2.4s .4s var(--ae-ease) both; }
 .ae-v2 .ae-opened .ae-hero h1 { animation: ae-names-arrival 3.4s .85s var(--ae-ease) both; }
@@ -32,12 +30,12 @@
 .ae-v2[data-motion="reduced"] *, .ae-v2[data-motion="reduced"] *::before, .ae-v2[data-motion="reduced"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 @keyframes ae-soft-arrival { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 @keyframes ae-names-arrival { from { opacity: 0; transform: translateY(26px) scale(.965); } to { opacity: 1; transform: none; } }
-@keyframes ae-botanical-appear { from { opacity: 0; } to { opacity: .85; } }
+@keyframes ae-botanical-appear { from { opacity: 0; } to { opacity: 1; } }
 @keyframes ae-botanical-breathe { from { transform: rotate(-.45deg) translate(-2px, 0) scale(1); } to { transform: rotate(.5deg) translate(3px, 5px) scale(1.012); } }
 @keyframes ae-scroll-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
 @media (prefers-reduced-motion: reduce) {
   .ae-v2 *, .ae-v2 *::before, .ae-v2 *::after { animation: none !important; transition: none !important; }
   .ae-v2 .ae-reveal { opacity: 1; transform: none; }
-  .ae-v2 .ae-botanical { opacity: .85; }
+  .ae-v2 .ae-botanical { opacity: 1; }
   .ae-v2 .ae-story::before, .ae-v2 .ae-gift::before { opacity: .14; }
 }

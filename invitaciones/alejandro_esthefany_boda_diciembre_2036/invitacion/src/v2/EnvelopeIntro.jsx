@@ -7,17 +7,17 @@ const OPENING_DURATION = 7600
 
 export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
   const [opening, setOpening] = useState(false)
-  const skipRef = useRef(null)
+  const dialogRef = useRef(null)
 
   useEffect(() => {
     if (!opening) return
-    skipRef.current?.focus({ preventScroll: true })
+    dialogRef.current?.focus({ preventScroll: true })
     const revealTimer = window.setTimeout(onReveal, reducedMotion ? 0 : 5300)
     const timer = window.setTimeout(onOpened, reducedMotion ? 0 : OPENING_DURATION)
     return () => { window.clearTimeout(revealTimer); window.clearTimeout(timer) }
   }, [opening, reducedMotion, onReveal, onOpened])
 
-  return <section className={`ae-envelope${opening ? ' ae-envelope-opening' : ''}`} role="dialog" aria-modal="true" aria-labelledby="ae-envelope-title" aria-describedby="ae-envelope-instruction">
+  return <section ref={dialogRef} tabIndex={-1} className={`ae-envelope${opening ? ' ae-envelope-opening' : ''}`} role="dialog" aria-modal="true" aria-labelledby="ae-envelope-title" aria-describedby="ae-envelope-instruction">
     <div className="ae-envelope-heading">
       <p className="ae-kicker">Hay historias que merecen una carta</p>
       <h1 id="ae-envelope-title">Alejandro <span>&amp;</span> Esthefany</h1>
@@ -47,6 +47,5 @@ export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
       <p id="ae-envelope-instruction" className="ae-envelope-dedication">Toca el sello para abrir</p>
       <p className="ae-envelope-hint" role="status">{opening ? 'Nuestra historia está a punto de comenzar…' : 'Una carta, para ti'}</p>
     </div>
-    {opening && <button ref={skipRef} className="ae-intro-skip" onClick={onOpened}>Saltar introducción <span aria-hidden="true">↗</span></button>}
   </section>
 }
