@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import botanica from './assets/botanica.webp'
 import alcazar from './assets/alcazar-acuarela.webp'
-import sobre from './assets/sobre-relieve.webp'
+import EnvelopeIntro from './EnvelopeIntro'
 import './ArtisticApp.css'
+import './CinematicMotion.css'
 
 const weddingDate = new Date('2036-12-26T19:00:00+01:00')
 const itinerary = [
@@ -83,7 +84,21 @@ function Gift() {
 
 export default function ArtisticApp() {
   const [opened, setOpened] = useState(false)
+  const [revealing, setRevealing] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [paused, setPaused] = useState(false)
+  const rootRef = useRef(null)
   const headingRef = useRef(null)
+  const revealInvitation = useCallback(() => setRevealing(true), [])
+  const finishOpening = useCallback(() => { setRevealing(true); setOpened(true) }, [])
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReducedMotion(preference.matches)
+    preference.addEventListener('change', update)
+    return () => preference.removeEventListener('change', update)
+  }, [])
+
   useEffect(() => {
     const previous = document.documentElement.style.overflow
     if (!opened) document.documentElement.style.overflow = 'hidden'
@@ -91,24 +106,48 @@ export default function ArtisticApp() {
     return () => { document.documentElement.style.overflow = previous }
   }, [opened])
 
-  return <div className="ae-v2" style={{ '--ae-botanica': `url("${botanica}")` }}>
-    {!opened && <section className="ae-envelope" role="dialog" aria-modal="true" aria-labelledby="ae-envelope-title">
-      <div className="ae-envelope-copy">
-        <p className="ae-kicker">Una historia para celebrar</p>
-        <h1 id="ae-envelope-title">Alejandro<span>&amp;</span>Esthefany</h1>
-        <p className="ae-envelope-date">26 de diciembre de 2036 · Segovia</p>
-        <p className="ae-envelope-dedication">Con cariño, para ti.</p>
-        <button className="ae-button ae-button-solid" autoFocus onClick={() => setOpened(true)}>Abrir invitación <span aria-hidden="true">↗</span></button>
-      </div>
-      <button className="ae-envelope-art" onClick={() => setOpened(true)} aria-label="Romper el sello y abrir la invitación">
-        <img src={sobre} alt="" width="1000" height="1777" fetchPriority="high" />
-      </button>
-      <span className="ae-envelope-signature">Una invitación de InvitAle</span>
-    </section>}
+  useEffect(() => {
+    if (!opened || reducedMotion || paused || !('IntersectionObserver' in window)) return
+    const sections = rootRef.current.querySelectorAll('main > section, main > footer')
+    const targets = []
+    sections.forEach(section => {
+      section.classList.add('ae-scene')
+      const children = section.querySelectorAll(':scope > :not(.ae-section-number):not(.ae-botanical), .ae-story-copy > p, .ae-locations > article, .ae-itinerary li')
+      children.forEach((element, index) => {
+        element.classList.add('ae-reveal')
+        element.style.setProperty('--ae-delay', `${Math.min(index * 100, 400)}ms`)
+        targets.push(element)
+      })
+    })
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return
+        entry.target.classList.add('ae-in-view')
+        observer.unobserve(entry.target)
+      })
+    }, { threshold: .08, rootMargin: '0px 0px -24px 0px' })
+    targets.forEach(element => observer.observe(element))
+    return () => {
+      observer.disconnect()
+      targets.forEach(element => element.classList.remove('ae-reveal', 'ae-in-view'))
+    }
+  }, [opened, reducedMotion, paused])
 
-    <main inert={!opened} className={opened ? 'ae-opened' : ''}>
+  function replay() {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    setRevealing(false)
+    setOpened(false)
+  }
+
+  return <div ref={rootRef} className="ae-v2" data-motion={reducedMotion ? 'reduced' : paused ? 'paused' : 'full'} style={{ '--ae-botanica': `url("${botanica}")` }}>
+    {!opened && <EnvelopeIntro reducedMotion={reducedMotion || paused} onReveal={revealInvitation} onOpened={finishOpening} />}
+    {opened && !reducedMotion && <button className="ae-motion-toggle" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? 'Reanudar movimiento' : 'Pausar movimiento'} <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span></button>}
+
+    <main inert={!opened} className={revealing ? 'ae-opened' : 'ae-awaiting'}>
       <a className="ae-skip" href="#confirmar">Ir a confirmar asistencia</a>
       <header className="ae-hero">
+        <div className="ae-botanical ae-botanical-top" aria-hidden="true" />
+        <div className="ae-botanical ae-botanical-bottom" aria-hidden="true" />
         <div className="ae-hero-top"><span>Segovia, España</span><span>26 · XII · 2036</span></div>
         <div className="ae-hero-content">
           <p className="ae-kicker">Con toda la ilusión del mundo</p>
@@ -153,11 +192,14 @@ export default function ArtisticApp() {
       <Gift /><RSVP />
 
       <footer className="ae-footer">
+        <div className="ae-botanical ae-botanical-top" aria-hidden="true" />
+        <div className="ae-botanical ae-botanical-bottom" aria-hidden="true" />
         <span className="ae-footer-monogram" aria-hidden="true">A <i>&amp;</i> E</span>
         <p className="ae-kicker">El principio de todo</p><h2>¡Os esperamos!</h2>
         <p>Vuestra presencia hará este día inolvidable.</p>
         <a className="ae-footer-brand" href="/">Diseñado para recordar <span>InvitAle</span></a>
         <a className="ae-original-link" href="/alejandro-y-esthefany/">Ver la versión original ↗</a>
+        <button className="ae-replay" onClick={replay}>Volver a abrir el sobre <span aria-hidden="true">↺</span></button>
       </footer>
     </main>
   </div>
