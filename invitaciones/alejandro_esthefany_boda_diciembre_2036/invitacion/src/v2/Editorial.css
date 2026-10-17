@@ -1,0 +1,98 @@
+/* Tipografía y ornamentos exclusivos de esta invitación. */
+.ae-v2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.65; }
+.ae-v2 h1, .ae-v2 h2, .ae-v2 h3 { font-family: 'Bodoni Moda', 'Cormorant Garamond', serif; }
+.ae-v2 h2 { font-size: clamp(40px, 5.5vw, 68px); line-height: 1.16; }
+.ae-v2 .ae-kicker, .ae-v2 .ae-section-number, .ae-v2 .ae-hero-top, .ae-v2 .ae-scroll, .ae-v2 .ae-button, .ae-v2 .ae-year, .ae-v2 .ae-countdown small, .ae-v2 .ae-text-link, .ae-v2 .ae-footer-brand, .ae-v2 figcaption { font-family: 'Work Sans', sans-serif; }
+.ae-v2 .ae-hero { grid-template-rows: auto 1fr; }
+.ae-v2 .ae-hero h1 { font-size: clamp(65px, 7.5vw, 94px); line-height: 1; letter-spacing: -.065em; }
+.ae-v2 .ae-hero-subtitle { font-size: 25px; }
+.ae-v2 .ae-date-line { font-family: 'Cormorant Garamond', serif; }
+.ae-v2 .ae-date-line > span { font-size: 15px; }
+.ae-v2 .ae-story-copy { max-width: 540px; }
+.ae-v2 .ae-locations h3 { font-size: 40px; }
+.ae-v2 .ae-locations article > p:not(.ae-kicker), .ae-v2 .ae-gift-details { font-size: 20px; }
+.ae-v2 .ae-gift-details summary { font-size: 18px; letter-spacing: .025em; text-transform: none; }
+.ae-v2 .ae-gift > p:not(.ae-kicker) { max-width: 640px; margin-inline: auto; }
+.ae-v2 .ae-footer-copy > p:not(.ae-kicker):not(.ae-footer-brand) { font-size: 22px; }
+
+/* El texto completo conserva su sitio; cada carácter recibe la tinta. */
+.ae-v2 .ae-reading-text { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ae-v2 .ae-write-ready .ae-ink-character { opacity: 0; }
+.ae-v2 .ae-write-started .ae-ink-character { animation: ae-ink-arrival .38s calc(var(--ink-delay) + var(--writing-start-delay, 0ms)) ease-out both; }
+.ae-v2 .ae-hero-subtitle { --writing-start-delay: 2200ms; }
+.ae-v2 .ae-hero h1 { --writing-start-delay: 800ms; }
+@keyframes ae-ink-arrival { from { opacity: 0; } to { opacity: 1; } }
+
+/* Ramitas y pequeñas aves en los márgenes libres de lectura. */
+.ae-v2 .ae-section, .ae-v2 .ae-venue { position: relative; isolation: isolate; }
+.ae-v2 .ae-story::before, .ae-v2 .ae-gift::before { display: none; }
+.ae-v2 .ae-botanical-accent { position: absolute; width: clamp(72px, 12vw, 156px); top: 12%; opacity: 0; pointer-events: none; z-index: -1; transform: translateY(22px) rotate(-9deg); transition: opacity 3.8s .5s ease, transform 5s ease; }
+.ae-v2 .ae-botanical-accent > svg { display: block; width: 100%; height: auto; }
+.ae-v2 .ae-accent-left { left: max(-24px, calc((100% - 1200px) / 2)); }
+.ae-v2 .ae-accent-right { right: max(-24px, calc((100% - 1200px) / 2)); top: auto; bottom: 12%; transform: translateY(22px) rotate(13deg) scaleX(-1); }
+.ae-v2 .ae-decoration-ready > .ae-botanical-accent { opacity: .82; transform: rotate(-9deg); }
+.ae-v2 .ae-decoration-ready > .ae-accent-right { transform: rotate(13deg) scaleX(-1); }
+.ae-v2 .ae-botanical-accent .ae-little-birds { position: absolute; top: -75px; left: 28px; width: 95px; opacity: .85; }
+.ae-v2 .ae-accent-right .ae-little-birds { left: -12px; top: -95px; }
+.ae-v2 .ae-bird-one, .ae-v2 .ae-bird-two { transform-origin: center; animation: ae-bird-glide 13s ease-in-out infinite alternate; }
+.ae-v2 .ae-bird-two { animation-duration: 17s; animation-delay: -5s; }
+@keyframes ae-bird-glide { from { transform: translate(0, 0) rotate(-3deg); } to { transform: translate(7px, -7px) rotate(3deg); } }
+
+/* Un recorrido de color, con un pequeño dibujo para cada momento. */
+.ae-v2 .ae-itinerary { background: #eef1e8; }
+.ae-v2 .ae-itinerary ol { width: min(100%, 470px); margin-top: 60px; }
+.ae-v2 .ae-itinerary li { --moment-color: #657f6c; --moment-paper: #e2e9df; grid-template-columns: 72px 1fr; column-gap: 28px; padding-bottom: 38px; align-items: start; }
+.ae-v2 .ae-itinerary li:nth-child(2), .ae-v2 .ae-itinerary li:nth-child(5) { --moment-color: #a46650; --moment-paper: #f1e2d5; }
+.ae-v2 .ae-itinerary li:nth-child(3), .ae-v2 .ae-itinerary li:nth-child(6) { --moment-color: #917341; --moment-paper: #eee8cf; }
+.ae-v2 .ae-itinerary li:nth-child(4) { --moment-color: #5d7c82; --moment-paper: #dfebea; }
+.ae-v2 .ae-itinerary li::before { left: 35px; top: 72px; bottom: 0; background: linear-gradient(#aabb9b, #cbb79d); }
+.ae-v2 .ae-moment-icon { width: 72px; height: 72px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--moment-color), transparent 45%); border-radius: 50%; background: var(--moment-paper); color: var(--moment-color); }
+.ae-v2 .ae-moment-icon svg { width: 44px; height: 44px; }
+.ae-v2 .ae-moment-copy { padding-top: 0; }
+.ae-v2 .ae-itinerary time { display: block; font: 400 24px/1.35 'Cormorant Garamond', serif; color: #88472e; padding: 0; }
+.ae-v2 .ae-itinerary h3 { font-size: 25px; line-height: 1.35; margin: 3px 0; }
+.ae-v2 .ae-itinerary li p { font-size: 19px; line-height: 1.4; color: #485c4c; }
+
+/* La confirmación se despliega en el mismo papel, sin una tarjeta aparte. */
+.ae-v2 .ae-rsvp { display: block; text-align: center; background: linear-gradient(155deg, #eff0e7, #f6f1e7 58%, #f4e8dc); }
+.ae-v2 .ae-rsvp-intro { max-width: 600px; margin-inline: auto; }
+.ae-v2 .ae-rsvp-seal { width: 74px; height: 74px; border: 1px solid #a7b59e; border-radius: 50%; margin: 0 auto 32px; display: grid; place-items: center; color: var(--ae-sage); }
+.ae-v2 .ae-rsvp-seal svg { width: 40px; height: 40px; }
+.ae-v2 .ae-rsvp-trigger { margin-top: 32px; letter-spacing: .04em; font-size: 12px; text-transform: none; gap: 12px; padding: 15px 22px; border-radius: 30px; }
+.ae-v2 .ae-rsvp-trigger svg { width: 26px; height: 26px; flex-shrink: 0; }
+.ae-v2 .ae-form-paper { width: min(100%, 480px); padding: 45px 0 0; margin: 30px auto 0; background: transparent; box-shadow: none; text-align: left; scroll-margin-top: 20px; animation: ae-soft-arrival 1.5s ease both; }
+.ae-v2 .ae-form-paper[hidden] { display: none; }
+.ae-v2 .ae-demo-note { font: 400 12px/1.7 'Work Sans', sans-serif; text-align: center; padding-bottom: 20px; margin-bottom: 30px; border-color: #bfbca8; }
+.ae-v2 .ae-form-paper label { font-size: 22px; margin: 28px 0 4px; }
+.ae-v2 .ae-form-paper input, .ae-v2 .ae-form-paper select, .ae-v2 .ae-form-paper textarea { border: 0; border-bottom: 1px solid #99a28b; background: transparent; padding: 9px 4px 12px; font-size: 21px; }
+.ae-v2 .ae-form-paper select { background-color: #f3f0e6; }
+.ae-v2 .ae-form-paper input::placeholder, .ae-v2 .ae-form-paper textarea::placeholder { color: #6a6a58; font-size: 19px; }
+.ae-v2 .ae-form-paper .ae-button { margin-top: 35px; border-radius: 30px; font-size: 11px; }
+.ae-v2 .ae-form-close { display: block; margin: 30px auto 0; font-size: 19px; }
+.ae-v2 .ae-success p { font-size: 20px; }
+
+@media (max-width: 767px) {
+  .ae-v2 { font-size: 21px; }
+  .ae-v2 .ae-hero h1 { font-size: clamp(45px, 13.9vw, 88px); }
+  .ae-v2 .ae-story-copy, .ae-v2 .ae-venue-text, .ae-v2 .ae-gift > p:not(.ae-kicker) { font-size: 21px; }
+  .ae-v2 .ae-hero-subtitle { font-size: 23px; }
+  .ae-v2 .ae-itinerary h2 { font-size: clamp(36px, 10vw, 44px); }
+  .ae-v2 .ae-itinerary li { grid-template-columns: 58px 1fr; column-gap: 18px; padding-bottom: 34px; }
+  .ae-v2 .ae-moment-icon { width: 58px; height: 58px; }
+  .ae-v2 .ae-moment-icon svg { width: 35px; height: 35px; }
+  .ae-v2 .ae-itinerary li::before { left: 28px; top: 58px; }
+  .ae-v2 .ae-itinerary h3 { font-size: 23px; }
+  .ae-v2 .ae-itinerary li p { font-size: 18px; }
+  .ae-v2 .ae-botanical-accent { width: 65px; }
+  .ae-v2 .ae-accent-left { left: -30px; }
+  .ae-v2 .ae-accent-right { right: -30px; }
+  .ae-v2 .ae-botanical-accent .ae-little-birds { width: 65px; left: 26px; top: -64px; }
+  .ae-v2 .ae-rsvp-trigger { padding: 13px 17px; font-size: 12px; line-height: 1.6; }
+  .ae-v2 .ae-form-paper { padding: 30px 0 0; }
+  .ae-v2 .ae-rsvp h2 { font-size: clamp(34px, 9.5vw, 54px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ae-v2 .ae-write-ready .ae-ink-character { opacity: 1; }
+  .ae-v2 .ae-botanical-accent { opacity: .82; transform: none; }
+}
+.ae-v2[data-motion="reduced"] .ae-ink-character { opacity: 1; }

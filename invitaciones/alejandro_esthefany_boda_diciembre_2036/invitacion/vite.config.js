@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
       return [
         { tag: 'meta', attrs: { name: 'color-scheme', content: 'light' }, injectTo: 'head-prepend' },
         { tag: 'meta', attrs: { name: 'darkreader-lock' }, injectTo: 'head-prepend' },
+        { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&display=swap' }, injectTo: 'head' },
       ]
     },
   }] : [])],

@@ -32,7 +32,7 @@ export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
           <span className="ae-letter-kicker">Con cariño, para ti</span>
           <span className="ae-letter-names">Alejandro<i>&amp;</i>Esthefany</span>
           <span className="ae-letter-rule" />
-          <span className="ae-letter-date">26 · XII · 2036</span>
+          <span className="ae-letter-date">26 · 12 · 2036</span>
           <span className="ae-letter-script">El principio de nuestro siempre</span>
         </div>
         <div className="ae-envelope-front"><div className="ae-envelope-paper-patch" /></div>
