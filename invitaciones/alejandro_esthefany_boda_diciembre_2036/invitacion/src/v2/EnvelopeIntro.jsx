@@ -37,9 +37,6 @@ export default function EnvelopeIntro({ reducedMotion, onReveal, onOpened }) {
       <button className="ae-envelope-touch" autoFocus disabled={opening} onClick={() => setOpening(true)} aria-label="Romper el sello y abrir la invitación" />
     </div>
 
-    <div className="ae-envelope-actions">
-      <p id="ae-envelope-instruction" className="ae-envelope-dedication">Toca el sello para abrir</p>
-      <p className="ae-envelope-hint" role="status">{opening ? 'Nuestra historia está a punto de comenzar…' : 'Una carta, para ti'}</p>
-    </div>
+    <p id="ae-envelope-instruction" className="ae-envelope-instruction">toca el sello para abrir la invitación</p>
   </section>
 }

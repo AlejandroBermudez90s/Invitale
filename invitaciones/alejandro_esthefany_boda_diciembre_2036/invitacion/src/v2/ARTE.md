@@ -1,5 +1,12 @@
 # Alejandro & Esthefany · versión artística
 
+## Imagen al compartir el enlace
+
+- El favicon solo estaba declarado como icono del navegador. Se incorporan metadatos Open Graph y Twitter al HTML inicial, exclusivamente en modo artístico: título, descripción, URL canónica pública sin fragmento, idioma e imagen HTTPS absoluta con tipo, dimensiones y texto alternativo. El robot no necesita ejecutar React ni abrir el sobre.
+- `public/social/alejandro-esthefany-monograma-v1.jpg` es una exportación de `FloralMonogram.jsx` con sus tipografías y colores, centrada sobre marfil a 1200 × 630 px. JPEG optimizado y ruta pública estable, independiente del hash de los bundles. Si se cambia la imagen en el futuro, se debe versionar el nombre para distinguirla de copias almacenadas por las aplicaciones de mensajería.
+- El enlace para invitados es `https://www.invitale.es/alejandro-y-esthefany-v2/`. Las direcciones `localhost` y `127.0.0.1` solo funcionan en el propio equipo y no sirven para compartir con invitados. Una vista previa de mensajes ya enviados puede conservar la versión anterior; se comprueban los metadatos y la imagen publicados, sin afirmar una prueba de envío real en WhatsApp.
+- Build raíz y `check:deploy` correctos (128 recursos). En la vista previa de Cloudflare, solicitudes con los agentes `WhatsApp/2.24.0` y `facebookexternalhit/1.1` reciben HTML y JPEG en 200; imagen de 1200 × 630, 24.712 bytes e idéntica al recurso guardado. Propiedades sin duplicados, URL pública absoluta y versión original sin metadatos de la v2; invitaciones en 200 y ruta desconocida en 404.
+
 ## Aviso musical y disco en movimiento · 17 de octubre de 2026
 
 - `MusicButton.jsx` muestra únicamente «reproducir música» en serif cursiva de 13 px y una flecha de 26 × 20 px, sin fondo, recuadro, borde, sombra, relleno ni texto adicional. El control queda en el margen inferior izquierdo también en escritorio para dejar libre la esquina floral derecha. El mensaje se retira en la primera pulsación, incluso si la reproducción falla, y se recuerda mediante una preferencia local exclusiva de esta invitación (`invitale:alejandro-esthefany-v2:music-hint-dismissed`). Si el almacenamiento está bloqueado, la pulsación sigue ocultándolo durante la visita.
@@ -8,6 +15,8 @@
 - Build raíz y `check:deploy` correctos (124 recursos). Vista previa de Cloudflare comprobada con reproducción y pausa reales; todas las rutas de invitaciones en 200 y una ruta inexistente en 404.
 
 ## Sobre floral ligero y apertura sin cámara · 17 de octubre de 2026
+
+- La única indicación visible del sobre es «toca el sello para abrir la invitación», en serif cursiva de 14 px, sin fondo, recuadro, borde, sombra, relleno ni segundo mensaje. Se coloca en papel libre debajo del sello y antes de las flores; en horizontal de poca altura pasa al margen inferior izquierdo. Revisión visual en 390 × 844, 320 × 568, 1280 × 900 y 844 × 390. El foco de teclado se indica mediante subrayado del texto, sin dibujar un recuadro.
 
 - `assets/sobre-floral-ligero.webp`: edición con la herramienta integrada de imágenes de Codex del sobre anterior, usando la botánica de la invitación como referencia de color. Papel marfil con dos arreglos pequeños de lisianthus blanco, rosa y melocotón y hojas salvia; se retiran los relieves barrocos y el marco floral denso. Se conserva el original de comparación, sin referencias desde el build. Conversión a WebP, 948 × 1659, calidad 88.
 - `assets/sobre-floral-papel.webp`: segunda edición del mismo arte para retirar solo el sello y reconstruir el pliegue. Permite separar el sello de las capas de papel sin duplicarlo al abrir. Mismas dimensiones y conversión.

@@ -18,20 +18,27 @@
 .ae-v2 .ae-envelope-seal { position: absolute; inset: 0; z-index: 5; background: var(--ae-envelope-seal-image) center/100% 100% no-repeat; mask-image: radial-gradient(ellipse 17% 9.6% at 50% 53%, #000 85%, transparent 100%); }
 .ae-v2 .ae-envelope-touch { position: absolute; inset: 0; z-index: 6; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .ae-v2 .ae-envelope-touch:focus-visible { outline: none; }
-.ae-v2 .ae-envelope:has(.ae-envelope-touch:focus-visible) .ae-envelope-actions { outline: 1px solid var(--ae-clay); outline-offset: 4px; }
-.ae-v2 .ae-envelope-actions { position: absolute; bottom: max(36px, env(safe-area-inset-bottom)); left: 50%; translate: -50% 0; width: max-content; max-width: calc(100% - 40px); padding: 10px 24px; text-align: center; z-index: 6; pointer-events: none; border-radius: 3px; background: #fffdf8db; box-shadow: 0 3px 24px #6146260d; }
-.ae-v2 .ae-envelope-dedication { font: 27px/1.2 'Alex Brush', cursive; color: #745237; }
-.ae-v2 .ae-envelope-hint { margin-top: 4px; font-size: 8px; letter-spacing: .09em; color: var(--ae-sage); }
+.ae-v2 .ae-envelope:has(.ae-envelope-touch:focus-visible) .ae-envelope-instruction { text-decoration: underline; text-underline-offset: 4px; }
+.ae-v2 .ae-envelope-instruction {
+  position: absolute; left: 50%; translate: -50% 0;
+  top: min(calc(50% + max(15dvh, 26.25vw)), calc(100% - max(24px, env(safe-area-inset-bottom)) - 20px));
+  width: max-content; max-width: calc(100% - 32px); margin: 0; padding: 0;
+  font: italic 400 14px/1.35 'Cormorant Garamond', serif; color: #645c4b; text-align: center;
+  z-index: 6; pointer-events: none;
+}
 .ae-v2 .ae-envelope:focus { outline: none; }
 /* 2,6 s de apertura + 3,6 s de fundido: sincronizado con EnvelopeIntro.jsx. */
 .ae-v2 .ae-envelope-opening { pointer-events: none; animation: ae-envelope-dissolve 3.6s 2.6s ease-in-out both; }
-.ae-v2 .ae-envelope-opening .ae-envelope-actions { animation: ae-envelope-copy-away 1.1s ease both; }
+.ae-v2 .ae-envelope-opening .ae-envelope-instruction { animation: ae-envelope-copy-away 1.1s ease both; }
 .ae-v2 .ae-envelope-opening .ae-envelope-seal { animation: ae-seal-dissolve .85s ease both; }
 .ae-v2 .ae-envelope-opening .ae-envelope-flap { animation: ae-open-flap 3.4s .65s cubic-bezier(.4, 0, .2, 1) both; }
 @keyframes ae-envelope-copy-away { to { opacity: 0; } }
 @keyframes ae-seal-dissolve { to { opacity: 0; } }
 @keyframes ae-open-flap { from { transform: rotateX(0); } to { transform: rotateX(176deg); } }
 @keyframes ae-envelope-dissolve { to { opacity: 0; visibility: hidden; } }
+@media (min-aspect-ratio: 1 / 1) and (max-height: 480px) {
+  .ae-v2 .ae-envelope-instruction { top: auto; bottom: max(20px, env(safe-area-inset-bottom)); left: 24px; translate: none; text-align: left; }
+}
 @media (prefers-reduced-motion: reduce) {
   .ae-v2 .ae-envelope-opening, .ae-v2 .ae-envelope-opening * { animation: none !important; }
 }
