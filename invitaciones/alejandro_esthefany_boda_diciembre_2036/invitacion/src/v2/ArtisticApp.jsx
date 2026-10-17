@@ -2,8 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import botanica from './assets/botanica.webp'
 import alcazar from './assets/alcazar-acuarela.webp'
 import EnvelopeIntro from './EnvelopeIntro'
+import MusicButton from './MusicButton'
+import FallingLeaves from './FallingLeaves'
 import './ArtisticApp.css'
 import './CinematicMotion.css'
+import './Atmosphere.css'
 
 const weddingDate = new Date('2036-12-26T19:00:00+01:00')
 const itinerary = [
@@ -86,7 +89,6 @@ export default function ArtisticApp() {
   const [opened, setOpened] = useState(false)
   const [revealing, setRevealing] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  const [paused, setPaused] = useState(false)
   const rootRef = useRef(null)
   const headingRef = useRef(null)
   const revealInvitation = useCallback(() => setRevealing(true), [])
@@ -107,8 +109,13 @@ export default function ArtisticApp() {
   }, [opened])
 
   useEffect(() => {
-    if (!opened || reducedMotion || paused || !('IntersectionObserver' in window)) return
+    if (!opened) return
     const sections = rootRef.current.querySelectorAll('main > section, main > footer')
+    const decorated = rootRef.current.querySelectorAll('.ae-story, .ae-gift, .ae-footer')
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      decorated.forEach(section => section.classList.add('ae-decoration-ready'))
+      return () => decorated.forEach(section => section.classList.remove('ae-decoration-ready'))
+    }
     const targets = []
     sections.forEach(section => {
       section.classList.add('ae-scene')
@@ -122,26 +129,22 @@ export default function ArtisticApp() {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return
-        entry.target.classList.add('ae-in-view')
+        entry.target.classList.add('ae-in-view', 'ae-decoration-ready')
         observer.unobserve(entry.target)
       })
     }, { threshold: .08, rootMargin: '0px 0px -24px 0px' })
     targets.forEach(element => observer.observe(element))
+    decorated.forEach(section => observer.observe(section))
     return () => {
       observer.disconnect()
       targets.forEach(element => element.classList.remove('ae-reveal', 'ae-in-view'))
+      decorated.forEach(section => section.classList.remove('ae-decoration-ready'))
     }
-  }, [opened, reducedMotion, paused])
+  }, [opened, reducedMotion])
 
-  function replay() {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-    setRevealing(false)
-    setOpened(false)
-  }
-
-  return <div ref={rootRef} className="ae-v2" data-motion={reducedMotion ? 'reduced' : paused ? 'paused' : 'full'} style={{ '--ae-botanica': `url("${botanica}")` }}>
-    {!opened && <EnvelopeIntro reducedMotion={reducedMotion || paused} onReveal={revealInvitation} onOpened={finishOpening} />}
-    {opened && !reducedMotion && <button className="ae-motion-toggle" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? 'Reanudar movimiento' : 'Pausar movimiento'} <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span></button>}
+  return <div ref={rootRef} className="ae-v2" data-motion={reducedMotion ? 'reduced' : 'full'} style={{ '--ae-botanica': `url("${botanica}")` }}>
+    {!opened && <EnvelopeIntro reducedMotion={reducedMotion} onReveal={revealInvitation} onOpened={finishOpening} />}
+    {opened && <><FallingLeaves /><MusicButton /></>}
 
     <main inert={!opened} className={revealing ? 'ae-opened' : 'ae-awaiting'}>
       <a className="ae-skip" href="#confirmar">Ir a confirmar asistencia</a>
@@ -194,12 +197,10 @@ export default function ArtisticApp() {
       <footer className="ae-footer">
         <div className="ae-botanical ae-botanical-top" aria-hidden="true" />
         <div className="ae-botanical ae-botanical-bottom" aria-hidden="true" />
-        <span className="ae-footer-monogram" aria-hidden="true">A <i>&amp;</i> E</span>
+        <div className="ae-footer-copy"><span className="ae-footer-monogram" aria-hidden="true">A <i>&amp;</i> E</span>
         <p className="ae-kicker">El principio de todo</p><h2>¡Os esperamos!</h2>
         <p>Vuestra presencia hará este día inolvidable.</p>
-        <a className="ae-footer-brand" href="/">Diseñado para recordar <span>InvitAle</span></a>
-        <a className="ae-original-link" href="/alejandro-y-esthefany/">Ver la versión original ↗</a>
-        <button className="ae-replay" onClick={replay}>Volver a abrir el sobre <span aria-hidden="true">↺</span></button>
+        <p className="ae-footer-brand">Diseñado para recordar <span>InvitAle</span></p></div>
       </footer>
     </main>
   </div>
