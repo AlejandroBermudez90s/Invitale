@@ -15,6 +15,12 @@
 .ae-v2 .ae-music-button:hover:not(:disabled) { background: #e8ecdf; box-shadow: 0 4px 22px #3a352f25; }
 .ae-v2 .ae-music-button:disabled { cursor: default; }
 .ae-v2 .ae-music-button svg { width: 35px; height: 35px; overflow: visible; }
+.ae-v2 .ae-music-record { transform-origin: center; animation: ae-music-spin 12s linear infinite; animation-play-state: paused; }
+.ae-v2 .ae-music-playing .ae-music-record { animation-play-state: running; }
+.ae-v2 .ae-music-hint { position: absolute; right: 72px; bottom: 0; width: min(190px, calc(100vw - 108px)); margin: 0; padding: 10px 14px; text-align: center; background: #fffdf8f5; border: 1px solid #bc937b40; border-radius: 3px; box-shadow: 0 3px 18px #3a352f0a; color: var(--ae-clay); pointer-events: none; }
+.ae-v2 .ae-music-hint > span { display: block; font: 400 25px/1.05 'Alex Brush', cursive; }
+.ae-v2 .ae-music-hint small { display: block; margin-top: 5px; font: 400 8px/1.4 'Work Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ae-sage); }
+.ae-v2 .ae-music-hint svg { position: absolute; right: -38px; bottom: 8px; width: 40px; height: 32px; overflow: visible; }
 .ae-v2 .ae-music-note { transform-box: fill-box; transform-origin: center; animation: ae-music-dance 2.4s ease-in-out infinite; animation-play-state: paused; }
 .ae-v2 .ae-music-note-two { animation-delay: -.8s; }
 .ae-v2 .ae-music-note-three { animation-delay: -1.6s; }
@@ -22,8 +28,9 @@
 .ae-v2 .ae-music-status { position: absolute; bottom: 65px; right: 0; width: min(260px, calc(100vw - 36px)); font-size: 12px; line-height: 1.6; color: var(--ae-ink); background: var(--ae-paper); padding: 12px 16px; box-shadow: 0 2px 15px #3a352f15; }
 .ae-v2 .ae-music-status:empty { display: none; }
 @keyframes ae-music-dance { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-3px) rotate(5deg); } }
+@keyframes ae-music-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
   .ae-v2 .ae-falling-petals { display: none; }
-  .ae-v2 .ae-music-note { animation: none; }
+  .ae-v2 .ae-music-note, .ae-v2 .ae-music-record { animation: none; }
   .ae-v2 .ae-music-playing { background: #e8ecdf; }
 }

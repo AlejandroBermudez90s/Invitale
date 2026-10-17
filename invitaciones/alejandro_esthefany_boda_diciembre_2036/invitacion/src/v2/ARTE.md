@@ -1,5 +1,12 @@
 # Alejandro & Esthefany · versión artística
 
+## Aviso musical y disco en movimiento · 17 de octubre de 2026
+
+- `MusicButton.jsx` muestra «Ponle música a este momento / Toca el disco» en caligrafía, con una flecha curva hacia el botón. Se sitúa a su lado para conservar el espacio de lectura, a izquierda o derecha según el tamaño de pantalla. El mensaje se retira en la primera pulsación, incluso si la reproducción falla, y se recuerda mediante una preferencia local exclusiva de esta invitación (`invitale:alejandro-esthefany-v2:music-hint-dismissed`). Si el almacenamiento está bloqueado, la pulsación sigue ocultándolo durante la visita.
+- El icono incorpora surcos y una etiqueta central de disco en SVG. Gira cada 12 segundos y conserva el ángulo al pausar; las notas siguen su movimiento suave. Disco y notas responden a los eventos reales del audio, sin iniciar música automáticamente. La preferencia de movimiento reducido mantiene los controles y desactiva el giro.
+- Revisión en vistas de 390 × 844, 320 × 568 y 1280 × 900: aviso y flecha completos, fuera de los textos de portada. Reproducción real, avance de la rotación, pausa con detención del disco y ausencia del aviso al recargar y volver a abrir la invitación comprobados en el navegador.
+- Build raíz y `check:deploy` correctos (124 recursos). Vista previa de Cloudflare comprobada con reproducción y pausa reales; todas las rutas de invitaciones en 200 y una ruta inexistente en 404.
+
 ## Sobre floral ligero y apertura sin cámara · 17 de octubre de 2026
 
 - `assets/sobre-floral-ligero.webp`: edición con la herramienta integrada de imágenes de Codex del sobre anterior, usando la botánica de la invitación como referencia de color. Papel marfil con dos arreglos pequeños de lisianthus blanco, rosa y melocotón y hojas salvia; se retiran los relieves barrocos y el marco floral denso. Se conserva el original de comparación, sin referencias desde el build. Conversión a WebP, 948 × 1659, calidad 88.
