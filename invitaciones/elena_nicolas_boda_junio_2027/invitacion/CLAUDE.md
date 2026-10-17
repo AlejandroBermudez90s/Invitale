@@ -1,5 +1,18 @@
 # Elena & Nicolás — Boda (invitación de ejemplo, datos ficticios)
 
+## Rediseño marino comparativo · 18/10/2026
+- La versión actual se conserva en `/elena-y-nicolas/`; su galería no cambia.
+- `src/marine/MarineApp.jsx` y `MarineApp.css` implementan el rediseño en `/elena-y-nicolas-v2/`.
+- `npm run build:marine` genera `dist-marine/`; el build raíz compila ambas y las fusiona.
+- Mantiene paleta Costa Azul y tipografías originales. Decoración de conchas, oleaje y aves;
+  sin guirnaldas florales. Cuatro acuarelas propias optimizadas en WebP, ver `src/marine/ARTE.md`.
+- Sobre interactivo, monograma E/N, lectura progresiva, cuenta atrás, lugares e itinerario.
+- Música ambiental propia sintetizada con Web Audio al pulsar, sin autoplay ni pista compartida.
+- Código de vestimenta, formulario desplegable de demostración, foco accesible y movimiento reducido.
+- Los nombres/lugares siguen siendo de muestra. La finca no tiene una dirección real; su enlace
+  indica «Ver la zona». No presentar ninguna respuesta del formulario como un envío real.
+- Metadatos propios, favicon marino y `noindex` para la versión de comparación.
+
 Invitación construida como ejemplo de portfolio para InvitAle, replicando el estilo de una
 invitación digital ilustrada tipo "wooowinvites" (acuarela costera, sello de lacre, cuenta
 atrás, código de vestimenta). **Todos los datos (nombres, lugares, fecha) son ficticios.**

@@ -61,6 +61,7 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/andrea-15/`
 - `/alejandro-y-esthefany/`
 - `/elena-y-nicolas/`
+- `/elena-y-nicolas-v2/` (rediseño marino comparativo; conserva la invitación actual)
 - `/jose-comunion/`
 
 Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invitación debe

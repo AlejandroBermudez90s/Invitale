@@ -23,6 +23,11 @@ const EVENTOS = [
     slugUrl: 'elena-y-nicolas',
   },
   {
+    carpeta: 'invitaciones/elena_nicolas_boda_junio_2027/invitacion',
+    slugUrl: 'elena-y-nicolas-v2',
+    buildDir: 'dist-marine',
+  },
+  {
     carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
     slugUrl: 'jose-comunion',
   },
