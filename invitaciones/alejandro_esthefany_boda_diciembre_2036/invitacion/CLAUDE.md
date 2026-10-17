@@ -38,4 +38,4 @@ Estilo: minimalista elegante con ornamentación botánica de línea fina (rama/h
 ## Pendiente
 - Versión artística comparativa creada en `src/v2/`, ruta `/alejandro-y-esthefany-v2/`; compilar con `npm run build:artistic` (incluida en el build raíz). Mantener la original disponible hasta elegir cuál publicar en la galería. Ver `src/v2/ARTE.md` para recursos y prompts.
 - Sustituir el IBAN ficticio y textos si esta invitación pasa a usarse como plantilla real.
-- Añadir audio de fondo cuando el cliente decida la pista.
+- La v2 incluye el audio aportado por Alejandro en `src/v2/assets/musica-fondo.mp3`, con botón flotante de reproducción/pausa; la original mantiene su configuración sin audio.

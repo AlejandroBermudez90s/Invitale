@@ -103,8 +103,10 @@
 .ae-v2 .ae-success h3 { font-size: 36px; margin: 20px 0; }
 .ae-v2 .ae-success p { font-size: 13px; }
 .ae-v2 .ae-footer { padding: 300px 64px; text-align: center; background: var(--ae-cream); }
-.ae-v2 .ae-footer-monogram { display: inline-block; font: 400 42px 'Cormorant Garamond', serif; border: 1px solid var(--ae-line); border-radius: 50%; width: 135px; height: 135px; padding-top: 37px; margin-bottom: 35px; }
-.ae-v2 .ae-footer-monogram i { font: 36px 'Alex Brush', cursive; color: var(--ae-clay); }
+.ae-v2 .ae-footer-monogram { width: clamp(184px, 23vw, 224px); max-width: 100%; margin: 0 auto 30px; }
+.ae-v2 .ae-footer-monogram svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ae-v2 .ae-monogram-initial { fill: var(--ae-sage); font: 400 67px 'Bodoni Moda', 'Cormorant Garamond', serif; }
+.ae-v2 .ae-monogram-and { fill: var(--ae-clay); font: 400 39px 'Alex Brush', cursive; }
 .ae-v2 .ae-footer h2 { margin: 20px 0; }
 .ae-v2 .ae-footer-copy > p:not(.ae-kicker):not(.ae-footer-brand) { font-size: 15px; }
 .ae-v2 .ae-footer-copy .ae-footer-brand { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .16em; margin-top: 60px; }

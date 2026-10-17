@@ -1,3 +1,4 @@
-// Añadir aquí la URL de audio cuando Alejandro elija la canción.
-// La variable permite comprobar el reproductor con audio local antes de publicarlo.
-export const backgroundMusicUrl = import.meta.env.VITE_INVITATION_MUSIC_URL || ''
+import suppliedMusic from './assets/musica-fondo.mp3'
+
+// El audio aportado se sirve con la invitación; la variable permite sustituirlo.
+export const backgroundMusicUrl = import.meta.env.VITE_INVITATION_MUSIC_URL || suppliedMusic

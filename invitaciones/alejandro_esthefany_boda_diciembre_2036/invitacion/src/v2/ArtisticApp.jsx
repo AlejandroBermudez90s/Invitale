@@ -12,6 +12,7 @@ import WrittenText from './WrittenText'
 import InvitationIcon from './InvitationIcon'
 import BotanicalAccent from './BotanicalAccent'
 import RSVP from './RSVP'
+import FloralMonogram from './FloralMonogram'
 
 const weddingDate = new Date('2036-12-26T19:00:00+01:00')
 const itinerary = [
@@ -191,7 +192,7 @@ export default function ArtisticApp() {
       <footer className="ae-footer">
         <div className="ae-botanical ae-botanical-top" aria-hidden="true" />
         <div className="ae-botanical ae-botanical-bottom" aria-hidden="true" />
-        <div className="ae-footer-copy"><span className="ae-footer-monogram" aria-hidden="true">A <i>&amp;</i> E</span>
+        <div className="ae-footer-copy"><FloralMonogram />
         <p className="ae-kicker"><WrittenText text="El principio de todo" /></p><h2><WrittenText text="¡Os esperamos!" /></h2>
         <p><WrittenText text="Vuestra presencia hará este día inolvidable." /></p>
         <p className="ae-footer-brand">Diseñado para recordar <span>InvitAle</span></p></div>
