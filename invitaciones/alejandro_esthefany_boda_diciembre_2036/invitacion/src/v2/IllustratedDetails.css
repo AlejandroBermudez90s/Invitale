@@ -1,4 +1,8 @@
-.ae-v2 .ae-venue-sketch { display: block; width: min(100%, 285px); height: auto; margin: 0 auto 25px; }
+.ae-v2 .ae-venue-sketch {
+  display: block; width: min(100%, 340px); height: auto; margin: 0 auto 25px; mix-blend-mode: multiply;
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 6%, #000 92%, transparent);
+  mask-composite: intersect;
+}
 .ae-v2 .ae-environment { width: 146px; max-width: 100%; margin: 35px auto 0; opacity: 0; transform: translateY(12px); transition: opacity 3s .5s ease, transform 3.5s ease; pointer-events: none; }
 .ae-v2 .ae-environment svg { display: block; width: 100%; height: auto; }
 .ae-v2 .ae-decoration-ready .ae-environment { opacity: .9; transform: none; }
