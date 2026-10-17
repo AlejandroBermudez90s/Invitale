@@ -60,6 +60,20 @@ transparente), que se usan tal cual mediante el componente reutilizable
   invitaciones de ejemplo.
 
 ## Pendiente
+
+## Rediseño artístico de octubre de 2026
+
+- Comparación en paralelo: `/jose-comunion-v2/`, sin sustituir la ruta ni la galería actuales.
+- `src/adventure/AdventureApp.jsx` y `AdventureApp.css`, prefijo `jo-`.
+- `npm run build:artistic` genera `dist-v2/`; el build raíz compila y fusiona ambas versiones.
+- Apertura mediante un cohete ilustrado: cuenta atrás 3, 2, 1 y despegue. Apertura inmediata
+  si el dispositivo prefiere movimiento reducido, control por teclado y transferencia de foco.
+- Gouache, textura de papel, azul cielo, crema, rojo y amarillo. Baloo 2, Quicksand y Caveat.
+- Ilustraciones originales generadas con ImageGen en `src/adventure/assets/`; los personajes
+  se reutilizan desde los PNG existentes de `src/assets/`. Ver `src/adventure/ARTE.md`.
+- Conserva ceremonia, direcciones, fecha, horario y límite RSVP del ejemplo. No hay cuenta
+  bancaria. El formulario muestra que es una demostración antes y después de completarlo.
+- Todos los datos y los paisajes siguen siendo ficticios; los mapas son búsquedas de ejemplo.
 - Si se consiguen versiones con fondo transparente real de Woody, Buzz, Jessie, Rex y Hamm (o
   se añaden Slinky/los Aliens), sustituir los PNG de `src/assets/` sin tocar el resto del
   componente.
