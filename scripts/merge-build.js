@@ -15,6 +15,11 @@ const EVENTOS = [
     slugUrl: 'andrea-15',
   },
   {
+    carpeta: 'invitaciones/andrea_quinceanera_mayo_2026/invitacion',
+    slugUrl: 'andrea-15-v2',
+    buildDir: 'dist-v2',
+  },
+  {
     carpeta: 'invitaciones/alejandro_esthefany_boda_diciembre_2036/invitacion',
     slugUrl: 'alejandro-y-esthefany',
   },

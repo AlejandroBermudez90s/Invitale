@@ -59,6 +59,7 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 
 - `/`
 - `/andrea-15/`
+- `/andrea-15-v2/` (propuesta artística comparativa; conserva la fotografía original)
 - `/alejandro-y-esthefany/`
 - `/elena-y-nicolas/`
 - `/jose-comunion/`
