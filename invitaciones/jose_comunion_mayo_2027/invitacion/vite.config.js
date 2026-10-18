@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     transformIndexHtml: {
       order: 'pre',
       handler: html => mode === 'artistic'
-        ? html.replace('type="image/png" href="/favicon.png"', 'type="image/svg+xml" href="/favicon-jose.svg"')
+        ? html.replace('type="image/png" href="/favicon.png"', 'type="image/png" href="/favicon-jose-v3.png"')
         : html,
     },
   }],

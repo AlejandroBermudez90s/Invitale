@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+/* Portada: rótulo de juguete, cartel de comunión y sus dos protagonistas. */
+.jo-hero { min-height: 960px; height: max(960px, 100svh); max-height: 1200px; padding-top: 55px; }
+.jo-hero-copy { width: min(760px, 92%); }
+.jo-name-wrap { position: relative; width: fit-content; margin: 0 auto; }
+.jo-hero h1 { font-family: 'Luckiest Guy', 'Baloo 2', sans-serif; font-size: clamp(195px, 21vw, 290px); line-height: 1.08; letter-spacing: -5px; color: #ffe275; -webkit-text-stroke: 3px #b63829; paint-order: stroke fill; text-shadow: 1px 3px 0 #fff2b0, 1px 7px 0 #a53626, 2px 11px 0 #a53626, 3px 15px 0 #254f78, 4px 20px 0 #254f78, 7px 24px 0 #254f78, 9px 27px 0 #204363; transform: rotate(-5deg); padding: 6px 20px 14px; }
+.jo-hero h1:after { content: ''; position: absolute; top: 32%; left: 32%; width: 30px; height: 6px; background: #fff4bb; border-radius: 100%; opacity: .65; transform: rotate(-28deg); }
+.jo-toy-star { display: block; width: 32px; height: 32px; color: #e9b243; }
+.jo-name-wrap>.jo-toy-star { position: absolute; z-index: 1; color: #b94a33; filter: drop-shadow(1px 2px 0 #fce7ab); }
+.jo-name-star-left { left: -27px; top: 29%; width: 25px; height: 25px; transform: rotate(-20deg); }
+.jo-name-star-right { right: -19px; top: 13%; width: 38px; height: 38px; transform: rotate(20deg); }
+.jo-hero-subtitle { font-family: 'Caveat', cursive; font-size: 46px; font-weight: 600; line-height: 1.2; margin-top: 8px!important; transform: rotate(-3deg); }
+.jo-hero-date { margin-top: 24px; gap: 22px; }
+.jo-hero-date>span { width: 125px; font-family: 'Bangers', sans-serif; font-size: 21px; font-weight: 400; letter-spacing: 1px; padding: 8px 0; }
+.jo-hero-date strong { font-family: 'Bangers', sans-serif; font-size: 58px; font-weight: 400; letter-spacing: 1px; line-height: 1; }
+.jo-hero-date i { font-family: 'Caveat', cursive; font-size: .7em; }
+.jo-adventure .jo-hero-communion { display: inline-block; font-family: 'Bangers', sans-serif; font-size: 33px; line-height: 1.15; letter-spacing: 2px; padding: 10px 30px 12px; margin: 26px auto 0; background: #ba4532; color: #fff4d6; box-shadow: 0 4px 0 #8f352c; border: 1px solid #85372d; transform: rotate(-2deg); clip-path: polygon(2% 2%,100% 0,98% 98%,0 100%); }
+.jo-adventure .jo-hero-motto { font-family: 'Caveat', cursive; color: #285575; font-size: 30px; font-weight: 600; line-height: 1.15; margin: 21px auto 0; }
+.jo-woody { height: 420px; bottom: 70px; left: max(7%, calc(50% - 520px)); }
+.jo-buzz { width: 365px; bottom: 80px; right: max(6%, calc(50% - 550px)); }
+.jo-launch-top { justify-content: center; }
+
+/* Las ilustraciones habitan los márgenes; el contenido conserva su espacio y su contraste. */
+.jo-section { isolation: isolate; }
+.jo-section>.jo-reveal, .jo-section>.jo-form-paper, .jo-place-grid, .jo-meadow, .jo-timeline, .jo-plan-heading { position: relative; z-index: 2; }
+.jo-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; user-select: none; }
+.jo-decor>img { position: absolute; display: block; width: 170px; height: auto; object-fit: contain; filter: drop-shadow(0 10px 7px #694c2520); }
+.jo-decor>.jo-toy-star { position: absolute; opacity: .75; }
+.jo-decor-star-one { top: 45px; left: 10%; width: 24px; height: 24px; transform: rotate(-12deg); color: #bb4c36; }
+.jo-decor-star-two { right: 11%; bottom: 44px; width: 20px; height: 20px; transform: rotate(18deg); }
+.jo-toy-planet { position: absolute; width: 125px; height: auto; transform: rotate(-12deg); }
+.jo-decor-intro .jo-decor-rex { left: 3%; bottom: 25px; width: 195px; transform: rotate(-7deg); }
+.jo-decor-intro .jo-decor-ball { right: 3%; top: 55px; width: 155px; transform: rotate(10deg); }
+.jo-decor-intro .jo-toy-planet { left: 3%; top: 40px; width: 90px; opacity: .75; }
+.jo-decor-places .jo-decor-jessie { right: 4%; bottom: 75px; width: 145px; transform: rotate(9deg); }
+.jo-decor-places .jo-decor-western { left: 3%; bottom: 18px; width: 195px; transform: rotate(-10deg); }
+.jo-bunting { position: absolute; top: 5px; right: 3%; width: 190px; height: 50px; display: flex; gap: 6px; border-top: 2px solid #956a45; transform: rotate(14deg); }
+.jo-bunting i { width: 22px; height: 29px; background: #b94632; clip-path: polygon(0 0,100% 0,50% 100%); }
+.jo-bunting i:nth-child(3n+2) { background: #e7bc55; }.jo-bunting i:nth-child(3n) { background: #5083a0; }
+.jo-plan { padding-bottom: 200px; }
+.jo-decor-plan .jo-decor-slinky { width: 250px; bottom: 10px; left: 5%; transform: rotate(-5deg); }
+.jo-toy-path { position: absolute; left: 10%; bottom: 100px; width: 35%; height: 80px; border-top: 2px dashed #b7935d80; border-radius: 50%; transform: rotate(-7deg); }
+.jo-decor-countdown .jo-decor-aliens { width: 150px; right: 4%; bottom: 15px; transform: rotate(7deg); }
+.jo-decor-countdown .jo-toy-planet { left: 4%; top: 45px; }
+.jo-decor-rsvp .jo-decor-hamm { width: 180px; bottom: 25px; left: 3%; transform: rotate(-7deg); }
+.jo-decor-rsvp .jo-decor-ball { width: 160px; top: 35px; right: 3%; transform: rotate(12deg); }
+.jo-decor-gift .jo-decor-western { width: 180px; top: 65px; left: 3%; transform: rotate(-10deg); }
+.jo-decor-gift .jo-decor-aliens { width: 135px; bottom: 5px; right: 5%; transform: rotate(8deg); }
+.jo-decor-intro .jo-decor-ball, .jo-toy-planet { animation: jo-toy-drift 9s ease-in-out infinite; }
+.jo-adventure .jo-badge-painted { width: 240px; height: 240px; object-fit: contain; margin: 0 auto 20px; filter: drop-shadow(0 10px 9px #102e4166); }
+.jo-footer { padding-top: 50px; }
+
+/* El mismo gesto de música que en las demás invitaciones: disco redondo, pausa y reintento. */
+.jo-music { position: fixed; right: 23px; bottom: 23px; z-index: 20; color: #285575; }
+.jo-music-button { display: flex; justify-content: center; align-items: center; width: 58px; height: 58px; padding: 6px; background: #fff9ed; color: #285575; border: 1px solid #28557555; border-radius: 50%; box-shadow: 0 4px 16px #193c5329; transition: transform .2s; }
+.jo-music-button:hover:not(:disabled) { transform: translateY(-3px); }
+.jo-music-button:disabled { opacity: .7; }
+.jo-music-record { width: 42px; height: 42px; }
+.jo-music-playing .jo-music-record { animation: jo-record-spin 10s linear infinite; }
+.jo-music-hint { position: absolute; right: 55px; bottom: 25px; width: 145px; font-family: 'Caveat', cursive; font-size: 23px; line-height: 1; transform: rotate(-9deg); white-space: nowrap; }
+.jo-music-hint svg { display: block; margin: 3px 6px 0 auto; width: 35px; height: 28px; transform: rotate(3deg); }
+.jo-music-status { position: absolute; right: 0; bottom: 68px; width: 230px; background: #fff9ed; border: 1px solid #d7cbb4; border-radius: 6px; padding: 12px; font-size: 12px; line-height: 1.6; box-shadow: 0 5px 15px #193c5320; }
+.jo-music-status:empty { display: none; }
+@keyframes jo-record-spin { to { transform: rotate(360deg); } }
+@keyframes jo-toy-drift { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-9px) rotate(3deg); } }
+
+@media (min-width: 701px) and (max-width: 1050px) {
+  .jo-decor-intro .jo-decor-rex { width: 125px; left: 0; bottom: 12px; }
+  .jo-decor-intro .jo-decor-ball { width: 100px; right: 0; top: 20px; }
+  .jo-decor-places .jo-decor-jessie { width: 100px; right: 0; bottom: 10px; }
+  .jo-decor-places .jo-decor-western { width: 130px; left: 0; bottom: 5px; }
+  .jo-decor-countdown .jo-decor-aliens { width: 100px; right: 5px; bottom: 5px; }
+  .jo-decor-countdown .jo-toy-planet { width: 90px; left: 5px; top: 15px; }
+  .jo-decor-rsvp .jo-decor-hamm { width: 120px; left: 0; bottom: 5px; }
+  .jo-decor-rsvp .jo-decor-ball { width: 100px; right: 0; top: 15px; }
+  .jo-decor-gift .jo-decor-western { width: 120px; left: 0; top: 15px; }
+  .jo-decor-gift .jo-decor-aliens { width: 100px; right: 0; bottom: 5px; }
+}
+
+@media (max-width: 700px) {
+  .jo-hero { min-height: 930px; height: max(930px, 106svh); max-height: 1100px; padding-top: 62px; }
+  .jo-hero-copy { width: 100%; padding: 0 18px; }
+  .jo-hero h1 { font-size: clamp(130px, 38vw, 210px); line-height: 1.1; letter-spacing: -3px; padding: 10px 4px 16px; -webkit-text-stroke: 2.5px #b63829; text-shadow: 1px 2px 0 #fff0a5, 1px 5px 0 #a53626, 2px 8px 0 #a53626, 3px 12px 0 #254f78, 4px 16px 0 #254f78, 6px 19px 0 #204363; }
+  .jo-name-wrap>.jo-name-star-left { left: -5px; top: 36%; width: 20px; height: 20px; }
+  .jo-name-wrap>.jo-name-star-right { right: 0; top: 10%; width: 27px; height: 27px; }
+  .jo-hero h1:after { width: 22px; height: 4px; }
+  .jo-hero-subtitle { font-size: 38px; margin-top: 8px!important; }
+  .jo-hero-date { gap: 10px; margin-top: 24px; }
+  .jo-hero-date>span { width: 73px; font-size: 16px; letter-spacing: .5px; padding: 6px 0; }
+  .jo-hero-date strong { font-size: 42px; letter-spacing: .5px; }
+  .jo-adventure .jo-hero-communion { font-size: 29px; letter-spacing: 1.5px; padding: 9px 23px 10px; margin-top: 24px; }
+  .jo-adventure .jo-hero-motto { font-size: 27px; line-height: 1.1; margin-top: 20px; }
+  .jo-woody { height: 290px; left: 4%; bottom: 75px; transform: rotate(-7deg); }
+  .jo-buzz { width: 220px; right: -10px; bottom: 88px; transform: rotate(7deg); }
+  .jo-hero .jo-friends { height: 76%; mask-image: linear-gradient(to bottom, transparent, #000 35%); }
+  .jo-decor-star-one { left: 20px; top: 24px; width: 18px; height: 18px; }
+  .jo-decor-star-two { right: 22px; bottom: 18px; width: 16px; height: 16px; }
+  .jo-intro { padding-top: 95px; padding-bottom: 190px; }
+  .jo-decor-intro .jo-decor-rex { width: 125px; left: 12px; bottom: 6px; }
+  .jo-decor-intro .jo-decor-ball { width: 132px; right: 10px; top: auto; bottom: 9px; }
+  .jo-decor-intro .jo-toy-planet { width: 83px; right: 12px; left: auto; top: 14px; }
+  .jo-places { padding-top: 85px; padding-bottom: 230px; }
+  .jo-decor-places .jo-decor-jessie { width: 105px; right: 25px; bottom: 5px; }
+  .jo-decor-places .jo-decor-western { width: 157px; left: 10px; bottom: 20px; }
+  .jo-bunting { width: 130px; right: 12px; top: 8px; gap: 4px; }
+  .jo-bunting i { width: 15px; height: 21px; }
+  .jo-plan { padding-bottom: 170px; }
+  .jo-decor-plan .jo-decor-slinky { width: 210px; left: auto; right: 18px; bottom: 4px; }
+  .jo-toy-path { width: 47%; left: 5%; bottom: 80px; }
+  .jo-wait { padding-top: 72px; padding-bottom: 165px; }
+  .jo-decor-countdown .jo-decor-aliens { width: 130px; right: 26px; bottom: 0; }
+  .jo-decor-countdown .jo-toy-planet { width: 100px; top: auto; bottom: 25px; left: 26px; }
+  .jo-rsvp { padding-top: 85px; padding-bottom: 185px; }
+  .jo-rsvp-star { display: none; }
+  .jo-decor-rsvp .jo-decor-hamm { width: 150px; left: 25px; bottom: 8px; }
+  .jo-decor-rsvp .jo-decor-ball { width: 90px; right: 6px; top: 15px; }
+  .jo-gift { padding-top: 80px; padding-bottom: 160px; }
+  .jo-decor-gift .jo-decor-western { width: 140px; left: 8px; top: auto; bottom: 5px; }
+  .jo-decor-gift .jo-decor-aliens { width: 110px; right: 25px; bottom: 5px; }
+  .jo-adventure .jo-badge-painted { width: 220px; height: 220px; margin-bottom: 14px; }
+  .jo-footer { padding-top: 48px; }
+  .jo-music { right: 17px; bottom: 17px; }
+  .jo-music-button { width: 54px; height: 54px; }
+  .jo-music-record { width: 39px; height: 39px; }
+  .jo-music-hint { right: 50px; bottom: 22px; font-size: 21px; width: 134px; }
+}
+
+@media (max-width: 360px) {
+  .jo-hero { padding-top: 50px; min-height: 880px; }
+  .jo-hero h1 { font-size: 37vw; }
+  .jo-hero-subtitle { font-size: 33px; }
+  .jo-hero-date>span { width: 60px; font-size: 14px; }
+  .jo-hero-date strong { font-size: 36px; }
+  .jo-adventure .jo-hero-communion { font-size: 26px; }
+  .jo-adventure .jo-hero-motto { font-size: 25px; }
+  .jo-woody { height: 270px; left: 2%; }
+  .jo-buzz { width: 195px; right: -8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jo-decor img, .jo-toy-planet, .jo-music-record { animation: none!important; }
+}

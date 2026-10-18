@@ -83,3 +83,16 @@ transparente), que se usan tal cual mediante el componente reutilizable
   de la cabecera ya con los personajes.
 - Diseñar un favicon propio (de momento usa el isotipo de marca InvitAle como placeholder).
 - Revisar el IBAN ficticio y los textos si esta invitación pasa a usarse como plantilla real.
+
+### Revisión posterior de la v2: ambientación y portada
+
+- `AdventureStory.css` contiene los ajustes de esta ronda: Luckiest Guy para José, Bangers
+  para fecha y cartel, textos mayores y solo Woody/Buzz en la portada.
+- `ToyDecorations.jsx` reparte Rex, Jessie, Slinky, aliens y Hamm fuera de la cabecera,
+  junto a nuevos adornos ilustrados de pelota/bloques y sombrero/pañuelo.
+- La insignia final ahora es `assets/insignia-jose.webp`, creada a partir del emblema con J;
+  el favicon artístico es `public/favicon-jose-v3.png`.
+- Se retiró la nota de muestra/datos ficticios del cierre por petición del usuario.
+- `MusicButton.jsx` sustituye al flotante de asistencia. El usuario eligió aportar su MP3
+  de Hay un amigo en mí: guardarlo como `src/adventure/assets/hay-un-amigo-en-mi.mp3`.
+  Mientras no exista el archivo, no se solicita audio y el disco permanece en estado próximo.

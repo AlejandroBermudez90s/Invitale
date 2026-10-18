@@ -34,6 +34,27 @@ Se comprobaron ambas direcciones: seis rutas con respuesta 200, rutas inexistent
 y los 13 recursos extraídos del HTML, JavaScript y CSS publicados con respuesta 200.
 La invitación original y el enlace de la galería permanecen en `/jose-comunion/`.
 
+### Portada y ambientación · 18 de octubre
+
+Publicada la revisión `d229fb9c-8e13-457d-aed9-16cbd5d387f6` en la misma ruta v2.
+Portada solo con Woody/Buzz, nuevo rótulo editable en Luckiest Guy y orden solicitado
+de fecha/comunión/frase. Rex, aliens, Jessie, Hamm y Slinky repartidos por el resto de
+secciones, con nuevas ilustraciones de pelota/bloques y sombrero/pañuelo.
+Insignia final y favicon de imagen, basados en el emblema anterior. Eliminada la nota de
+muestra y datos ficticios del cierre, conservada la explicación funcional del RSVP.
+
+Comprobados móvil de 320 × 740, 393 × 851 y escritorio de 1280 × 900; el nombre cabe,
+sin scroll horizontal en móvil, sin imágenes rotas ni errores de consola observados.
+El build general completó hub y las otras invitaciones; se reanudó el build de José tras
+cerrar la vista previa que bloqueaba esbuild durante npm ci. Ambos builds de José, merge
+y dry-run correctos: 149 archivos. Validación local y pública: seis rutas 200, dos casos
+404 y los 19 recursos referenciados por HTML/JS/CSS disponibles.
+
+El botón de asistencia flotante se ha sustituido por el disco de música habitual.
+El usuario eligió aportar el MP3 de Hay un amigo en mí y sigue pendiente de adjuntarlo.
+El control está preparado, desactivado mientras falta el audio y no solicita URLs ausentes.
+No se ha verificado reproducción de la canción porque el archivo todavía no se ha recibido.
+
 ## Arte y capturas
 
 Los recursos finales y sus prompts están documentados en

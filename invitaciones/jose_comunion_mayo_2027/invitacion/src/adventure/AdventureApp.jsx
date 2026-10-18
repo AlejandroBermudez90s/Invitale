@@ -4,10 +4,11 @@ import room from './assets/habitacion.webp'
 import meadow from './assets/celebracion.webp'
 import woody from '../assets/woody.png'
 import buzz from '../assets/buzz.png'
-import rex from '../assets/rex.png'
-import aliens from '../assets/aliens.png'
-import InsigniaSheriff from '../componentes/Ilustraciones/InsigniaSheriff'
+import badge from './assets/insignia-jose.webp'
+import MusicButton from './MusicButton'
+import ToyDecorations, { ToyStar } from './ToyDecorations'
 import './AdventureApp.css'
+import './AdventureStory.css'
 
 const date = new Date('2027-05-15T12:00:00+02:00')
 const moments = [
@@ -38,7 +39,7 @@ function Launch({ reduced, onOpen }) {
   const launch = () => { if (reduced) onOpen(); else setStage(3) }
   return <div className={`jo-launch ${stage === 0 ? 'jo-launching' : ''}`}>
     <div className="jo-orbit" aria-hidden="true" />
-    <div className="jo-launch-top"><span>UNA INVITACIÓN PARA TI</span><span>15 · 05 · 2027</span></div>
+    <div className="jo-launch-top"><span>UNA INVITACIÓN PARA TI</span></div>
     <p className="jo-launch-eyebrow">Tripulación, ¿preparada?</p>
     <h1>Una misión<br /><em>muy especial.</em></h1>
     <p className="jo-launch-subtitle">La Primera Comunión de José</p>
@@ -67,6 +68,7 @@ function RSVP() {
   useEffect(() => { if (expanded) name.current?.focus({ preventScroll: true }) }, [expanded])
   useEffect(() => { if (sent) result.current?.focus({ preventScroll: true }) }, [sent])
   return <section id="confirmar" className="jo-rsvp jo-section" aria-labelledby="jo-rsvp-title">
+    <ToyDecorations scene="rsvp" />
     <Star className="jo-rsvp-star" />
     <div className="jo-reveal"><p className="jo-kicker">EN ESTA AVENTURA FALTAS TÚ</p>
       <h2 id="jo-rsvp-title">¿Te vienes<br />conmigo?</h2>
@@ -116,16 +118,18 @@ export default function AdventureApp() {
     <main inert={!opened} className={opened ? 'jo-open' : 'jo-closed'}>
       <a className="jo-skip" href="#confirmar">Ir a confirmar asistencia</a>
       <header className="jo-hero" id="inicio">
-        <div className="jo-topline"><span>MI PRIMERA COMUNIÓN</span><span>15 MAYO 2027</span></div>
-        <div className="jo-hero-copy"><p className="jo-kicker">HAY DÍAS QUE SON TODA UNA AVENTURA</p><h1 ref={heading} tabIndex={-1}>José<span aria-hidden="true">★</span></h1>
+        <div className="jo-hero-copy"><div className="jo-name-wrap"><ToyStar className="jo-name-star-left" /><h1 ref={heading} tabIndex={-1}>José</h1><ToyStar className="jo-name-star-right" /></div>
           <p className="jo-hero-subtitle">¡Al infinito y más allá!</p>
           <div className="jo-hero-date"><span>SÁBADO</span><strong>15 <i>de</i> mayo</strong><span>2027 · 12:00 H</span></div>
+          <p className="jo-hero-communion">Mi Primera Comunión</p>
+          <p className="jo-hero-motto">Hay días que son<br />toda una aventura.</p>
         </div>
         <img className="jo-friends" src={room} width="1536" height="1024" alt="Habitación ilustrada con nubes y juguetes de colores" fetchPriority="high" />
-        <div className="jo-toys" aria-label="Tus amigos de Toy Story"><img className="jo-woody" src={woody} alt="Woody" /><img className="jo-rex" src={rex} alt="Rex" /><img className="jo-aliens" src={aliens} alt="Los aliens" /><img className="jo-buzz" src={buzz} alt="Buzz Lightyear" /></div>
+        <div className="jo-toys" aria-label="Woody y Buzz te dan la bienvenida"><img className="jo-woody" src={woody} alt="Woody" /><img className="jo-buzz" src={buzz} alt="Buzz Lightyear" /></div>
         <a className="jo-scroll" href="#mi-dia">La aventura empieza aquí <span aria-hidden="true">↓</span></a>
       </header>
       <section id="mi-dia" className="jo-intro jo-section">
+        <ToyDecorations scene="intro" />
         <div className="jo-reveal"><p className="jo-kicker">UN DÍA PEQUEÑO EN EL CALENDARIO, ENORME PARA MÍ</p><Star />
           <h2>Mi primera gran<br /><em>aventura de fe.</em></h2>
           <p>Hay aventuras que no necesitan una nave espacial.<br className="jo-desktop-break" /> Solo a las personas que más quieres, muy cerquita.</p>
@@ -134,6 +138,7 @@ export default function AdventureApp() {
         </div>
       </section>
       <section className="jo-places jo-section" id="lugares">
+        <ToyDecorations scene="places" />
         <div className="jo-reveal"><p className="jo-kicker">DOS PARADAS. UN RECUERDO PARA SIEMPRE.</p><h2>El mapa de<br />nuestro día.</h2></div>
         <figure className="jo-meadow jo-reveal"><img src={meadow} alt="Ilustración imaginaria de una capilla y una celebración en el campo con banderines de colores" width="1536" height="1024" loading="lazy" /><figcaption>Un pequeño paisaje imaginado para este gran día.</figcaption></figure>
         <div className="jo-place-grid jo-reveal">
@@ -143,14 +148,15 @@ export default function AdventureApp() {
         <p className="jo-place-note">Lugares y direcciones ficticios de esta invitación de muestra.</p>
       </section>
       <section className="jo-plan jo-section" id="plan">
+        <ToyDecorations scene="plan" />
         <div className="jo-plan-heading jo-reveal"><p className="jo-kicker">LA HOJA DE RUTA</p><h2>Un día para<br /><em>recordar.</em></h2><p>De la primera emoción<br />al último trocito de tarta.</p><div className="jo-plan-rocket"><img src={rocket} alt="" width="1024" height="1536" loading="lazy" /></div></div>
         <ol className="jo-timeline">{moments.map(([time, title, detail], i) => <li key={time} className="jo-reveal"><span className="jo-timeline-dot" aria-hidden="true">{i === 1 ? '✦' : '•'}</span><time>{time}</time><h3>{title}</h3><p>{detail}</p></li>)}</ol>
       </section>
-      <section className="jo-wait jo-section"><div className="jo-reveal"><p className="jo-kicker">LA CUENTA ATRÁS MÁS BONITA</p><h2>¡Ya queda menos!</h2><Countdown /><p>Para reunir a mi tripulación favorita.</p></div></section>
+      <section className="jo-wait jo-section"><ToyDecorations scene="countdown" /><div className="jo-reveal"><p className="jo-kicker">LA CUENTA ATRÁS MÁS BONITA</p><h2>¡Ya queda menos!</h2><Countdown /><p>Para reunir a mi tripulación favorita.</p></div></section>
       <RSVP />
-      <section className="jo-gift jo-section"><div className="jo-reveal"><span className="jo-gift-mark" aria-hidden="true">✦</span><p className="jo-kicker">EL MEJOR REGALO</p><h2>Que formes parte<br />de mi historia.</h2><p>Tu compañía es lo que más ilusión me hace.<br />Si te apetece tener un detalle conmigo, habrá una mesa<br className="jo-desktop-break" /> de regalos en la celebración.</p><p className="jo-signature">¡Gracias por venir a mi aventura!</p></div></section>
-      <footer className="jo-footer"><div className="jo-jose-emblem" role="img" aria-label="Logo de José: una J en su insignia de sheriff"><InsigniaSheriff /><span aria-hidden="true">J</span></div><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">InvitAle</a><span>Diseñado para recordar</span></div><small>Invitación de muestra · Todos los datos del evento son ficticios.</small></footer>
-      <a className="jo-floating" href="#confirmar" aria-label="Confirmar asistencia">¿Vienes? <span aria-hidden="true">↗</span></a>
+      <section className="jo-gift jo-section"><ToyDecorations scene="gift" /><div className="jo-reveal"><span className="jo-gift-mark" aria-hidden="true">✦</span><p className="jo-kicker">EL MEJOR REGALO</p><h2>Que formes parte<br />de mi historia.</h2><p>Tu compañía es lo que más ilusión me hace.<br />Si te apetece tener un detalle conmigo, habrá una mesa<br className="jo-desktop-break" /> de regalos en la celebración.</p><p className="jo-signature">¡Gracias por venir a mi aventura!</p></div></section>
+      <footer className="jo-footer"><img className="jo-badge-painted" src={badge} width="640" height="640" alt="Insignia ilustrada de José: una J roja sobre una estrella de sheriff dorada" loading="lazy" /><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">InvitAle</a><span>Diseñado para recordar</span></div></footer>
+      {opened && <MusicButton />}
     </main>
   </div>
 }

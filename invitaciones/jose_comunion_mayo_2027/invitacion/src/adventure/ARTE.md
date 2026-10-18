@@ -51,3 +51,40 @@ La galería sigue enlazando la original hasta que se elija el resultado definiti
 - El formulario solo simula una respuesta; no usa red, almacenamiento ni datos reales.
 - Cuenta atrás con fecha explícita de Madrid: `2027-05-15T12:00:00+02:00`.
 - Pendiente de prueba física en Redmi Note 12 Pro 5G: la emulación no la sustituye.
+
+## Revisión ilustrada del 18 de octubre · Portada y ambientación
+
+- Portada solo con Woody y Buzz. Rex, los aliens, Jessie, Hamm y Slinky se distribuyen
+  por los márgenes del relato, lugares, itinerario, cuenta atrás, confirmación y regalos.
+- Nombre editable en Luckiest Guy, con volumen rojo y azul; fecha y cartel en Bangers.
+- Orden solicitado: nombre, frase, fecha, Mi Primera Comunión, Hay días que son toda una aventura.
+- Retiradas la fecha de la esquina superior, la inscripción superior de comunión y la nota
+  de muestra/ficticios del cierre. El formulario conserva su explicación de funcionamiento.
+- `insignia-jose.webp`: 640 × 640, 122 KB, alfa. Basada en el emblema original con J.
+- `pelota-bloques.webp`: 640 × 640, 89 KB, alfa. Pelota amarilla/azul con estrella roja y bloques.
+- `sombrero-panuelo.webp`: 640 × 427, 76 KB, alfa. Sombrero, pañuelo, cuerda y estrella de sheriff.
+- Nuevo favicon de imagen: `public/favicon-jose-v3.png`, 96 × 96, alfa.
+
+Los tres recursos se generaron con ImageGen integrado y se optimizaron con Sharp.
+Originales conservados en la carpeta de imágenes generadas de este chat.
+
+### Prompt de la insignia (`exec-5b62bbfc-4343-4cff-aaf0-b314cb0d9701.png`)
+
+Use case: style-transfer. Edit target: the attached simple circular sheriff-star J emblem for José's Toy Story themed First Communion invitation. Preserve its identity: a five pointed yellow sheriff star inside a circular gold ring with red rivets and a single large RED capital J with cream edge in the center. Reimagine as a gorgeous tactile painted toy badge, premium storybook gouache illustration with gently embossed warm brass edges, soft honey yellow enamel, subtle worn painted wood and pencil texture, rich red J like a raised enamel letter. Sophisticated dimensional highlights and tiny painted sparkles, charming nostalgic toy-western personality, not photorealistic and not flat vector. Bold readable simple J; no other writing, no names, no extra letters. Front view symmetrical circular badge, entire badge fully visible with generous transparent padding. No scene or box or background, genuinely transparent background. The asset should be legible at small favicon size as well as a large closing emblem. Retain five points, original palette and J; improve material, depth, texture and craftsmanship. No additional characters or logos.
+
+### Prompt de pelota y bloques (`exec-9b37a284-150d-49b8-bec6-cbf6b086e04e.png`)
+
+Use case: illustration-story. Asset for a Toy Story themed children's First Communion invitation: an isolated charming hand-painted yellow toy ball with thick blue horizontal stripe and one red five-pointed star on the yellow part, three beautifully tactile little red blue yellow wooden alphabet blocks WITHOUT any letters, and two small wooden stars scattered beside it. Gouache and colored pencil picture-book illustration on transparent background, soft painted shadows, warm worn toy textures, cheerful sophisticated art, recognizable nostalgic space-cowboy toy room palette. Compact balanced cluster, ball is main object about two thirds composition, blocks smaller lower right. No characters, no text, no letters, no logos, no wallpaper or floor. Entire group visible with ample transparent margin. Square composition, genuine alpha transparency.
+
+### Prompt de accesorios vaqueros (`exec-4a9e97cd-5278-40f3-86a7-968aa2f73fb2.png`)
+
+Use case: illustration-story. A beautiful small decorative storybook gouache illustration for a child's Toy Story themed First Communion invitation: one warm brown cowboy toy hat resting at a slight angle over a folded red bandana, a short loop of golden rope and a little brass sheriff star to the side. Original charming western toys and dress-up accessories, no character or person, rich handpainted paper texture, colored pencil edges, warm honey ochre, red and cream. Compact horizontal cluster isolated on genuine transparent background with generous transparent margins, full objects visible, tactile painted shadows, elegant children's book art, no text, no lettering, no logo. Companion to a red and cream illustrated toy rocket and a yellow ball with blue stripe. Do not include any surrounding scene or floor.
+
+### Música
+
+`MusicButton.jsx` sustituye el enlace flotante de confirmación por el disco de música habitual.
+El usuario eligió aportar su MP3 de Hay un amigo en mí. Al recibirlo, guardarlo como
+`src/adventure/assets/hay-un-amigo-en-mi.mp3` y recompilar: el glob lo conecta automáticamente.
+Admite también m4a/ogg/wav con el mismo nombre. No se solicita ninguna URL de audio mientras
+no exista el archivo; el control muestra el estado disponible próximamente.
+No hay reproducción automática: el audio comienza al tocar el disco, con volumen .3 y bucle.
