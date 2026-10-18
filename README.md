@@ -14,6 +14,11 @@ teclado, Inicio y Fin al enfocar el carrusel. No avanza automáticamente y respe
 la preferencia de movimiento reducido. Solo muestra las cuatro muestras autorizadas
 de `data/invitations.js`; cada una abre su invitación en otra pestaña.
 
+La hero muestra las mismas cuatro muestras como una baraja inclinada y superpuesta.
+Se puede arrastrar lateralmente con ratón o dedo, o recorrerla con sus botones y el
+teclado. Ambas tarjetas visibles abren su invitación al pulsarlas; un arrastre no
+activa el enlace y el gesto vertical permite seguir desplazándose por la página.
+
 Node.js: versión de `.node-version`. Instalar dependencias con `npm ci`.
 
 - `npm run dev`: hub en desarrollo. No sirve los builds Vite de las invitaciones.

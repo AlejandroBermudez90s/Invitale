@@ -87,15 +87,29 @@ h1 em, h2 em { font-style: normal; color: var(--gold-text); }
 .hero-actions .text-link { margin-top: 2px; }
 .hero-signature { margin-top: 37px; font-family: var(--font-script), cursive; font-size: 29px; color: var(--muted); }
 .hero-showcase { min-width: 0; padding: 8px 0 22px; }
-.showcase-composition { position: relative; height: 460px; width: 100%; max-width: 545px; margin-inline: auto; }
-.showcase-card { position: absolute; padding: 11px; background: #fdfaf5; border: 1px solid rgba(37, 37, 39, .09); box-shadow: 0 18px 45px -20px rgba(25, 22, 15, .24); }
-.showcase-card img { width: 100%; height: auto; display: block; }
-.showcase-card-back { width: 54%; left: 1%; top: 6%; transform: rotate(-9deg); }
-.showcase-card-front { width: 59%; right: 3%; top: 12%; transform: rotate(6deg); transition: transform .5s ease; }
-.showcase-card-front:hover { transform: translateY(-5px) rotate(3deg); }
+.showcase-composition { position: relative; isolation: isolate; height: 460px; width: 100%; max-width: 545px; margin-inline: auto; touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; }
+.showcase-card { position: absolute; padding: 11px; background: #fdfaf5; border: 1px solid rgba(37, 37, 39, .09); box-shadow: 0 18px 45px -20px rgba(25, 22, 15, .24); transition: left .55s cubic-bezier(.22,.68,.3,1), top .55s ease, width .55s ease, transform .55s cubic-bezier(.22,.68,.3,1), opacity .3s ease, visibility .55s; -webkit-user-drag: none; }
+.showcase-card img { width: 100%; height: auto; display: block; pointer-events: none; }
+.showcase-card-back { z-index: 2; width: 54%; left: 1%; top: 6%; transform: translateX(calc(var(--deck-drag, 0px) * .2)) rotate(-9deg); }
+.showcase-card-front { z-index: 3; width: 59%; left: 38%; top: 12%; transform: translateX(calc(var(--deck-drag, 0px) * .65)) rotate(calc(6deg + var(--deck-tilt, 0deg))); }
+.showcase-card-next { z-index: 1; width: 54%; left: 30%; top: 12%; transform: translateX(8%) rotate(15deg); opacity: 0; visibility: hidden; pointer-events: none; }
+.showcase-card-away { z-index: 0; width: 54%; left: 10%; top: 6%; transform: translateX(-8%) rotate(-16deg); opacity: 0; visibility: hidden; pointer-events: none; }
+.is-dragging .showcase-card { transition: none; cursor: grabbing; }
+.is-dragging .showcase-composition { cursor: grabbing; }
+@media (hover: hover) {
+  .showcase-card-front:hover { transform: translateY(-5px) rotate(3deg); }
+  .is-dragging .showcase-card-front:hover { transform: translateX(calc(var(--deck-drag, 0px) * .65)) rotate(calc(6deg + var(--deck-tilt, 0deg))); }
+}
 .showcase-open { position: absolute; right: -16px; bottom: 30px; display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #252527; color: #fdfaf5; border-radius: 50%; }
-.showcase-caption { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 7px; font-size: 11px; letter-spacing: .035em; color: var(--muted); }
-.caption-line { width: 32px; height: 1px; background: var(--gold); }
+.showcase-card:not(.showcase-card-front) .showcase-open { opacity: 0; }
+.showcase-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 380px; margin: 9px auto 0; }
+.showcase-control { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; transition: color .2s, border-color .2s; }
+.showcase-control:hover { color: var(--gold-text); border-color: var(--gold-text); }
+.showcase-control svg { width: 17px; }
+.showcase-current { min-width: 0; text-align: center; color: var(--muted); }
+.showcase-current > p:first-child { font-size: 11px; line-height: 1.5; }
+.showcase-counter { display: inline-block; margin-left: 12px; color: var(--gold-text); font-size: 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.showcase-current > p:last-child { margin-top: 4px; font-size: 10px; letter-spacing: .035em; }
 .hero-footnote { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-top: 34px; padding-block: 25px; border-top: 1px solid var(--line); font-size: 11px; letter-spacing: .05em; color: var(--muted); }
 .hero-footnote a { display: flex; align-items: center; gap: 17px; }
 .hero-footnote svg { width: 16px; }
@@ -193,7 +207,6 @@ h2 { font-size: clamp(34px, 3.25vw, 49px); line-height: 1.28; letter-spacing: -.
   .hero h1 { font-size: 50px; }
   .hero-actions { flex-direction: column; gap: 13px; }
   .showcase-composition { height: 370px; }
-  .showcase-caption { font-size: 10px; gap: 9px; }
   .hero-footnote { margin-top: 25px; }
   .carousel-slide { flex-basis: calc((100% - 40px) / 2.35); }
   .about-section { gap: 60px; padding-block: 100px; }
@@ -226,8 +239,7 @@ h2 { font-size: clamp(34px, 3.25vw, 49px); line-height: 1.28; letter-spacing: -.
   .hero-signature { font-size: 25px; margin-top: 27px; }
   .showcase-composition { height: 320px; }
   .showcase-card { padding: 7px; }
-  .showcase-caption { text-align: center; font-size: 9px; }
-  .caption-line { width: 18px; }
+  .showcase-current > p:first-child { font-size: 10px; }
   .hero-footnote { font-size: 10px; }
   .hero-footnote > span { max-width: 330px; line-height: 1.9; }
   .hero-footnote > a { flex-shrink: 0; }
@@ -280,10 +292,10 @@ h2 { font-size: clamp(34px, 3.25vw, 49px); line-height: 1.28; letter-spacing: -.
   .hero-showcase { padding: 35px 9px 26px; }
   .showcase-composition { height: clamp(295px, 80vw, 405px); max-width: 415px; }
   .showcase-card-back { top: 4%; left: 2%; width: 54%; }
-  .showcase-card-front { top: 11%; right: 3%; width: 58%; }
+  .showcase-card-front { top: 11%; left: 39%; width: 58%; }
   .showcase-open { width: 36px; height: 36px; right: -12px; bottom: 20px; }
   .showcase-open svg { width: 16px; }
-  .showcase-caption { font-size: 10px; margin-top: 3px; gap: 12px; }
+  .showcase-navigation { margin-top: 3px; gap: 9px; }
   .hero-footnote { margin-top: 0; padding-block: 18px; }
   .hero-footnote > span { max-width: 100%; font-size: 9px; letter-spacing: .01em; }
   .hero-footnote > a { display: none; }
