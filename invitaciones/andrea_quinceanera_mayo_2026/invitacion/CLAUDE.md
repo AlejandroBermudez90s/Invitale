@@ -6,8 +6,11 @@ en `dist-v2/`, para `/andrea-15-v2/`. No convertirlo en la ruta definitiva sin e
 del usuario. `npm run dev:artistic` permite revisarlo localmente.
 
 ## Contenido que conservar
-- La fotografía original de Andrea en `src/assets/portada.webp` es protagonista de la
-  portada. El usuario pidió expresamente mantenerla. No sustituirla por una ilustración.
+- La fotografía original es la que carga `.cabecera::before`: `src/assets/portada.jfif`.
+  Se comprobó contra el recurso publicado `/andrea-15/assets/portada-DAnXD3y_.jfif`:
+  los bytes coinciden, SHA-256 `d97596b57d0f4b4713612af949eaf6bc64495e9e12321e3b96ce1fa53b929880`.
+  No elegir imágenes por su nombre: `portada.webp` es OTRA foto de la sesión.
+  El usuario pidió usar exactamente la original. Mantener rostro y vestido libres de texto.
 - Sábado 16 de mayo de 2026, 19:00 h. Hotel Playa Grande, Puerto de Mazarrón, Murcia.
 - Azul rey reservado para la quinceañera; vestimenta elegante y ganas de bailar.
 - Música original `public/tiempo_de_vals.mp3`, solo al pulsar el control.
@@ -17,9 +20,13 @@ del usuario. `npm run dev:artistic` permite revisarlo localmente.
 ## Diseño comparativo
 Papel marfil, azul noche #101e49, azul acuarela #416b9a y oro viejo #a48b60.
 Cormorant Garamond y Pinyon Script. Sobre con sello de mariposa, apertura lenta,
-fotografía protagonista, flores azules señoriales, monograma, carta, fecha,
+fotografía protagonista con los textos en áreas separadas, flores azules señoriales, monograma, carta, fecha,
 lugar, vestimenta, regalos y formulario a la vista. Sin acordeones ni Bootstrap.
-Todo el texto y los controles son HTML editable; las flores son acuarelas propias.
+Todo el texto y los controles son HTML editable. `Written.jsx` revela cada palabra por
+pasos sin romper las ligaduras manuscritas y deja el texto completo accesible.
+Flores, mariposas y hotel son imágenes WebP. No recuperar las ilustraciones SVG.
+El Hotel Playa Grande se pintó con fotos oficiales; se revela en 14 pinceladas alternas.
+Las mariposas vuelan por el margen derecho para no atravesar la cara ni los textos.
 Respetar movimiento reducido, navegación por teclado y pantallas de 360 px.
 
 El formulario de la versión comparativa es explícitamente de prueba: no envía ni

@@ -1,0 +1,165 @@
+/* La fotografía original tiene su propio espacio. Ningún texto la cubre. */
+.a-hero {
+  height: auto;
+  min-height: 900px;
+  max-height: none;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 7vw;
+  padding: 90px 8vw 80px;
+}
+.a-hero-title {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+}
+.a-hero-title > .a-butterfly { width: 64px; margin-bottom: 20px; }
+.a-hero-title .a-eyebrow { font-size: 11px; }
+.a-invitation .a-hero h1 { font-size: clamp(100px, 12vw, 160px); }
+.a-hero-copy {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  position: relative;
+  inset: auto;
+  padding: 0;
+}
+.a-photo-composition {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  position: relative;
+  align-self: center;
+  margin: 0 20px;
+}
+.a-hero-portrait {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: 48% 48% 1px 1px;
+  overflow: hidden;
+}
+.a-hero-portrait img { width: 100%; height: auto; object-fit: contain; }
+.a-hero-portrait::after { display: none; }
+.a-hero-flower-left { width: 165px; left: -90px; bottom: -35px; }
+.a-hero-flower-right { width: 175px; right: -85px; bottom: -35px; }
+.a-hero-phrase { margin-top: 18px !important; padding: 0; }
+.a-hero-date { margin-top: 22px; }
+.a-xv > span:not(.a-written) { width: 35px; height: 1px; background: var(--gold); }
+.a-xv > .a-written { width: auto; height: auto; background: none; }
+.a-open-hint > .a-written { display: inline; font: inherit; }
+
+/* Las mariposas son acuarelas raster; su vuelo conserva libre la foto. */
+.a-butterfly { display: inline-block; vertical-align: middle; }
+.a-butterfly > img { width: 100%; height: auto; animation: a-painted-wings 5s ease-in-out infinite; }
+.a-flight { inset: 0 0 0 auto; width: 25px; }
+.a-flight > .a-butterfly { left: auto; right: -5px; width: 32px; animation-name: a-margin-flight; }
+.a-bouquet { transform-origin: 50% 90%; animation: a-botanical-breeze 12s ease-in-out infinite alternate; }
+.a-seal > .a-butterfly { width: 55px; }
+.a-seal .a-butterfly > img { filter: brightness(1.7) saturate(.45); }
+.a-monogram { border: 1px solid var(--gold); border-radius: 50%; }
+.a-monogram::before { content: ''; position: absolute; inset: 5px; border: 1px solid #a48b6066; border-radius: inherit; }
+.a-flourish { display: flex; align-items: center; gap: 12px; }
+.a-flourish::before, .a-flourish::after { content: ''; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, var(--gold)); }
+.a-flourish::after { transform: rotate(180deg); }
+.a-flourish > i { width: 6px; height: 6px; border: 1px solid var(--gold); transform: rotate(45deg); }
+
+/* Escritura por pasos, sin romper las ligaduras de la letra manuscrita.
+   El texto completo está disponible desde el principio para lectores de pantalla. */
+.a-written { display: inline; }
+.a-ink-word { display: inline-block; padding-inline: .08em; margin-inline: -.08em; }
+.a-write-ready .a-ink-word { clip-path: inset(-15% 100% -15% 0); }
+.a-writing .a-ink-word {
+  animation: a-ink-write var(--ink-duration) steps(var(--letters), end) calc(var(--ink-delay) + var(--writing-wait, 100ms)) both;
+}
+.a-hero-title h1 { --writing-wait: 500ms; }
+.a-hero-title .a-xv { --writing-wait: 1100ms; }
+.a-hero-copy { --writing-wait: 1500ms; }
+.a-hero-date { --writing-wait: 2100ms; }
+.a-topline .a-written { --writing-wait: 300ms; }
+
+/* Catorce pasadas alternas revelan una imagen, sin ilustración SVG. */
+.a-venue { grid-template-columns: 1.55fr 1fr; gap: 5vw; }
+.a-venue-art { min-height: 0; position: relative; }
+.a-hotel-painting { position: relative; margin: 0; isolation: isolate; }
+.a-hotel-painting > img { width: 100%; height: auto; mix-blend-mode: multiply; }
+.a-hotel-painting figcaption { font-size: 12px; letter-spacing: .04em; text-align: center; margin-top: 22px; }
+.a-paint-strokes { position: absolute; inset: 0 0 auto; aspect-ratio: 1450 / 967; pointer-events: none; }
+.a-paint-strokes > span {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--strip) * 100% / 14);
+  height: calc(100% / 14 + .5px);
+  background-repeat: no-repeat;
+  background-size: 100% 1400%;
+  mix-blend-mode: multiply;
+}
+.a-painted.a-pending { opacity: 1; transform: none; }
+.a-painted.a-pending > img { opacity: 0; }
+.a-painted.a-pending .a-paint-strokes > span { display: block; clip-path: inset(0 100% 0 0); }
+.a-painted.a-visible .a-paint-strokes > span { animation: a-brush-right 1.3s calc(var(--strip) * 230ms) ease-in-out both; }
+.a-painted.a-visible .a-paint-strokes > span:nth-child(even) { animation-name: a-brush-left; }
+.a-painted.a-visible > img { animation: a-paint-finish 1ms 4.8s forwards; }
+.a-painted.a-visible .a-paint-strokes { animation: a-strokes-done 1ms 4.8s forwards; }
+.a-hotel-butterfly { position: absolute; width: 60px; left: 3%; top: -20px; animation: a-hotel-drift 11s ease-in-out infinite alternate; }
+
+@keyframes a-ink-write { from { clip-path: inset(-15% 100% -15% 0); } to { clip-path: inset(-15% -12% -15% -12%); } }
+@keyframes a-brush-right { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -1%); } }
+@keyframes a-brush-left { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 -1%); } }
+@keyframes a-paint-finish { to { opacity: 1; } }
+@keyframes a-strokes-done { to { opacity: 0; } }
+@keyframes a-painted-wings { 0%, 100% { transform: perspective(300px) rotateY(-14deg) scaleX(.9); } 50% { transform: perspective(300px) rotateY(14deg) scaleX(1); } }
+@keyframes a-botanical-breeze { from { rotate: -.8deg; } to { rotate: .8deg; } }
+@keyframes a-hotel-drift { from { translate: 0 0; rotate: -12deg; } to { translate: 25px -12px; rotate: 6deg; } }
+@keyframes a-margin-flight { 0% { transform: translateY(105vh) rotate(-15deg); opacity: 0; } 12%, 80% { opacity: .55; } 100% { transform: translateY(-15vh) rotate(15deg); opacity: 0; } }
+
+@media(max-width: 900px) {
+  .a-hero { min-height: 790px; padding: 85px 5vw 75px; gap: 0 5vw; }
+  .a-invitation .a-hero h1 { font-size: 98px; }
+  .a-photo-composition { margin: 0 7px; }
+  .a-hero-title .a-eyebrow { font-size: 9px; }
+  .a-hero-title > .a-butterfly { width: 50px; }
+  .a-hero-flower-left { width: 135px; left: -65px; }
+  .a-hero-flower-right { width: 135px; right: -65px; }
+  .a-venue { grid-template-columns: 1.3fr 1fr; }
+}
+@media(max-width: 600px) {
+  .a-hero { display: flex; flex-direction: column; height: auto; min-height: 0; max-height: none; gap: 0; padding: 72px 22px 55px; background: radial-gradient(at 20% 40%, #fffdf6, #eee8da); color: var(--ink); }
+  .a-topline { font-size: 8px; color: var(--ink); }
+  .a-hero-title { align-self: auto; width: 100%; }
+  .a-hero-title > .a-butterfly { display: none; }
+  .a-hero-title .a-eyebrow { font-size: 9px; margin: 0; }
+  .a-invitation .a-hero h1 { font-size: clamp(88px, 24vw, 120px); margin: 0; color: var(--navy); text-shadow: none; }
+  .a-hero-title .a-xv { font-size: 10px; color: var(--navy); text-shadow: none; margin: 4px 0 0 !important; }
+  .a-photo-composition { width: calc(100% - 34px); max-width: 360px; margin: 35px 17px 25px; }
+  .a-hero-portrait { position: relative; inset: auto; width: 100%; height: auto; border: 1px solid #b2a27e; outline: 1px solid #b2a27e; outline-offset: 7px; border-radius: 48% 48% 1px 1px; }
+  .a-hero-portrait img { width: 100%; height: auto; object-fit: contain; }
+  .a-hero-flower-left { width: 108px; left: -59px; bottom: -22px; opacity: 1; mix-blend-mode: multiply; }
+  .a-hero-flower-right { width: 108px; right: -59px; bottom: -22px; mix-blend-mode: multiply; }
+  .a-hero-copy { position: relative; display: block; inset: auto; width: 100%; margin-top: 0; text-align: center; }
+  .a-hero-phrase { margin: 14px 0 20px !important; padding: 0; font-size: 24px; text-shadow: none; }
+  .a-hero-date { margin-top: 15px; gap: 3px; }
+  .a-hero-date strong { font-size: 29px; }
+  .a-hero-date i { color: var(--gold); }
+  .a-hero-date > span { font-size: 12px; }
+  .a-scroll { margin-top: 23px; }
+  .a-hero-footnote { display: none; }
+  .a-flight > .a-butterfly { width: 23px; right: -5px; }
+  .a-music-hint { display: none; }
+  .a-venue { padding-inline: 23px; gap: 45px; }
+  .a-venue-art { width: 100%; max-width: 560px; min-height: 0; }
+  .a-hotel-painting { width: calc(100% + 20px); margin-inline: -10px !important; }
+  .a-hotel-painting figcaption { max-width: 290px; margin: 18px auto 0; font-size: 11px; }
+  .a-hotel-butterfly { width: 43px; top: -10px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .a-write-ready .a-ink-word { clip-path: none; }
+  .a-painted.a-pending > img { opacity: 1; }
+  .a-paint-strokes { display: none; }
+}

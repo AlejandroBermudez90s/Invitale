@@ -1,10 +1,35 @@
 # Andrea · Un jardín para mis quince
 
+## Revisión: fotografía verificada, escritura y hotel
+
+La portada ahora importa EXACTAMENTE la misma fotografía que utiliza el CSS de la invitación original publicada: `../assets/portada.jfif` (2444 × 3673). La anterior selección `portada.webp` correspondía a otra toma y se retiró de este diseño. Coincidencia byte por byte con https://invitale.es/andrea-15/assets/portada-DAnXD3y_.jfif. SHA-256: d97596b57d0f4b4713612af949eaf6bc64495e9e12321e3b96ce1fa53b929880.
+
+Texto y foto ocupan espacios separados, también en móvil. `Written.jsx` usa máscaras por palabra, con pasos por carácter y máximo 4,5 segundos por fragmento. Conserva las uniones de Pinyon Script y el texto completo para lectores de pantalla. Se inicia al entrar cada texto en pantalla; los resultados nuevos del formulario se incorporan con MutationObserver. Movimiento reducido muestra todo directamente.
+
+- `assets/hotel-playa-grande-acuarela.webp`: 1450 × 967, ilustración raster del hotel. Se revela en 14 pinceladas CSS alternas durante 4,8 segundos, sin SVG.
+- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Aleteo suave y vuelo por el margen.
+- Las flores respiran mediante una rotación CSS menor de un grado, sin mover la composición.
+
+### Referencias arquitectónicas
+
+Fuente: [web oficial del Hotel Playa Grande](https://www.hotel-playagrande.com/).
+Fotografías de referencia: https://www.hotel-playagrande.com/img-portada/portada-1418207724.jpg y https://www.hotel-playagrande.com/img-articulos/secciones-ampliadas/3_68.jpg.
+Las referencias se guardan fuera del sitio en `C:/Invitale/backups/referencias-playa-grande/`; solo se distribuye la ilustración creada con ImageGen integrado.
+
+### Prompt del hotel (ImageGen integrado)
+
+Use case: style-transfer. Asset type: detailed architectural watercolor for an elegant blue quinceanera invitation. Reference images are architectural references of the SAME real Hotel Playa Grande in Puerto de Mazarron, Spain, not edit targets. Paint this recognizable real hotel from a gently elevated frontal three-quarter view: preserve its low ochre cream Mediterranean building, characteristic angular wings, tiled pitched roofs with the row of little dormers, the central curved entrance porch, hotel rooftop sign structure, palm trees, the promenade and Mediterranean sea and rocky headland behind it. Reference 1 is the main architectural reference; reference 2 clarifies the overall wings and layout. Fine hand-drawn blue-gray graphite and ink linework under delicate watercolor washes, nuanced and detailed like bespoke European illustrated event stationery. Muted sand and ivory building, cornflower and ultramarine water, sage palms. A little blue hydrangea and rose foliage on the lower outer edges only. Landscape 1536x1024, generous warm ivory cotton paper margins, irregular soft painted edges fading to matching warm ivory #faf6ec. No people in foreground, no cars, no photorealism, no vectors, no giant text, no decorative arch, do not invent palace architecture. Small rooftop sign may be impressionistic. The building should be the clear focal point with full roof and entrance visible.
+
+### Prompt de la mariposa (ImageGen integrado)
+
+Use case: illustration-story. Asset type: isolated transparent blue butterfly for animated fine art invitation. ONE beautiful delicate blue morpho butterfly, top view with both wings open symmetrically, body vertical, richly detailed cornflower and royal blue watercolor wings, translucent pale blue edges, tiny ivory speckles and fine dark blue botanical engraving veins, elegant realistic anatomy and refined hand painted paper pigment. Centered with generous transparent margin, square composition. A real alpha transparent background. No flowers, no scenery, no cast shadow, no ground, no lettering, no vectors, no frame. Only one butterfly, suitable as a small raster decoration for aristocratic blue floral stationery.
+
+
 Recursos generados con la herramienta integrada de ImageGen. Ilustraciones originales de acuarela; nunca sustituyen la fotografía de Andrea ni contienen el texto de la invitación.
 
 - `assets/jardin-azul.webp`: papel ilustrado para la apertura. WebP 1200 × 1800.
 - `assets/ramo-azul.webp`: ramo con transparencia real para esquinas y composiciones. WebP 850 × 1275, conserva alpha.
-- `../assets/portada.webp`: fotografía original conservada, sin retoque generativo.
+- `../assets/portada.jfif`: fotografía exacta de la original publicada, sin retoque generativo.
 - `../../public/social-andrea.jpg`: detalle floral para enlaces, 1200 × 630.
 
 ## Prompt de la lámina
@@ -17,5 +42,5 @@ Use case: illustration-story. Asset type: transparent botanical corner for a fin
 
 ## Movimiento
 
-Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones con IntersectionObserver, una sola vez. Cuatro mariposas flotantes decorativas de 30 segundos y alas suaves de 4 segundos. Sin captura de puntero. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
+Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Cuatro mariposas raster decorativas vuelan durante 30 segundos por el margen derecho; sus alas oscilan suavemente durante 5 segundos. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
 
