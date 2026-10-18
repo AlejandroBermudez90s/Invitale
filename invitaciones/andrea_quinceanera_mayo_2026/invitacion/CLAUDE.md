@@ -36,7 +36,9 @@ es lineal e infinito: no usar alternate ni oscilación vertical que parezca est�
 La portada protege la fotografía. Se omiten con movimiento reducido.
 La cuenta y el formulario se ocultan inicialmente y se abren al pulsar una mariposa
 con frase manuscrita. Conservar aria-expanded, aria-controls y el retorno de foco.
-Los controles son transparentes y ornamentales; no recuperar botones rectangulares.
+Los controles de cuenta y formulario son medallones ovalados con marco fino, mariposa,
+indicación explícita «Toca para…», subrayado y flecha que cambia al abrir. Deben
+parecer pulsables también en móvil, sin depender de hover. No usar botones rectangulares.
 Respetar movimiento reducido, navegación por teclado y pantallas de 360 px.
 
 El formulario de la versión comparativa es explícitamente de prueba: no envía ni

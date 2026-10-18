@@ -71,25 +71,35 @@
 .a-flourish::after { transform: rotate(180deg); }
 .a-flourish > i { width: 6px; height: 6px; border: 1px solid var(--gold); transform: rotate(45deg); }
 
-/* Invitaciones a descubrir: una mariposa y una frase, sin recuadro de interfaz. */
+/* Medallones de papel pulsables: marco oval, frase y acción explícita. */
 .a-secret-trigger {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  margin: 22px auto 0;
-  padding: 12px 20px;
-  border: 0;
-  background: transparent;
+  gap: 9px;
+  width: 340px;
+  min-height: 154px;
+  margin: 52px auto 0;
+  padding: 24px 22px 27px;
+  border: 1px solid #a48b60aa;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #fffdf6cc, #f0eadc66);
+  box-shadow: 0 5px 16px #5c4c3210, inset 0 0 0 5px #fffdf677;
   color: var(--blue);
   text-align: center;
   cursor: pointer;
   max-width: 100%;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-.a-secret-trigger > .a-butterfly { width: 74px; transition: translate .7s ease; }
+.a-invitation .a-secret-trigger { border-radius: 50%; }
+.a-secret-trigger > .a-butterfly { width: 64px; margin-top: -54px; transition: translate .7s ease; }
+.a-secret-trigger:hover, .a-secret-trigger:focus-visible { border-color: var(--blue); box-shadow: 0 7px 22px #101e491c, inset 0 0 0 5px #fffdf699; transform: translateY(-3px); }
+.a-secret-trigger:active { transform: translateY(0) scale(.98); }
 .a-secret-trigger:hover > .a-butterfly { translate: 0 -6px; }
 .a-secret-label { max-width: 100%; font-family: 'Pinyon Script', cursive; font-size: 37px; line-height: 1.5; }
-.a-secret-hint { font-size: 14px; font-style: italic; letter-spacing: .015em; color: #5c6674; }
+.a-secret-hint { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 4px; border-bottom: 1px solid #416b9a88; font-size: 14px; font-style: italic; letter-spacing: .015em; color: var(--blue); }
+.a-secret-hint::after { content: ''; display: block; flex-shrink: 0; width: 7px; height: 7px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .35s ease; }
+.a-secret-trigger[aria-expanded="true"] .a-secret-hint::after { transform: translateY(2px) rotate(225deg); }
 .a-secret-paper[hidden] { display: none !important; }
 .a-secret-paper:not([hidden]) { animation: a-note-unfold 1.1s ease both; }
 .a-gift-letter { max-width: 570px; margin: 28px auto 0; padding: 30px 18px 20px; border-block: 1px solid #b2a27e66; }
@@ -204,7 +214,7 @@
   .a-hotel-painting { width: calc(100% + 20px); margin-inline: -10px !important; }
   .a-hotel-painting figcaption { max-width: 290px; margin: 18px auto 0; font-size: 11px; }
   .a-hotel-butterfly { width: 43px; top: -10px; }
-  .a-secret-trigger { padding-inline: 8px; }
+  .a-secret-trigger { padding-inline: 14px; }
   .a-secret-label { font-size: 34px; }
   .a-secret-hint { font-size: 13px; max-width: 260px; }
   .a-rsvp { padding-bottom: 75px; }

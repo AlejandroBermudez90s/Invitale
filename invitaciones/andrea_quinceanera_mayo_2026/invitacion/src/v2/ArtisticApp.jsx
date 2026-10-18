@@ -31,7 +31,7 @@ function FloatingButterflies() {
 }
 
 function ButterflyInvitation({ label, hint, expanded, controls, onClick, buttonRef }) {
-  return <button ref={buttonRef} className="a-secret-trigger" type="button" aria-label={label} aria-expanded={expanded} aria-controls={controls} onClick={onClick}>
+  return <button ref={buttonRef} className="a-secret-trigger" type="button" aria-label={`${label}. ${hint}`} aria-expanded={expanded} aria-controls={controls} onClick={onClick}>
     <Butterfly />
     <span className="a-secret-label"><Written>{label}</Written></span>
     <span className="a-secret-hint" aria-hidden="true"><Written>{hint}</Written></span>
@@ -137,7 +137,7 @@ function RSVP() {
   return <section className="a-rsvp a-section" id="confirmar" aria-labelledby="a-rsvp-title">
     <Bouquet className="a-rsvp-flowers" />
     <div className="a-rsvp-copy a-reveal"><span className="a-chapter"><Written>05 / Un lugar para ti</Written></span><p className="a-eyebrow"><Written>El detalle que falta eres tú</Written></p><h2 id="a-rsvp-title"><Written>¿Vienes a </Written><em><Written>celebrar?</Written></em></h2><p><Written>Me hará mucha ilusión compartir</Written><br /><Written>esta noche contigo.</Written></p><span className="a-script"><Written>Te guardo un abrazo.</Written></span>
-      <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar mi carta' : 'Te cuento si voy'} hint={expanded ? 'Toca las alas para cerrar' : 'Toca las alas y déjame unas palabras'} expanded={expanded} controls="a-rsvp-letter" onClick={() => expanded ? close() : setExpanded(true)} />
+      <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar mi carta' : 'Te cuento si voy'} hint={expanded ? 'Toca para cerrar el formulario' : 'Toca para abrir el formulario'} expanded={expanded} controls="a-rsvp-letter" onClick={() => expanded ? close() : setExpanded(true)} />
     </div>
     <div ref={panel} id="a-rsvp-letter" className="a-form-paper a-secret-paper" hidden={!expanded} aria-label="Tu respuesta a Andrea"><p className="a-demo"><Written>Invitación de muestra · respuesta de prueba.</Written><br /><Written>Las respuestas no se envían ni se guardan.</Written></p>
       {sent ? <div className="a-form-success"><Butterfly /><h3 tabIndex={-1} ref={result}><Written>¡Gracias por probarla!</Written></h3><p><Written>Esta respuesta es una demostración.</Written><br /><Written>No se ha enviado una confirmación real.</Written></p><button className="a-link" onClick={() => { setSent(false); requestAnimationFrame(() => name.current?.focus()) }}><Written>Probar otra respuesta ↗</Written></button></div> : <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
@@ -172,7 +172,7 @@ function Gifts() {
     catch { setMessage('Puedes seleccionar y copiar el número de cuenta.') }
   }
   return <section className="a-gifts a-section" id="detalles" aria-labelledby="a-gifts-title"><div className="a-reveal"><span className="a-chapter"><Written>04 / Lo que de verdad importa</Written></span><Flourish /><h2 id="a-gifts-title"><Written>El mejor regalo es</Written><br /><em><Written>tenerte cerca.</Written></em></h2><p><Written>Tu presencia es lo más bonito que puedes regalarme.</Written><br /><Written>Si quieres tener un detalle, he dejado una pequeña nota para ti.</Written></p>
-    <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar esta nota' : 'Un detalle con cariño'} hint={expanded ? 'Toca las alas para cerrar' : 'Hay una pequeña nota entre estas alas'} expanded={expanded} controls="a-gift-letter" onClick={() => expanded ? close() : setExpanded(true)} />
+    <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar esta nota' : 'Un detalle con cariño'} hint={expanded ? 'Toca para cerrar la nota' : 'Toca para ver la cuenta'} expanded={expanded} controls="a-gift-letter" onClick={() => expanded ? close() : setExpanded(true)} />
     <div ref={panel} id="a-gift-letter" className="a-gift-letter a-secret-paper" hidden={!expanded}>
       <h3 className="a-account-label" ref={title} tabIndex={-1}>Con todo mi cariño</h3><p className="a-account">{bankAccount}</p><button className="a-link" type="button" onClick={copy}><Written>Copiar número de cuenta</Written></button><p className="a-copy-status" role="status">{message}</p><button className="a-close-letter" type="button" onClick={close}>Cerrar esta nota</button>
     </div>

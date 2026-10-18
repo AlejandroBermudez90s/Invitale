@@ -46,7 +46,7 @@ Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escrit
 
 ## Notas que se descubren
 
-La cuenta y el formulario se muestran después de pulsar una mariposa con frase manuscrita. Los paneles usan `hidden` inicialmente y conservan sus controles de foco, `aria-expanded` y `aria-controls`. Los mensajes siguen siendo HTML editable. El mapa y el envío usan frases manuscritas y mariposas, sin botones rectangulares. La confirmación sigue siendo local y demostrativa.
+La cuenta y el formulario se muestran después de pulsar un medallón ovalado de papel con marco fino, mariposa y frase manuscrita. Una indicación subrayada «Toca para…» y una flecha dejan clara la acción también en móvil; la flecha cambia al abrir. Los paneles usan `hidden` inicialmente y conservan sus controles de foco, `aria-expanded` y `aria-controls`. Los mensajes siguen siendo HTML editable. El mapa y el envío usan frases manuscritas y mariposas, sin botones rectangulares. La confirmación sigue siendo local y demostrativa.
 
 ## Galería
 
