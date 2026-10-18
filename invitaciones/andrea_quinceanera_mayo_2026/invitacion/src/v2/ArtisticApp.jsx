@@ -6,6 +6,7 @@ import portrait from '../assets/portada.jfif'
 import hotel from './assets/hotel-playa-grande-acuarela.webp'
 import butterfly from './assets/mariposa-azul.webp'
 import Written from './Written'
+import RisingButterflies from './RisingButterflies'
 import './ArtisticApp.css'
 import './ArtisticDetails.css'
 
@@ -14,20 +15,6 @@ const bankAccount = 'ES72 0182 1086 6902 0162 8165'
 
 function Butterfly({ className = '', style }) {
   return <span className={`a-butterfly ${className}`} style={style} aria-hidden="true"><img src={butterfly} width="320" height="320" alt="" /></span>
-}
-
-function FloatingButterflies() {
-  const [positions] = useState(() => Array.from({ length: 6 }, (_, index) => {
-    const duration = 22 + Math.random() * 16
-    return {
-      '--x': `${4 + Math.random() * 92}%`,
-      '--size': `${23 + Math.random() * 13}px`,
-      '--drift': `${-5 + Math.random() * 10}vw`,
-      '--duration': `${duration}s`,
-      '--delay': `${-(index + Math.random()) / 6 * duration}s`,
-    }
-  }))
-  return <div className="a-flight" aria-hidden="true">{positions.map((style, i) => <Butterfly key={i} style={style} />)}</div>
 }
 
 function ButterflyInvitation({ label, hint, expanded, controls, onClick, buttonRef }) {
@@ -225,7 +212,7 @@ export default function ArtisticApp() {
     {!opened && <Envelope reduced={reduced} onOpen={() => setOpened(true)} />}
     {opened && <Music />}
     <main inert={!opened} className={opened ? 'a-is-open' : 'a-is-closed'}>
-      {opened && !reduced && <FloatingButterflies />}
+      {opened && !reduced && <RisingButterflies />}
       <a className="a-skip" href="#confirmar">Ir a la confirmación</a>
       <header className="a-hero" id="inicio">
         <div className="a-topline"><span><Written>Una noche para florecer</Written></span><span><Written>Puerto de Mazarrón</Written></span></div>

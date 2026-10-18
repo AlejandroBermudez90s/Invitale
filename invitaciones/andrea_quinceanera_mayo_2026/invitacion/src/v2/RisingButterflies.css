@@ -1,0 +1,39 @@
+/* Como los pétalos de Alejandro y Esthefany, pero con un flujo ascendente.
+   Cada mariposa cruza una sola vez; la siguiente tiene un recorrido nuevo. */
+.a-butterfly-stream {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.a-rising-butterfly {
+  position: absolute;
+  left: var(--x);
+  top: 0;
+  width: var(--size);
+  opacity: 0;
+  will-change: transform;
+  animation: a-stream-rise var(--duration) var(--delay) linear both;
+}
+.a-rising-butterfly img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: a-stream-wings var(--wing-duration) ease-in-out infinite alternate;
+}
+@keyframes a-stream-rise {
+  0% { transform: translate3d(0, calc(100dvh + 40px), 0) rotate(var(--tilt)); opacity: 0; }
+  8%, 90% { opacity: var(--opacity); }
+  48% { transform: translate3d(var(--drift), 48dvh, 0) rotate(calc(var(--tilt) + 12deg)); }
+  100% { transform: translate3d(calc(var(--drift) * -.35), -45px, 0) rotate(calc(var(--tilt) - 8deg)); opacity: 0; }
+}
+@keyframes a-stream-wings {
+  from { transform: perspective(140px) rotateY(-32deg) rotateX(8deg); }
+  to { transform: perspective(140px) rotateY(28deg) rotateX(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a-butterfly-stream { display: none; }
+}

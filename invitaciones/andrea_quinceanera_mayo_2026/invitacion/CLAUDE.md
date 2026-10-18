@@ -30,9 +30,11 @@ opacidad y conserva un único texto en flujo inline. No usar máscaras, bloques 
 palabra ni márgenes negativos que recorten o rompan las letras.
 Flores, mariposas y hotel son imágenes WebP. No recuperar las ilustraciones SVG.
 El Hotel Playa Grande se pintó con fotos oficiales; se revela en 14 pinceladas alternas.
-Seis mariposas ascienden continuamente por toda la pantalla, con posiciones
-horizontales aleatorias, deriva lateral y duraciones de 22 a 38 segundos. El vuelo
-es lineal e infinito: no usar alternate ni oscilación vertical que parezca estática.
+`RisingButterflies` crea un flujo de partículas inspirado en los pétalos de Alejandro
+y Esthefany, con el recorrido invertido. Cada 2,8 a 4,6 segundos nace una mariposa
+con posición, tamaño y deriva nuevos. Sube en 14 a 20 segundos y se elimina al salir
+por arriba. No son seis elementos fijos ni se repiten sus trayectorias en bucle.
+Mantener la densidad discreta (normalmente de tres a cinco visibles) y el vuelo ascendente.
 La portada protege la fotografía. Se omiten con movimiento reducido.
 La cuenta y el formulario se ocultan inicialmente y se abren al pulsar una mariposa
 con frase manuscrita. Conservar aria-expanded, aria-controls y el retorno de foco.

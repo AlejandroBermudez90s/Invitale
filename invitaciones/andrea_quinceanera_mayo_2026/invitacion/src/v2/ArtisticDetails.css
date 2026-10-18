@@ -57,8 +57,6 @@
 .a-butterfly { display: inline-block; vertical-align: middle; }
 .a-butterfly > img { width: 100%; height: auto; animation: a-painted-wings 5s ease-in-out infinite; }
 .a-invitation main { position: relative; }
-.a-flight { position: fixed; inset: 0; width: 100%; height: 100vh; z-index: 1; overflow: hidden; }
-.a-flight > .a-butterfly { left: var(--x); right: auto; top: 0; width: var(--size); opacity: 0; animation: a-butterfly-ascent var(--duration) var(--delay) linear infinite; will-change: transform; }
 .a-hero { z-index: auto; isolation: auto; }
 .a-photo-composition, .a-footer { z-index: 2; }
 .a-bouquet { transform-origin: 50% 90%; animation: a-botanical-breeze 12s ease-in-out infinite alternate; }
@@ -167,13 +165,6 @@
 @keyframes a-painted-wings { 0%, 100% { transform: perspective(300px) rotateY(-14deg) scaleX(.9); } 50% { transform: perspective(300px) rotateY(14deg) scaleX(1); } }
 @keyframes a-botanical-breeze { from { rotate: -.8deg; } to { rotate: .8deg; } }
 @keyframes a-hotel-drift { from { translate: 0 0; rotate: -12deg; } to { translate: 25px -12px; rotate: 6deg; } }
-@keyframes a-butterfly-ascent {
-  0% { transform: translate3d(0, 110vh, 0) rotate(-10deg); opacity: 0; }
-  8% { opacity: .43; }
-  50% { transform: translate3d(var(--drift), 45vh, 0) rotate(8deg); }
-  92% { opacity: .43; }
-  100% { transform: translate3d(0, -20vh, 0) rotate(-8deg); opacity: 0; }
-}
 @keyframes a-note-unfold { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
 @media(max-width: 900px) {
@@ -207,7 +198,6 @@
   .a-hero-date > span { font-size: 12px; }
   .a-scroll { margin-top: 23px; }
   .a-hero-footnote { display: none; }
-  .a-flight > .a-butterfly { width: calc(var(--size) * .8); }
   .a-music-hint { display: none; }
   .a-venue { padding-inline: 23px; gap: 45px; }
   .a-venue-art { width: 100%; max-width: 560px; min-height: 0; }
