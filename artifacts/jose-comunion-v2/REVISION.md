@@ -25,7 +25,11 @@ Vista previa local: http://127.0.0.1:8787/jose-comunion-v2/
 Publicada el 18 de octubre de 2026 tras la autorización explícita del usuario: «sí, publica en v2».
 URL: https://invitale.es/jose-comunion-v2/
 Cloudflare Worker: https://invitale.alejandro2003bermudez.workers.dev/jose-comunion-v2/
-Versión de Cloudflare: `39fce938-a3e7-475e-9e0c-0832bd7441ed`.
+Versión inicial de Cloudflare: `39fce938-a3e7-475e-9e0c-0832bd7441ed`.
+Actualización del logo de José y favicon: `d2d274b2-f1a0-4f25-873a-358913487459`.
+Build completo y dry-run correctos (139 archivos); comprobadas las seis rutas, los 404
+y los 13 recursos de la v2 después de esta actualización. El cierre reutiliza el emblema
+original con la J en Bangers y el favicon es un SVG autónomo de esa insignia.
 Se comprobaron ambas direcciones: seis rutas con respuesta 200, rutas inexistentes con 404
 y los 13 recursos extraídos del HTML, JavaScript y CSS publicados con respuesta 200.
 La invitación original y el enlace de la galería permanecen en `/jose-comunion/`.

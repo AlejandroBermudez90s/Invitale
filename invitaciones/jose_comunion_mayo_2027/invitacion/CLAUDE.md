@@ -65,6 +65,8 @@ transparente), que se usan tal cual mediante el componente reutilizable
 
 - Comparación en paralelo: `/jose-comunion-v2/`, sin sustituir la ruta ni la galería actuales.
 - `src/adventure/AdventureApp.jsx` y `AdventureApp.css`, prefijo `jo-`.
+- La v2 reutiliza la insignia de sheriff con J del footer original. Su favicon es
+  `public/favicon-jose.svg`, seleccionado por el modo artístico de Vite; la original conserva el suyo.
 - `npm run build:artistic` genera `dist-v2/`; el build raíz compila y fusiona ambas versiones.
 - Apertura mediante un cohete ilustrado: cuenta atrás 3, 2, 1 y despegue. Apertura inmediata
   si el dispositivo prefiere movimiento reducido, control por teclado y transferencia de foco.

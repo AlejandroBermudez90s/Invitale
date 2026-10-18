@@ -6,6 +6,7 @@ import woody from '../assets/woody.png'
 import buzz from '../assets/buzz.png'
 import rex from '../assets/rex.png'
 import aliens from '../assets/aliens.png'
+import InsigniaSheriff from '../componentes/Ilustraciones/InsigniaSheriff'
 import './AdventureApp.css'
 
 const date = new Date('2027-05-15T12:00:00+02:00')
@@ -148,7 +149,7 @@ export default function AdventureApp() {
       <section className="jo-wait jo-section"><div className="jo-reveal"><p className="jo-kicker">LA CUENTA ATRÁS MÁS BONITA</p><h2>¡Ya queda menos!</h2><Countdown /><p>Para reunir a mi tripulación favorita.</p></div></section>
       <RSVP />
       <section className="jo-gift jo-section"><div className="jo-reveal"><span className="jo-gift-mark" aria-hidden="true">✦</span><p className="jo-kicker">EL MEJOR REGALO</p><h2>Que formes parte<br />de mi historia.</h2><p>Tu compañía es lo que más ilusión me hace.<br />Si te apetece tener un detalle conmigo, habrá una mesa<br className="jo-desktop-break" /> de regalos en la celebración.</p><p className="jo-signature">¡Gracias por venir a mi aventura!</p></div></section>
-      <footer className="jo-footer"><Star /><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">InvitAle</a><span>Diseñado para recordar</span></div><small>Invitación de muestra · Todos los datos del evento son ficticios.</small></footer>
+      <footer className="jo-footer"><div className="jo-jose-emblem" role="img" aria-label="Logo de José: una J en su insignia de sheriff"><InsigniaSheriff /><span aria-hidden="true">J</span></div><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">InvitAle</a><span>Diseñado para recordar</span></div><small>Invitación de muestra · Todos los datos del evento son ficticios.</small></footer>
       <a className="jo-floating" href="#confirmar" aria-label="Confirmar asistencia">¿Vienes? <span aria-hidden="true">↗</span></a>
     </main>
   </div>

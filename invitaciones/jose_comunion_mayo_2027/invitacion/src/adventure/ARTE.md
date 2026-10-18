@@ -7,6 +7,11 @@ por Alejandro y conservados en `../assets/`; no se generaron nuevos personajes.
 
 ## Archivos finales
 
+- `../../public/favicon-jose.svg`: versión vectorial autónoma de la insignia original de
+  sheriff con la J, sin dependencia de fuentes. Solo la v2 la utiliza como favicon.
+- El cierre reutiliza el componente original `InsigniaSheriff.jsx` y su monograma J en Bangers,
+  con los colores y el tamaño de la invitación anterior.
+
 - `assets/cohete.webp`: cohete con transparencia, 733 × 1100, 146 KB.
 - `assets/habitacion.webp`: pared de nubes y suelo con juguetes, 1536 × 1024, 242 KB.
 - `assets/celebracion.webp`: paisaje ficticio de capilla y comida familiar, 1536 × 1024, 515 KB.
