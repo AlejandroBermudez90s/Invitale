@@ -6,10 +6,12 @@ const jost = Jost({ subsets: ["latin"], weight: ["300", "400", "500", "600"], va
 const pinyon = Pinyon_Script({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 
 export const metadata = {
+  metadataBase: new URL("https://invitale.es"),
   title: "Invitale — Invitaciones digitales diseñadas para recordar",
   description:
     "Invitaciones digitales a medida para bodas, quinceañeras, bautizos, comuniones, cumpleaños y eventos corporativos en la Región de Murcia.",
   icons: { icon: "/favicon.png" },
+  alternates: { canonical: "/" },
 };
 
 // Se ejecuta antes de pintar: evita el parpadeo al cargar.
@@ -28,6 +30,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" suppressHydrationWarning className={`${prata.variable} ${jost.variable} ${pinyon.variable}`}>
       <head>
+        {/* La web ofrece su propio modo oscuro para conservar la paleta de marca.
+            https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md */}
+        <meta name="darkreader-lock" content="" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="bg-paper text-ink transition-colors duration-300 dark:bg-night dark:text-cream font-body antialiased">

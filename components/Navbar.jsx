@@ -1,33 +1,36 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
+import Arrow from "./Arrow";
+
+const links = [{ href: "#galeria", label: "Invitaciones" }, { href: "#sobre-mi", label: "El estudio" }, { href: "#proceso", label: "Cómo trabajamos" }];
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-gold/20 bg-paper/95 backdrop-blur-sm transition-colors duration-300 dark:bg-night/95">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:px-10">
-        <a href="#top" className="flex items-center gap-2">
-          <Image src="/brand/isotipo-claro.png" alt="Invitale" width={707} height={715} className="block h-8 w-auto dark:hidden" />
-          <Image src="/brand/isotipo-oscuro.png" alt="Invitale" width={320} height={300} className="hidden h-8 w-auto dark:block" />
-          <span className="font-display text-lg tracking-wide text-ink dark:text-cream">Invitale</span>
+    <header className="site-header">
+      <nav className="nav-shell section-shell" aria-label="Navegación principal">
+        <a href="#top" className="brand" aria-label="Invitale, inicio" onClick={() => setMenuOpen(false)}>
+          <Image src="/brand/isotipo-claro.png" alt="" width={707} height={715} className="brand-symbol brand-light" />
+          <Image src="/brand/isotipo-oscuro.png" alt="" width={320} height={300} className="brand-symbol brand-dark" />
+          <span>Invitale<span className="brand-period">.</span></span>
         </a>
-
-        <div className="hidden items-center gap-8 font-body text-sm text-ink/80 dark:text-cream/80 sm:flex">
-          <a href="#galeria" className="transition-colors hover:text-gold">Invitaciones</a>
-          <a href="#sobre-mi" className="transition-colors hover:text-gold">Sobre mí</a>
-          <a href="#contacto" className="transition-colors hover:text-gold">Contacto</a>
+        <div className="nav-links">{links.map(({ href, label }) => <a href={href} key={href}>{label}</a>)}</div>
+        <div className="nav-actions">
           <ThemeToggle />
-        </div>
-
-        <div className="flex items-center gap-3 sm:hidden">
-          <ThemeToggle />
-          <a
-            href="#contacto"
-            className="rounded-sm border border-gold px-4 py-2 font-body text-xs tracking-wide text-gold transition-colors hover:bg-gold hover:text-paper dark:hover:text-night"
-          >
-            Contacto
-          </a>
+          <a href="#contacto" className="button nav-contact" onClick={() => setMenuOpen(false)}>Hablemos <Arrow diagonal /></a>
+          <button ref={menuButtonRef} type="button" className="menu-toggle" aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>
+            <span className={menuOpen ? "menu-lines is-open" : "menu-lines"}><span /><span /></span>
+          </button>
         </div>
       </nav>
+      <div id="mobile-navigation" className="mobile-navigation" hidden={!menuOpen} onKeyDown={(event) => { if (event.key === "Escape") { setMenuOpen(false); menuButtonRef.current?.focus(); } }}>
+        {links.map(({ href, label }) => <a href={href} key={href} onClick={() => setMenuOpen(false)}>{label}<Arrow diagonal /></a>)}
+        <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto<Arrow diagonal /></a>
+      </div>
     </header>
   );
 }

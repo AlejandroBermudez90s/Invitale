@@ -1,11 +1,7 @@
+import Arrow from "./Arrow";
+
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-gold/15 bg-paper px-6 py-10 text-center transition-colors duration-300 dark:bg-night sm:px-10">
-      <p className="font-script text-3xl text-ink dark:text-cream">Diseñado para recordar</p>
-      <p className="mt-3 font-body text-xs tracking-wide text-ink/50 dark:text-cream/50">
-        Alejandro Bermúdez · © {year} Invitale
-      </p>
-    </footer>
+    <footer className="site-footer"><div className="section-shell footer-inner"><a href="#top" className="footer-brand">Invitale<span>.</span></a><p>Diseñado para recordar</p><span className="footer-copyright">© {new Date().getFullYear()} Invitale · Alejandro Bermúdez</span><a href="#top" className="back-top" aria-label="Volver al inicio"><Arrow down /></a></div></footer>
   );
 }

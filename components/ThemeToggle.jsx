@@ -13,7 +13,7 @@ export default function ThemeToggle({ className = "" }) {
     const next = !isDark;
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("invitale-theme", next ? "dark" : "light");
+    try { localStorage.setItem("invitale-theme", next ? "dark" : "light"); } catch {}
   };
 
   return (
@@ -22,7 +22,7 @@ export default function ThemeToggle({ className = "" }) {
       onClick={toggle}
       aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
       aria-pressed={isDark}
-      className={`flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:border-gold ${className}`}
+      className={`theme-toggle ${className}`}
     >
       <svg viewBox="0 0 24 24" fill="none" className={`h-4 w-4 ${isDark ? "block" : "hidden"}`} aria-hidden="true">
         <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.4" />

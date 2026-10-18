@@ -7,6 +7,13 @@ activación de la cuenta, la conexión con GitHub y el cambio del dominio se rea
 
 ## Desarrollo
 
+La portada utiliza la paleta de marca (papel, crema, carbón y dorado) y las
+tipografías Prata, Jost y Pinyon Script. La galería es un carrusel adaptable con
+deslizamiento táctil, botones anterior/siguiente y navegación con las flechas del
+teclado, Inicio y Fin al enfocar el carrusel. No avanza automáticamente y respeta
+la preferencia de movimiento reducido. Solo muestra las cuatro muestras autorizadas
+de `data/invitations.js`; cada una abre su invitación en otra pestaña.
+
 Node.js: versión de `.node-version`. Instalar dependencias con `npm ci`.
 
 - `npm run dev`: hub en desarrollo. No sirve los builds Vite de las invitaciones.

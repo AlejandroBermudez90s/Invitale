@@ -1,36 +1,11 @@
 import { WhatsappIcon, InstagramIcon, TiktokIcon, MailIcon } from "./ContactIcons";
-
-const contactos = [
-  { Icon: WhatsappIcon, label: "633 36 80 59", href: "https://wa.me/34633368059" },
-  { Icon: InstagramIcon, label: "@invitalecontacto", href: "https://instagram.com/invitalecontacto" },
-  { Icon: TiktokIcon, label: "@invitalecontacto", href: "https://tiktok.com/@invitalecontacto" },
-  { Icon: MailIcon, label: "invitalecontacto@gmail.com", href: "mailto:invitalecontacto@gmail.com" },
-];
+import Arrow from "./Arrow";
 
 export default function Contact() {
   return (
-    <section id="contacto" className="bg-paper px-6 py-24 text-center transition-colors duration-300 dark:bg-night sm:px-10">
-      <div className="mx-auto max-w-md">
-        <p className="font-body text-xs uppercase tracking-[0.25em] text-gold">Hablemos de tu evento</p>
-        <h2 className="mt-4 font-display text-3xl text-ink dark:text-cream sm:text-4xl">Cuéntame qué estás celebrando</h2>
-        <p className="mt-4 font-body text-ink/70 dark:text-cream/70">
-          Bodas, bautizos, comuniones, cumpleaños, quinceañeras y todo tipo de eventos  — diseñamos juntos tu invitación digital.
-        </p>
-        <div className="mt-10 flex flex-col items-start gap-4 font-display text-lg text-ink/90 dark:text-cream/90">
-          {contactos.map(({ Icon, label, href }) => (
-            <a
-              key={label + href}
-              href={href}
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group flex items-center gap-3 transition-colors hover:text-gold"
-            >
-              <Icon className="h-6 w-6 text-gold" />
-              {label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section id="contacto" className="contact-section" aria-labelledby="contact-title"><div className="section-shell contact-layout">
+      <div className="contact-copy"><p className="eyebrow">Tu próximo gran momento</p><h2 id="contact-title">Todo empieza<br />con un <em>«te invito».</em></h2><p>Cuéntame qué estás celebrando.<br />Me encantará diseñar el comienzo de tu historia.</p><a href="https://wa.me/34633368059" target="_blank" rel="noopener noreferrer" className="button button-gold"><WhatsappIcon className="contact-cta-icon" />Hablemos por WhatsApp<Arrow diagonal /></a></div>
+      <div className="contact-details"><p className="contact-details-label">En contacto</p><a href="mailto:invitalecontacto@gmail.com" className="contact-email">invitalecontacto@gmail.com<Arrow diagonal /></a><a href="https://wa.me/34633368059" target="_blank" rel="noopener noreferrer" className="contact-phone">+34 633 36 80 59</a><div className="contact-socials"><a href="https://instagram.com/invitalecontacto" target="_blank" rel="noopener noreferrer"><InstagramIcon />Instagram<Arrow diagonal /></a><a href="https://tiktok.com/@invitalecontacto" target="_blank" rel="noopener noreferrer"><TiktokIcon />TikTok<Arrow diagonal /></a><a href="mailto:invitalecontacto@gmail.com" aria-label="Escribir un correo a Invitale" className="contact-mail-icon"><MailIcon /></a></div><p className="contact-location">Desde Murcia, para tu celebración.</p></div>
+    </div></section>
   );
 }

@@ -1,26 +1,11 @@
+import Image from "next/image";
+import Arrow from "./Arrow";
+
 export default function About() {
   return (
-    <section id="sobre-mi" className="bg-cream transition-colors duration-300 dark:bg-night px-6 py-24 sm:px-10">
-      <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-[1fr_2fr] sm:gap-16">
-        <p className="font-body text-xs uppercase tracking-[0.25em] text-gold">
-          Sobre Invitale
-        </p>
-
-        <div className="max-w-prose font-body text-lg leading-relaxed text-ink/85 dark:text-cream/80">
-          <p>
-            Diseño y desarrollo invitaciones digitales a medida, pensadas para
-            que cada evento tenga una presentación tan cuidada como la
-            celebración misma. Desde la Región de Murcia, trabajo con
-            parejas, familias y empresas que buscan algo distinto a una
-            plantilla: una pieza elegante, funcional y con identidad propia.
-          </p>
-          <p className="mt-6">
-            Cada proyecto combina diseño visual y desarrollo web — cuenta
-            atrás, ubicación, confirmación de asistencia y todo lo que tu
-            evento necesite, en una sola página, lista para compartir.
-          </p>
-        </div>
-      </div>
+    <section id="sobre-mi" className="about-section section-shell" aria-labelledby="about-title">
+      <div className="about-brand" aria-hidden="true"><Image src="/brand/isotipo-claro.png" alt="" width={707} height={715} className="brand-light" /><Image src="/brand/isotipo-oscuro.png" alt="" width={320} height={300} className="brand-dark" /><span>Tu momento.<br />Tu recuerdo.<br /><em>Tu historia.</em></span></div>
+      <div className="about-copy"><p className="eyebrow">El estudio · Alejandro Bermúdez</p><h2 id="about-title">El cuidado está<br />en <em>cada detalle.</em></h2><p>Soy Alejandro, la persona detrás de Invitale. Diseño y desarrollo invitaciones digitales a medida desde la Región de Murcia, uniendo sensibilidad visual y una experiencia sencilla de disfrutar.</p><p>Todo parte de tu historia: los colores, el lugar, lo que quieres transmitir. De ahí nace una invitación con identidad propia, pensada para emocionar desde el primer instante.</p><a href="#contacto" className="text-link">Demos forma a tu idea <Arrow diagonal /></a></div>
     </section>
   );
 }
