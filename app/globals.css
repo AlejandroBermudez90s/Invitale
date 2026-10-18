@@ -87,24 +87,21 @@ h1 em, h2 em { font-style: normal; color: var(--gold-text); }
 .hero-actions .text-link { margin-top: 2px; }
 .hero-signature { margin-top: 37px; font-family: var(--font-script), cursive; font-size: 29px; color: var(--muted); }
 .hero-showcase { min-width: 0; padding: 8px 0 22px; }
-.showcase-composition { position: relative; isolation: isolate; height: 460px; width: 100%; max-width: 545px; margin-inline: auto; touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; }
-.showcase-card { position: absolute; padding: 11px; background: #fdfaf5; border: 1px solid rgba(37, 37, 39, .09); box-shadow: 0 18px 45px -20px rgba(25, 22, 15, .24); transition: left .55s cubic-bezier(.22,.68,.3,1), top .55s ease, width .55s ease, transform .55s cubic-bezier(.22,.68,.3,1), opacity .3s ease, visibility .55s; -webkit-user-drag: none; }
+.showcase-composition { position: relative; isolation: isolate; height: 480px; width: 100%; max-width: 545px; margin-inline: auto; }
+.showcase-rail { position: relative; display: flex; width: calc(100% + 48px); height: 100%; margin-inline: -24px; padding-inline: 24px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-x pan-y pinch-zoom; user-select: none; -webkit-user-select: none; cursor: grab; }
+.showcase-rail::-webkit-scrollbar { display: none; }
+.showcase-rail::after { content: ''; flex: 0 0 26%; }
+.showcase-slot { position: relative; flex: 0 0 37%; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; }
+.showcase-slot:last-of-type { scroll-snap-align: none; }
+.showcase-card { position: absolute; left: 0; width: 159.45946%; padding: 11px; background: #fdfaf5; border: 1px solid rgba(37, 37, 39, .09); box-shadow: 0 18px 45px -20px rgba(25, 22, 15, .24); transform: rotate(var(--card-angle, 6deg)) scale(var(--card-scale, 1)); transform-origin: center; -webkit-user-drag: none; cursor: grab; }
 .showcase-card img { width: 100%; height: auto; display: block; pointer-events: none; }
-.showcase-card-back { z-index: 2; width: 54%; left: 1%; top: 6%; transform: translateX(calc(var(--deck-drag, 0px) * .2)) rotate(-9deg); }
-.showcase-card-front { z-index: 3; width: 59%; left: 38%; top: 12%; transform: translateX(calc(var(--deck-drag, 0px) * .65)) rotate(calc(6deg + var(--deck-tilt, 0deg))); }
-.showcase-card-next { z-index: 1; width: 54%; left: 30%; top: 12%; transform: translateX(8%) rotate(15deg); opacity: 0; visibility: hidden; pointer-events: none; }
-.showcase-card-away { z-index: 0; width: 54%; left: 10%; top: 6%; transform: translateX(-8%) rotate(-16deg); opacity: 0; visibility: hidden; pointer-events: none; }
-.is-dragging .showcase-card { transition: none; cursor: grabbing; }
-.is-dragging .showcase-composition { cursor: grabbing; }
-@media (hover: hover) {
-  .showcase-card-front:hover { transform: translateY(-5px) rotate(3deg); }
-  .is-dragging .showcase-card-front:hover { transform: translateX(calc(var(--deck-drag, 0px) * .65)) rotate(calc(6deg + var(--deck-tilt, 0deg))); }
-}
+.showcase-rail.is-dragging, .showcase-rail.is-dragging .showcase-card { cursor: grabbing; }
 .showcase-open { position: absolute; right: -16px; bottom: 30px; display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #252527; color: #fdfaf5; border-radius: 50%; }
 .showcase-card:not(.showcase-card-front) .showcase-open { opacity: 0; }
 .showcase-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 380px; margin: 9px auto 0; }
 .showcase-control { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; transition: color .2s, border-color .2s; }
 .showcase-control:hover { color: var(--gold-text); border-color: var(--gold-text); }
+.showcase-control:disabled { opacity: .3; color: var(--muted); border-color: var(--line); }
 .showcase-control svg { width: 17px; }
 .showcase-current { min-width: 0; text-align: center; color: var(--muted); }
 .showcase-current > p:first-child { font-size: 11px; line-height: 1.5; }
@@ -291,8 +288,6 @@ h2 { font-size: clamp(34px, 3.25vw, 49px); line-height: 1.28; letter-spacing: -.
   .hero-signature { display: none; }
   .hero-showcase { padding: 35px 9px 26px; }
   .showcase-composition { height: clamp(295px, 80vw, 405px); max-width: 415px; }
-  .showcase-card-back { top: 4%; left: 2%; width: 54%; }
-  .showcase-card-front { top: 11%; left: 39%; width: 58%; }
   .showcase-open { width: 36px; height: 36px; right: -12px; bottom: 20px; }
   .showcase-open svg { width: 16px; }
   .showcase-navigation { margin-top: 3px; gap: 9px; }

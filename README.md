@@ -15,9 +15,11 @@ la preferencia de movimiento reducido. Solo muestra las cuatro muestras autoriza
 de `data/invitations.js`; cada una abre su invitación en otra pestaña.
 
 La hero muestra las mismas cuatro muestras como una baraja inclinada y superpuesta.
-Se puede arrastrar lateralmente con ratón o dedo, o recorrerla con sus botones y el
-teclado. Ambas tarjetas visibles abren su invitación al pulsarlas; un arrastre no
-activa el enlace y el gesto vertical permite seguir desplazándose por la página.
+Utiliza desplazamiento horizontal nativo con inercia y ajuste a cada carta en
+pantallas táctiles y trackpads. Las cartas siguen el recorrido de forma continua,
+con solapamiento e inclinación. También admite arrastre con ratón, botones y teclado.
+Ambas tarjetas visibles abren su invitación al pulsarlas; un arrastre no activa el
+enlace y el gesto vertical permite seguir desplazándose por la página.
 
 Node.js: versión de `.node-version`. Instalar dependencias con `npm ci`.
 
