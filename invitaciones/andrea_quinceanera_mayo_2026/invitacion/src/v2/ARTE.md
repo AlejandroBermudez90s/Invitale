@@ -7,7 +7,7 @@ La portada ahora importa EXACTAMENTE la misma fotografía que utiliza el CSS de 
 Texto y foto ocupan espacios separados, también en móvil. `Written.jsx` revela la tinta mediante opacidad por palabra y un máximo de 2,6 segundos de secuencia por fragmento. Conserva el flujo inline normal, sin máscaras ni márgenes negativos, y una única copia accesible del texto. Se inicia al entrar cada texto en pantalla; los resultados nuevos del formulario se incorporan con MutationObserver. Movimiento reducido muestra todo directamente.
 
 - `assets/hotel-playa-grande-acuarela.webp`: 1450 × 967, ilustración raster del hotel. Se revela en 14 pinceladas CSS alternas durante 4,8 segundos, sin SVG.
-- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Dieciocho mariposas ascienden continuamente por la pantalla con posiciones horizontales y ritmos distintos. La portada protege la fotografía.
+- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Seis mariposas ascienden continuamente por la pantalla con posiciones horizontales y ritmos distintos. La portada protege la fotografía.
 - Las flores respiran mediante una rotación CSS menor de un grado, sin mover la composición.
 
 ### Referencias arquitectónicas
@@ -42,7 +42,7 @@ Use case: illustration-story. Asset type: transparent botanical corner for a fin
 
 ## Movimiento
 
-Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Dieciocho mariposas raster suben de 110vh a -20vh, con ritmos lineales de 22 a 38 segundos y alas de 5 segundos. Nunca oscilan verticalmente ni invierten el sentido. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
+Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Seis mariposas raster suben de 110vh a -20vh, con ritmos lineales de 22 a 38 segundos y alas de 5 segundos. Nunca oscilan verticalmente ni invierten el sentido. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
 
 ## Notas que se descubren
 

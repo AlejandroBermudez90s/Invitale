@@ -17,14 +17,14 @@ function Butterfly({ className = '', style }) {
 }
 
 function FloatingButterflies() {
-  const [positions] = useState(() => Array.from({ length: 18 }, (_, index) => {
+  const [positions] = useState(() => Array.from({ length: 6 }, (_, index) => {
     const duration = 22 + Math.random() * 16
     return {
       '--x': `${4 + Math.random() * 92}%`,
       '--size': `${23 + Math.random() * 13}px`,
       '--drift': `${-5 + Math.random() * 10}vw`,
       '--duration': `${duration}s`,
-      '--delay': `${-(index + Math.random()) / 18 * duration}s`,
+      '--delay': `${-(index + Math.random()) / 6 * duration}s`,
     }
   }))
   return <div className="a-flight" aria-hidden="true">{positions.map((style, i) => <Butterfly key={i} style={style} />)}</div>

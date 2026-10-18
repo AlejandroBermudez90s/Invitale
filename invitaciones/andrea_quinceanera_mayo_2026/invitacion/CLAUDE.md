@@ -30,7 +30,7 @@ opacidad y conserva un único texto en flujo inline. No usar máscaras, bloques 
 palabra ni márgenes negativos que recorten o rompan las letras.
 Flores, mariposas y hotel son imágenes WebP. No recuperar las ilustraciones SVG.
 El Hotel Playa Grande se pintó con fotos oficiales; se revela en 14 pinceladas alternas.
-Dieciocho mariposas ascienden continuamente por toda la pantalla, con posiciones
+Seis mariposas ascienden continuamente por toda la pantalla, con posiciones
 horizontales aleatorias, deriva lateral y duraciones de 22 a 38 segundos. El vuelo
 es lineal e infinito: no usar alternate ni oscilación vertical que parezca estática.
 La portada protege la fotografía. Se omiten con movimiento reducido.
