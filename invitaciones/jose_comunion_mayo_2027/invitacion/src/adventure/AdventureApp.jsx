@@ -5,6 +5,7 @@ import meadow from './assets/celebracion.webp'
 import woody from '../assets/woody.png'
 import buzz from '../assets/buzz.png'
 import badge from './assets/insignia-jose.webp'
+import nameArt from './assets/jose-rotulo.webp'
 import MusicButton from './MusicButton'
 import ToyDecorations, { ToyStar } from './ToyDecorations'
 import './AdventureApp.css'
@@ -118,9 +119,10 @@ export default function AdventureApp() {
     <main inert={!opened} className={opened ? 'jo-open' : 'jo-closed'}>
       <a className="jo-skip" href="#confirmar">Ir a confirmar asistencia</a>
       <header className="jo-hero" id="inicio">
-        <div className="jo-hero-copy"><div className="jo-name-wrap"><ToyStar className="jo-name-star-left" /><h1 ref={heading} tabIndex={-1}>José</h1><ToyStar className="jo-name-star-right" /></div>
+        <div className="jo-hero-copy"><div className="jo-name-wrap"><ToyStar className="jo-name-star-left" /><h1 ref={heading} tabIndex={-1}><span className="jo-sr">José</span><img className="jo-name-painted" src={nameArt} alt="" aria-hidden="true" fetchPriority="high" /></h1><ToyStar className="jo-name-star-right" /></div>
           <p className="jo-hero-subtitle">¡Al infinito y más allá!</p>
-          <div className="jo-hero-date"><span>SÁBADO</span><strong>15 <i>de</i> mayo</strong><span>2027 · 12:00 H</span></div>
+          <div className="jo-hero-date"><span>SÁBADO</span><strong>15 <i>de</i> mayo</strong><span>2027</span></div>
+          <p className="jo-hero-hour">12:00 h</p>
           <p className="jo-hero-communion">Mi Primera Comunión</p>
           <p className="jo-hero-motto">Hay días que son<br />toda una aventura.</p>
         </div>
@@ -155,7 +157,7 @@ export default function AdventureApp() {
       <section className="jo-wait jo-section"><ToyDecorations scene="countdown" /><div className="jo-reveal"><p className="jo-kicker">LA CUENTA ATRÁS MÁS BONITA</p><h2>¡Ya queda menos!</h2><Countdown /><p>Para reunir a mi tripulación favorita.</p></div></section>
       <RSVP />
       <section className="jo-gift jo-section"><ToyDecorations scene="gift" /><div className="jo-reveal"><span className="jo-gift-mark" aria-hidden="true">✦</span><p className="jo-kicker">EL MEJOR REGALO</p><h2>Que formes parte<br />de mi historia.</h2><p>Tu compañía es lo que más ilusión me hace.<br />Si te apetece tener un detalle conmigo, habrá una mesa<br className="jo-desktop-break" /> de regalos en la celebración.</p><p className="jo-signature">¡Gracias por venir a mi aventura!</p></div></section>
-      <footer className="jo-footer"><img className="jo-badge-painted" src={badge} width="640" height="640" alt="Insignia ilustrada de José: una J roja sobre una estrella de sheriff dorada" loading="lazy" /><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">InvitAle</a><span>Diseñado para recordar</span></div></footer>
+      <footer className="jo-footer"><img className="jo-badge-painted" src={badge} width="640" height="640" alt="Insignia ilustrada de José: una J roja sobre una estrella de sheriff dorada" loading="lazy" /><p>Hay un amigo en ti.</p><strong>José · 15 de mayo de 2027</strong><a href="#inicio">Volver a las nubes ↑</a><div className="jo-footer-brand"><a href="/">Invitale</a><span>Diseñado para recordar</span></div></footer>
       {opened && <MusicButton />}
     </main>
   </div>

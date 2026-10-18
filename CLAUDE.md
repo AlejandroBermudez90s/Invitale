@@ -1,4 +1,4 @@
-# InvitAle — Arquitectura del monorepo
+# Invitale — Arquitectura del monorepo
 
 > Actualización de despliegue (15/10/2026): Alejandro ha autorizado migrar a Cloudflare
 > Workers Static Assets. La configuración está en `wrangler.jsonc` y las instrucciones
@@ -7,7 +7,7 @@
 > el cambio del dominio solo se completa tras validar el despliegue en Cloudflare.
 
 ## Qué es
-`invitale` es el repo del hub de marca (Next.js App Router + Tailwind CSS) de InvitAle, negocio
+`invitale` es el repo del hub de marca (Next.js App Router + Tailwind CSS) de Invitale, negocio
 de invitaciones digitales de Alejandro Bermúdez. Desde este mismo repo y el mismo site de
 Netlify se sirven además las invitaciones de cada evento, cada una en su subruta
 (`invitale.es/{slug}`), como builds independientes fusionados en un único despliegue.
@@ -24,7 +24,7 @@ invitale/                              ← raíz del repo, NO reorganizar lo exi
 ├── components/                         Componentes del hub (About, Hero, Navbar, etc.)
 ├── data/                                invitations.js — listado de eventos para el portfolio
 ├── public/
-│   ├── brand/                          Imagotipo InvitAle (4 variantes PNG)
+│   ├── brand/                          Imagotipo Invitale (4 variantes PNG)
 │   └── gallery/{slug}/                 Imágenes de portada para mostrar el evento como
 │                                        ejemplo en el hub — NO es la invitación en sí
 ├── next.config.js                      output: 'export', trailingSlash: true
@@ -53,7 +53,7 @@ invitale/                              ← raíz del repo, NO reorganizar lo exi
 3. Nueva entrada `{ carpeta, slugUrl }` en el array de `scripts/merge-build.js`
 4. `base: '/{slug-url}/'` en el `vite.config.js` de ese evento
 
-## Identidad de marca InvitAle (solo aplica a `app/`, `components/`, `public/brand/`)
+## Identidad de marca Invitale (solo aplica a `app/`, `components/`, `public/brand/`)
 - Dorado: `#c9a300`
 - Oscuro cálido (fondo dark / dorso de tarjeta): `#252527` — no confundir con navy `#081033`
 - Papel (fondo light / frente de tarjeta): `#fdfaf5`
@@ -66,7 +66,7 @@ invitale/                              ← raíz del repo, NO reorganizar lo exi
   resolver, relevante si se usa en materiales impresos
 
 ## Aislamiento de estilos — regla dura, tres capas que nunca se mezclan
-1. **Marca InvitAle** (tokens de arriba) — solo en `app/`, `components/`, `public/brand/`.
+1. **Marca Invitale** (tokens de arriba) — solo en `app/`, `components/`, `public/brand/`.
 2. **Theming de cada evento** — paleta propia del cliente, vive solo dentro de
    `invitaciones/{slug}/invitacion/`. Ej. Andrea-15 usa navy `#081033`, exclusivo de ese evento.
 3. **Entre eventos entre sí** — el theming de uno no debe aparecer en otro.

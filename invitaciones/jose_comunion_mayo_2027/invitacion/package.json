@@ -6,12 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:artistic": "vite build --mode artistic",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

@@ -39,12 +39,14 @@ export default function MusicButton() {
     {hint && <p id="jo-music-hint" className="jo-music-hint"><span>un poco de música</span><svg viewBox="0 0 40 32" fill="none" aria-hidden="true"><path d="M3 4c17-2 13 19 32 19m-7-6 7 6-8 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg></p>}
     <button className={`jo-music-button${playing ? ' jo-music-playing' : ''}`} disabled={!musicUrl || loading} onClick={toggle} aria-label={label} aria-pressed={playing} aria-busy={loading} aria-describedby={hint ? 'jo-music-hint' : undefined} title={label}>
       <svg className="jo-music-record" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="18.5" fill="#f6dc92" stroke="currentColor" strokeWidth=".7" />
+        <g className="jo-record-disc"><circle cx="20" cy="20" r="18.5" fill="#f6dc92" stroke="currentColor" strokeWidth=".7" />
         <g stroke="currentColor" strokeWidth=".45" opacity=".4"><circle cx="20" cy="20" r="16" /><circle cx="20" cy="20" r="13.5" /><circle cx="20" cy="20" r="11.5" /></g>
-        <circle cx="20" cy="20" r="9.5" fill="#fff9ed" stroke="currentColor" strokeWidth=".6" />
+        <path d="M7 17a14 14 0 0 1 10-10M33 23a14 14 0 0 1-10 10" stroke="#fff9ed" strokeWidth="1.8" opacity=".8" strokeLinecap="round" />
+        <circle cx="20" cy="20" r="9.5" fill="#fff9ed" stroke="currentColor" strokeWidth=".6" /></g>
+        <g className="jo-record-note">
         <path d="M16 25V12l11-3v13M16 15l11-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         <ellipse cx="13" cy="26" rx="3.5" ry="2.4" transform="rotate(-20 13 26)" fill="currentColor" />
-        <ellipse cx="24" cy="23" rx="3.5" ry="2.4" transform="rotate(-20 24 23)" fill="currentColor" />
+        <ellipse cx="24" cy="23" rx="3.5" ry="2.4" transform="rotate(-20 24 23)" fill="currentColor" /></g>
       </svg>
     </button>
     <p className="jo-music-status" role="status">{error}</p>

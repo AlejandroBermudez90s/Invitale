@@ -1,4 +1,4 @@
-# InvitAle — Web e invitaciones digitales
+# Invitale — Web e invitaciones digitales
 
 Hub de marca en Next.js con export estático y cuatro invitaciones React/Vite independientes.
 Todos los builds se fusionan en `publish/`, que es el único directorio que se despliega.
@@ -62,7 +62,6 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/alejandro-y-esthefany/`
 - `/elena-y-nicolas/`
 - `/jose-comunion/`
-- `/jose-comunion-v2/` (rediseño artístico con apertura de cohete, para comparar)
 
 Comprobar también los enlaces sin barra final y una ruta inexistente. Cada invitación debe
 cargar sus propios scripts, estilos, imágenes y audio. Los formularios de las muestras de
@@ -79,13 +78,14 @@ Elena y Nicolás utiliza la invitación marina de `src/marine/` como única vers
 portada costera elegida. Los enlaces con `/elena-y-nicolas-v2/` y sus recursos redirigen
 permanentemente a la dirección definitiva. El build estándar genera únicamente `dist/`.
 
-## Añadir un evento
+José utiliza el rediseño Toy Story de `src/adventure/` como única invitación en
+`/jose-comunion/`. Se ha retirado la implementación antigua y el build normal genera `dist/`.
+La galería muestra una captura real de la primera página abierta. Los enlaces v2 redirigen
+permanentemente a la ruta definitiva. La apertura tiene cuenta atrás y despegue; con
+movimiento reducido se abre directamente. El MP3 aportado suena al pulsar el disco.
+El RSVP sigue siendo una demostración local.
 
-José conserva la versión actual en `/jose-comunion/`. El rediseño Toy Story de `src/adventure/`
-se compila con `npm run build:artistic` en `dist-v2/` y se sirve en `/jose-comunion-v2/`.
-El build general incluye ambas versiones. La galería conserva su enlace actual mientras
-se compara el rediseño. La nueva apertura tiene cuenta atrás y despegue; con movimiento
-reducido la invitación se abre directamente. El RSVP sigue siendo una demostración local.
+## Añadir un evento
 
 1. Crear `invitaciones/<carpeta>/invitacion/` con su tema y documentación local.
 2. Añadir su script de build en `package.json` y encadenarlo en `build`.

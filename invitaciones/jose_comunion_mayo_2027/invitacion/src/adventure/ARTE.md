@@ -38,9 +38,9 @@ Use case: illustration-story. Asset: wide landscape gouache children's book illu
 
 ## Publicación y comparación
 
-`npm run build:artistic` genera `dist-v2/` para `/jose-comunion-v2/`.
-El build de producción de la raíz incluye la versión original y la artística.
-La galería sigue enlazando la original hasta que se elija el resultado definitivo.
+El rediseño es la única versión desde el 18/10/2026: build normal en `dist/`, publicado
+en `/jose-comunion/`. Se ha retirado la implementación anterior y `/jose-comunion-v2/`
+redirige permanentemente a la definitiva. La galería muestra una captura real de la portada.
 
 ## Comportamiento
 
@@ -83,8 +83,20 @@ Use case: illustration-story. A beautiful small decorative storybook gouache ill
 ### Música
 
 `MusicButton.jsx` sustituye el enlace flotante de confirmación por el disco de música habitual.
-El usuario eligió aportar su MP3 de Hay un amigo en mí. Al recibirlo, guardarlo como
-`src/adventure/assets/hay-un-amigo-en-mi.mp3` y recompilar: el glob lo conecta automáticamente.
-Admite también m4a/ogg/wav con el mismo nombre. No se solicita ninguna URL de audio mientras
-no exista el archivo; el control muestra el estado disponible próximamente.
+El MP3 de Hay un amigo en mí aportado por el usuario está conectado como
+`src/adventure/assets/hay-un-amigo-en-mi.mp3` (2.074.753 bytes).
+SHA256 del original y copia: `192743831C9545E5C8025C392C6E6071632914A785C9C8A9F083516B781BEE11`.
 No hay reproducción automática: el audio comienza al tocar el disco, con volumen .3 y bucle.
+El indicativo de 18px y flecha no tiene cuadro ni fondo y desaparece al primer toque.
+Durante la reproducción gira el disco, se ilumina suavemente y baila la nota.
+
+## Rótulo definitivo de José
+
+`assets/jose-rotulo.webp`: 1400 × 589, 220 KB, alfa. Sustituye el nombre tipográfico anterior.
+Generado con ImageGen usando la insignia y una captura de la portada como referencias;
+solo se toma su material y paleta, sin rehacer la página. Conversión/recorte alfa con Sharp.
+Original conservado en `C:/Users/Usuario/.codex/generated_images/01a14c01-e02f-7690-a5e0-5f31c9e0cad3/exec-5eabe376-3ac1-48e5-a7e5-e7b1222944a9.png`.
+
+### Prompt final
+
+Use case: logo-brand / style-transfer. Create a single isolated illustrated name wordmark, exact text: "José". Image 1 is a MATERIAL AND CRAFTSMANSHIP reference: warm hand-painted toy enamel, brass and wood texture, dimensional highlights. Image 2 is a LETTERING AND COLOR reference only: the large José title on the invitation, chunky playful yellow letters with red outline and navy blue dimensional sides. DO NOT recreate the page or any of its characters, dates, wallpaper, ball or decorations. Transform only the José wordmark into a premium tactile storybook toy name sign, as beautifully detailed and dimensional as the badge: thick rounded sculpted golden yellow painted wooden letters, rich cherry-red raised enamel trim, deep blue extruded sides, tiny cream hand-painted highlights, subtle lovingly worn edges and gouache/colored pencil texture, whimsical cinematic toyroom personality. A slightly jaunty dynamic baseline with friendly chunky readable letters. Spell José exactly, capital J, lower case o s é; retain the acute accent on é, clearly separated and visible. No additional text, logos, symbols, characters, stars or surrounding objects. Entire word and accent fully visible with a modest safe transparent margin, tightly composed WIDE horizontal layout around 2.4:1, front view with slight dimensional tilt only. True transparent background, no shadow rectangle or background scene. This is a reusable illustration asset, not a webpage mockup.

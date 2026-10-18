@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-
 /* Portada: rótulo de juguete, cartel de comunión y sus dos protagonistas. */
 .jo-hero { min-height: 960px; height: max(960px, 100svh); max-height: 1200px; padding-top: 55px; }
 .jo-hero-copy { width: min(760px, 92%); }
-.jo-name-wrap { position: relative; width: fit-content; margin: 0 auto; }
-.jo-hero h1 { font-family: 'Luckiest Guy', 'Baloo 2', sans-serif; font-size: clamp(195px, 21vw, 290px); line-height: 1.08; letter-spacing: -5px; color: #ffe275; -webkit-text-stroke: 3px #b63829; paint-order: stroke fill; text-shadow: 1px 3px 0 #fff2b0, 1px 7px 0 #a53626, 2px 11px 0 #a53626, 3px 15px 0 #254f78, 4px 20px 0 #254f78, 7px 24px 0 #254f78, 9px 27px 0 #204363; transform: rotate(-5deg); padding: 6px 20px 14px; }
-.jo-hero h1:after { content: ''; position: absolute; top: 32%; left: 32%; width: 30px; height: 6px; background: #fff4bb; border-radius: 100%; opacity: .65; transform: rotate(-28deg); }
+.jo-name-wrap { position: relative; width: min(650px, 90%); margin: 0 auto; }
+.jo-hero h1 { display: block; line-height: 1; padding: 0; transform: rotate(-4deg); text-shadow: none; -webkit-text-stroke: 0; }
+.jo-hero h1:after { content: none; }
+.jo-name-painted { width: 100%; height: auto; filter: drop-shadow(0 9px 4px #224a7029); }
 .jo-toy-star { display: block; width: 32px; height: 32px; color: #e9b243; }
 .jo-name-wrap>.jo-toy-star { position: absolute; z-index: 1; color: #b94a33; filter: drop-shadow(1px 2px 0 #fce7ab); }
 .jo-name-star-left { left: -27px; top: 29%; width: 25px; height: 25px; transform: rotate(-20deg); }
@@ -15,6 +14,7 @@
 .jo-hero-date>span { width: 125px; font-family: 'Bangers', sans-serif; font-size: 21px; font-weight: 400; letter-spacing: 1px; padding: 8px 0; }
 .jo-hero-date strong { font-family: 'Bangers', sans-serif; font-size: 58px; font-weight: 400; letter-spacing: 1px; line-height: 1; }
 .jo-hero-date i { font-family: 'Caveat', cursive; font-size: .7em; }
+.jo-adventure .jo-hero-hour { margin: 12px auto 0; font-family: 'Bangers', sans-serif; font-size: 25px; letter-spacing: 2px; line-height: 1.2; color: #285575; }
 .jo-adventure .jo-hero-communion { display: inline-block; font-family: 'Bangers', sans-serif; font-size: 33px; line-height: 1.15; letter-spacing: 2px; padding: 10px 30px 12px; margin: 26px auto 0; background: #ba4532; color: #fff4d6; box-shadow: 0 4px 0 #8f352c; border: 1px solid #85372d; transform: rotate(-2deg); clip-path: polygon(2% 2%,100% 0,98% 98%,0 100%); }
 .jo-adventure .jo-hero-motto { font-family: 'Caveat', cursive; color: #285575; font-size: 30px; font-weight: 600; line-height: 1.15; margin: 21px auto 0; }
 .jo-woody { height: 420px; bottom: 70px; left: max(7%, calc(50% - 520px)); }
@@ -53,19 +53,25 @@
 
 /* El mismo gesto de música que en las demás invitaciones: disco redondo, pausa y reintento. */
 .jo-music { position: fixed; right: 23px; bottom: 23px; z-index: 20; color: #285575; }
-.jo-music-button { display: flex; justify-content: center; align-items: center; width: 58px; height: 58px; padding: 6px; background: #fff9ed; color: #285575; border: 1px solid #28557555; border-radius: 50%; box-shadow: 0 4px 16px #193c5329; transition: transform .2s; }
+.jo-music-button { display: flex; justify-content: center; align-items: center; width: 58px; height: 58px; padding: 6px; background: #fff9ed; color: #285575; border: 1px solid #28557555; border-radius: 50%; box-shadow: 0 4px 16px #193c5329; transition: transform .2s, box-shadow .6s; }
 .jo-music-button:hover:not(:disabled) { transform: translateY(-3px); }
 .jo-music-button:disabled { opacity: .7; }
 .jo-music-record { width: 42px; height: 42px; }
-.jo-music-playing .jo-music-record { animation: jo-record-spin 10s linear infinite; }
-.jo-music-hint { position: absolute; right: 55px; bottom: 25px; width: 145px; font-family: 'Caveat', cursive; font-size: 23px; line-height: 1; transform: rotate(-9deg); white-space: nowrap; }
+.jo-record-disc, .jo-record-note { transform-origin: 20px 20px; }
+.jo-music-playing { box-shadow: 0 0 0 4px #ffdf8d29, 0 0 23px #f5cc6560, 0 4px 16px #193c5329; }
+.jo-music-playing .jo-record-disc { animation: jo-record-spin 9s linear infinite; }
+.jo-music-playing .jo-record-note { animation: jo-note-dance 2.2s ease-in-out infinite; }
+.jo-adventure .jo-music-hint { position: absolute; right: 55px; bottom: 24px; width: 123px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; font-family: 'Caveat', cursive; font-size: 18px; line-height: 1; transform: rotate(-9deg); white-space: nowrap; }
 .jo-music-hint svg { display: block; margin: 3px 6px 0 auto; width: 35px; height: 28px; transform: rotate(3deg); }
 .jo-music-status { position: absolute; right: 0; bottom: 68px; width: 230px; background: #fff9ed; border: 1px solid #d7cbb4; border-radius: 6px; padding: 12px; font-size: 12px; line-height: 1.6; box-shadow: 0 5px 15px #193c5320; }
 .jo-music-status:empty { display: none; }
 @keyframes jo-record-spin { to { transform: rotate(360deg); } }
+@keyframes jo-note-dance { 0%,100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-2px) rotate(7deg); } }
 @keyframes jo-toy-drift { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-9px) rotate(3deg); } }
 
 @media (min-width: 701px) and (max-width: 1050px) {
+  .jo-woody { height: 380px; bottom: 45px; left: 3%; }
+  .jo-buzz { width: 330px; bottom: 45px; right: 3%; }
   .jo-decor-intro .jo-decor-rex { width: 125px; left: 0; bottom: 12px; }
   .jo-decor-intro .jo-decor-ball { width: 100px; right: 0; top: 20px; }
   .jo-decor-places .jo-decor-jessie { width: 100px; right: 0; bottom: 10px; }
@@ -81,14 +87,14 @@
 @media (max-width: 700px) {
   .jo-hero { min-height: 930px; height: max(930px, 106svh); max-height: 1100px; padding-top: 62px; }
   .jo-hero-copy { width: 100%; padding: 0 18px; }
-  .jo-hero h1 { font-size: clamp(130px, 38vw, 210px); line-height: 1.1; letter-spacing: -3px; padding: 10px 4px 16px; -webkit-text-stroke: 2.5px #b63829; text-shadow: 1px 2px 0 #fff0a5, 1px 5px 0 #a53626, 2px 8px 0 #a53626, 3px 12px 0 #254f78, 4px 16px 0 #254f78, 6px 19px 0 #204363; }
+  .jo-name-wrap { width: 100%; margin-top: 10px; margin-bottom: 14px; }
   .jo-name-wrap>.jo-name-star-left { left: -5px; top: 36%; width: 20px; height: 20px; }
   .jo-name-wrap>.jo-name-star-right { right: 0; top: 10%; width: 27px; height: 27px; }
-  .jo-hero h1:after { width: 22px; height: 4px; }
   .jo-hero-subtitle { font-size: 38px; margin-top: 8px!important; }
   .jo-hero-date { gap: 10px; margin-top: 24px; }
   .jo-hero-date>span { width: 73px; font-size: 16px; letter-spacing: .5px; padding: 6px 0; }
   .jo-hero-date strong { font-size: 42px; letter-spacing: .5px; }
+  .jo-adventure .jo-hero-hour { font-size: 22px; margin-top: 11px; }
   .jo-adventure .jo-hero-communion { font-size: 29px; letter-spacing: 1.5px; padding: 9px 23px 10px; margin-top: 24px; }
   .jo-adventure .jo-hero-motto { font-size: 27px; line-height: 1.1; margin-top: 20px; }
   .jo-woody { height: 290px; left: 4%; bottom: 75px; transform: rotate(-7deg); }
@@ -123,12 +129,11 @@
   .jo-music { right: 17px; bottom: 17px; }
   .jo-music-button { width: 54px; height: 54px; }
   .jo-music-record { width: 39px; height: 39px; }
-  .jo-music-hint { right: 50px; bottom: 22px; font-size: 21px; width: 134px; }
+  .jo-adventure .jo-music-hint { right: 50px; bottom: 22px; font-size: 18px; width: 120px; }
 }
 
 @media (max-width: 360px) {
   .jo-hero { padding-top: 50px; min-height: 880px; }
-  .jo-hero h1 { font-size: 37vw; }
   .jo-hero-subtitle { font-size: 33px; }
   .jo-hero-date>span { width: 60px; font-size: 14px; }
   .jo-hero-date strong { font-size: 36px; }
@@ -139,5 +144,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .jo-decor img, .jo-toy-planet, .jo-music-record { animation: none!important; }
+  .jo-decor img, .jo-toy-planet, .jo-record-disc, .jo-record-note { animation: none!important; }
 }

@@ -34,7 +34,7 @@ export const invitations = [
     title: "José",
     eventType: "Comunión",
     date: "Mayo 2027",
-    coverImage: "/gallery/jose-comunion/portada.png",
+    coverImage: "/gallery/jose-comunion/portada-aventura.webp",
     url: "/jose-comunion/",
   },
   {

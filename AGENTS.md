@@ -1,4 +1,6 @@
-# InvitAle
+# Invitale
+
+- La marca se escribe siempre Invitale, también en textos, metadatos y documentación.
 
 - Trabajar y responder en español. Editar los archivos directamente y comprobar los cambios.
 - Leer `CLAUDE.md` para la arquitectura y el `CLAUDE.md` de cada invitación antes de modificarla.

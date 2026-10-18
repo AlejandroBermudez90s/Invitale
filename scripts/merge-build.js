@@ -26,11 +26,6 @@ const EVENTOS = [
     carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
     slugUrl: 'jose-comunion',
   },
-  {
-    carpeta: 'invitaciones/jose_comunion_mayo_2027/invitacion',
-    slugUrl: 'jose-comunion-v2',
-    buildDir: 'dist-v2',
-  },
 ]
 
 function copyDir(src, dest) {
