@@ -17,14 +17,32 @@ function Butterfly({ className = '', style }) {
 }
 
 function FloatingButterflies() {
-  const [positions] = useState(() => Array.from({ length: 28 }, (_, index) => ({
-    '--x': `${5 + Math.random() * 90}%`,
-    '--y': `${3 + index * 94 / 28 + Math.random() * 2}%`,
-    '--size': `${25 + Math.random() * 14}px`,
-    '--duration': `${12 + Math.random() * 13}s`,
-    '--delay': `${-Math.random() * 25}s`,
-  })))
+  const [positions] = useState(() => Array.from({ length: 18 }, (_, index) => {
+    const duration = 22 + Math.random() * 16
+    return {
+      '--x': `${4 + Math.random() * 92}%`,
+      '--size': `${23 + Math.random() * 13}px`,
+      '--drift': `${-5 + Math.random() * 10}vw`,
+      '--duration': `${duration}s`,
+      '--delay': `${-(index + Math.random()) / 18 * duration}s`,
+    }
+  }))
   return <div className="a-flight" aria-hidden="true">{positions.map((style, i) => <Butterfly key={i} style={style} />)}</div>
+}
+
+function ButterflyInvitation({ label, hint, expanded, controls, onClick, buttonRef }) {
+  return <button ref={buttonRef} className="a-secret-trigger" type="button" aria-label={label} aria-expanded={expanded} aria-controls={controls} onClick={onClick}>
+    <Butterfly />
+    <span className="a-secret-label"><Written>{label}</Written></span>
+    <span className="a-secret-hint" aria-hidden="true"><Written>{hint}</Written></span>
+  </button>
+}
+
+function returnToInvitation(buttonRef) {
+  requestAnimationFrame(() => {
+    buttonRef.current?.focus({ preventScroll: true })
+    buttonRef.current?.scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  })
 }
 
 function Flourish() {
@@ -100,30 +118,65 @@ function CalendarLink() {
 }
 
 function RSVP() {
+  const [expanded, setExpanded] = useState(false)
   const [sent, setSent] = useState(false), [attending, setAttending] = useState('yes')
-  const result = useRef(null), name = useRef(null)
-  useEffect(() => { if (sent) result.current?.focus({ preventScroll: true }) }, [sent])
+  const result = useRef(null), name = useRef(null), trigger = useRef(null), panel = useRef(null)
+  useEffect(() => {
+    if (!expanded) return
+    const frame = requestAnimationFrame(() => {
+      const target = sent ? result.current : name.current
+      target?.focus({ preventScroll: true })
+      panel.current?.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [expanded, sent])
+  function close() {
+    setExpanded(false)
+    returnToInvitation(trigger)
+  }
   return <section className="a-rsvp a-section" id="confirmar" aria-labelledby="a-rsvp-title">
     <Bouquet className="a-rsvp-flowers" />
-    <div className="a-rsvp-copy a-reveal"><span className="a-chapter"><Written>05 / Un lugar para ti</Written></span><Butterfly /><p className="a-eyebrow"><Written>El detalle que falta eres tú</Written></p><h2 id="a-rsvp-title"><Written>¿Vienes a </Written><em><Written>celebrar?</Written></em></h2><p><Written>Me hará mucha ilusión compartir</Written><br /><Written>esta noche contigo.</Written></p><span className="a-script"><Written>Te guardo un abrazo.</Written></span></div>
-    <div className="a-form-paper a-reveal"><p className="a-demo"><Written>Vista de diseño · formulario de prueba.</Written><br /><Written>Las respuestas no se envían ni se guardan.</Written></p>
+    <div className="a-rsvp-copy a-reveal"><span className="a-chapter"><Written>05 / Un lugar para ti</Written></span><p className="a-eyebrow"><Written>El detalle que falta eres tú</Written></p><h2 id="a-rsvp-title"><Written>¿Vienes a </Written><em><Written>celebrar?</Written></em></h2><p><Written>Me hará mucha ilusión compartir</Written><br /><Written>esta noche contigo.</Written></p><span className="a-script"><Written>Te guardo un abrazo.</Written></span>
+      <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar mi carta' : 'Te cuento si voy'} hint={expanded ? 'Toca las alas para cerrar' : 'Toca las alas y déjame unas palabras'} expanded={expanded} controls="a-rsvp-letter" onClick={() => expanded ? close() : setExpanded(true)} />
+    </div>
+    <div ref={panel} id="a-rsvp-letter" className="a-form-paper a-secret-paper" hidden={!expanded} aria-label="Tu respuesta a Andrea"><p className="a-demo"><Written>Invitación de muestra · respuesta de prueba.</Written><br /><Written>Las respuestas no se envían ni se guardan.</Written></p>
       {sent ? <div className="a-form-success"><Butterfly /><h3 tabIndex={-1} ref={result}><Written>¡Gracias por probarla!</Written></h3><p><Written>Esta respuesta es una demostración.</Written><br /><Written>No se ha enviado una confirmación real.</Written></p><button className="a-link" onClick={() => { setSent(false); requestAnimationFrame(() => name.current?.focus()) }}><Written>Probar otra respuesta ↗</Written></button></div> : <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
         <label htmlFor="a-name"><Written>Tu nombre o familia</Written></label><input ref={name} id="a-name" name="nombre" autoComplete="name" required maxLength={120} placeholder="¿A quién tengo el gusto de invitar?" />
         <label htmlFor="a-attending"><Written>¿Me acompañas?</Written></label><select id="a-attending" name="asistencia" value={attending} onChange={e => setAttending(e.target.value)}><option value="yes">Sí, no me lo perdería</option><option value="no">No podré acompañarte</option></select>
         {attending === 'yes' && <><label htmlFor="a-guests"><Written>Personas, incluyéndote</Written></label><input id="a-guests" name="personas" type="number" min="1" max="10" defaultValue="1" required /><label htmlFor="a-names"><Written>Nombres de quienes asistirán</Written></label><textarea id="a-names" name="asistentes" rows="2" maxLength={1000} placeholder="Para preparar cada detalle…" /></>}
-        <button className="a-button" type="submit"><Written>Confirmar respuesta de prueba </Written><span aria-hidden="true">↗</span></button>
+        <button className="a-handwritten-action" type="submit"><span><Written>Enviar mi respuesta de prueba</Written></span><Butterfly /></button>
       </form>}
+      <button className="a-close-letter" type="button" onClick={close}>Cerrar esta carta</button>
     </div>
   </section>
 }
 
 function Gifts() {
+  const [expanded, setExpanded] = useState(false)
   const [message, setMessage] = useState('')
+  const trigger = useRef(null), title = useRef(null), panel = useRef(null)
+  useEffect(() => {
+    if (!expanded) return
+    const frame = requestAnimationFrame(() => {
+      title.current?.focus({ preventScroll: true })
+      panel.current?.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [expanded])
+  function close() {
+    setExpanded(false); setMessage('')
+    returnToInvitation(trigger)
+  }
   async function copy() {
     try { await navigator.clipboard.writeText(bankAccount); setMessage('Cuenta copiada') }
     catch { setMessage('Puedes seleccionar y copiar el número de cuenta.') }
   }
-  return <section className="a-gifts a-section" aria-labelledby="a-gifts-title"><div className="a-reveal"><span className="a-chapter"><Written>04 / Lo que de verdad importa</Written></span><Flourish /><h2 id="a-gifts-title"><Written>El mejor regalo es</Written><br /><em><Written>tenerte cerca.</Written></em></h2><p><Written>Tu presencia es lo más bonito que puedes regalarme.</Written><br /><Written>Si además quieres tener un detalle, te dejo esta opción con cariño.</Written></p><p className="a-account-label"><Written>Número de cuenta</Written></p><p className="a-account">{bankAccount}</p><button className="a-link" onClick={copy}><Written>Copiar número de cuenta </Written><span aria-hidden="true">↗</span></button><p className="a-copy-status" role="status">{message}</p></div></section>
+  return <section className="a-gifts a-section" id="detalles" aria-labelledby="a-gifts-title"><div className="a-reveal"><span className="a-chapter"><Written>04 / Lo que de verdad importa</Written></span><Flourish /><h2 id="a-gifts-title"><Written>El mejor regalo es</Written><br /><em><Written>tenerte cerca.</Written></em></h2><p><Written>Tu presencia es lo más bonito que puedes regalarme.</Written><br /><Written>Si quieres tener un detalle, he dejado una pequeña nota para ti.</Written></p>
+    <ButterflyInvitation buttonRef={trigger} label={expanded ? 'Plegar esta nota' : 'Un detalle con cariño'} hint={expanded ? 'Toca las alas para cerrar' : 'Hay una pequeña nota entre estas alas'} expanded={expanded} controls="a-gift-letter" onClick={() => expanded ? close() : setExpanded(true)} />
+    <div ref={panel} id="a-gift-letter" className="a-gift-letter a-secret-paper" hidden={!expanded}>
+      <h3 className="a-account-label" ref={title} tabIndex={-1}>Con todo mi cariño</h3><p className="a-account">{bankAccount}</p><button className="a-link" type="button" onClick={copy}><Written>Copiar número de cuenta</Written></button><p className="a-copy-status" role="status">{message}</p><button className="a-close-letter" type="button" onClick={close}>Cerrar esta nota</button>
+    </div>
+    </div></section>
 }
 
 export default function ArtisticApp() {
@@ -186,7 +239,7 @@ export default function ArtisticApp() {
 
       <section className="a-celebration a-section" id="celebracion" aria-labelledby="a-date-title"><span className="a-chapter a-reveal"><Written>02 / Una fecha para recordar</Written></span><div className="a-date-layout"><div className="a-date-card a-reveal"><p className="a-eyebrow"><Written>Mayo</Written></p><span className="a-big-date"><Written>16</Written></span><p className="a-date-year"><Written>2026</Written></p><Flourish /><p><Written>Sábado · 19:00 h</Written></p><Butterfly /></div><div className="a-date-copy a-reveal"><p className="a-eyebrow"><Written>Reserva un pedacito de tu tiempo</Written></p><h2 id="a-date-title"><Written>Una noche.</Written><br /><em><Written>Mil recuerdos.</Written></em></h2><p><Written>Quince años de historias.</Written><br /><Written>Una noche para celebrar todo lo que viene.</Written></p><Countdown /><CalendarLink /></div></div></section>
 
-      <section className="a-venue a-section" id="lugar" aria-labelledby="a-venue-title"><div className="a-venue-art"><PaintedHotel /><Butterfly className="a-hotel-butterfly" /></div><div className="a-venue-copy a-reveal"><p className="a-eyebrow"><Written>Nos encontramos aquí</Written></p><h2 id="a-venue-title"><Written>Hotel</Written><br /><em><Written>Playa Grande</Written></em></h2><p className="a-location"><Written>Puerto de Mazarrón · Murcia</Written></p><Flourish /><p><Written>Un lugar para reunirnos, brindar y llenar de alegría una noche muy especial.</Written></p><dl className="a-venue-details"><div><dt><Written>La bienvenida</Written></dt><dd><Written>19:00 h</Written></dd></div><div><dt><Written>El aparcamiento</Written></dt><dd><Written>Hotel y alrededores</Written></dd></div></dl><a className="a-button" href="https://maps.app.goo.gl/1Bj1ATQmb9188Hdm8" target="_blank" rel="noopener noreferrer"><Written>Cómo llegar </Written><span aria-hidden="true">↗</span></a></div></section>
+      <section className="a-venue a-section" id="lugar" aria-labelledby="a-venue-title"><div className="a-venue-art"><PaintedHotel /><Butterfly className="a-hotel-butterfly" /></div><div className="a-venue-copy a-reveal"><p className="a-eyebrow"><Written>Nos encontramos aquí</Written></p><h2 id="a-venue-title"><Written>Hotel</Written><br /><em><Written>Playa Grande</Written></em></h2><p className="a-location"><Written>Puerto de Mazarrón · Murcia</Written></p><Flourish /><p><Written>Un lugar para reunirnos, brindar y llenar de alegría una noche muy especial.</Written></p><dl className="a-venue-details"><div><dt><Written>La bienvenida</Written></dt><dd><Written>19:00 h</Written></dd></div><div><dt><Written>El aparcamiento</Written></dt><dd><Written>Hotel y alrededores</Written></dd></div></dl><a className="a-handwritten-action" href="https://maps.app.goo.gl/1Bj1ATQmb9188Hdm8" target="_blank" rel="noopener noreferrer"><span><Written>Cómo llegar</Written></span><Butterfly /></a></div></section>
 
       <section className="a-dress a-section" aria-labelledby="a-dress-title"><Bouquet className="a-dress-flowers" /><div className="a-dress-copy a-reveal"><span className="a-chapter"><Written>03 / El arte de celebrar</Written></span><p className="a-eyebrow"><Written>Una ocasión especial merece</Written></p><h2 id="a-dress-title"><Written>Un poquito</Written><br /><Written>de </Written><em><Written>elegancia.</Written></em></h2><p><Written>Ellas, bellas y divinas.</Written><br /><Written>Ellos, guapos y elegantes.</Written></p><p><Written>Ven con tu mejor sonrisa y,</Written><br /><Written>sobre todo, con ganas de bailar.</Written></p></div><div className="a-color-card a-reveal"><span className="a-color-ribbon" aria-hidden="true" /><p className="a-eyebrow"><Written>Un color, una protagonista</Written></p><h3><Written>Azul rey</Written></h3><p><Written>Este color está reservado</Written><br /><Written>para la quinceañera.</Written></p><span className="a-script"><Written>Gracias por hacerlo especial.</Written></span></div></section>
       <Gifts />

@@ -60,6 +60,8 @@ probarse en `workers.dev` sin modificar el sitio que esté en producción.
 - `/`
 - `/andrea-15/`
 - `/andrea-15-v2/` (propuesta artística comparativa; conserva la fotografía original)
+- La tarjeta de Andrea en la galería muestra la portada de la v2 y abre `/andrea-15-v2/`.
+  La original se conserva en `/andrea-15/`, disponible solo por su enlace directo.
 - `/alejandro-y-esthefany/`
 - `/elena-y-nicolas/`
 - `/jose-comunion/`

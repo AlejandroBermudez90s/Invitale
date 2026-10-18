@@ -10,8 +10,8 @@ export const invitations = [
     title: "Andrea",
     eventType: "Quinceañera",
     date: "Mayo 2026",
-    coverImage: "/gallery/andrea-15/portada.webp",
-    url: "/andrea-15/",
+    coverImage: "/gallery/andrea-15/portada-jardin-v2.webp",
+    url: "/andrea-15-v2/",
   },
   {
     id: "alejandro-y-esthefany",

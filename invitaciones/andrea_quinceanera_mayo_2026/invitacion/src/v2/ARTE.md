@@ -7,7 +7,7 @@ La portada ahora importa EXACTAMENTE la misma fotografía que utiliza el CSS de 
 Texto y foto ocupan espacios separados, también en móvil. `Written.jsx` revela la tinta mediante opacidad por palabra y un máximo de 2,6 segundos de secuencia por fragmento. Conserva el flujo inline normal, sin máscaras ni márgenes negativos, y una única copia accesible del texto. Se inicia al entrar cada texto en pantalla; los resultados nuevos del formulario se incorporan con MutationObserver. Movimiento reducido muestra todo directamente.
 
 - `assets/hotel-playa-grande-acuarela.webp`: 1450 × 967, ilustración raster del hotel. Se revela en 14 pinceladas CSS alternas durante 4,8 segundos, sin SVG.
-- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Veintiocho mariposas repartidas aleatoriamente por el ancho y la altura de la página, con ritmos distintos. La portada protege la fotografía.
+- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Dieciocho mariposas ascienden continuamente por la pantalla con posiciones horizontales y ritmos distintos. La portada protege la fotografía.
 - Las flores respiran mediante una rotación CSS menor de un grado, sin mover la composición.
 
 ### Referencias arquitectónicas
@@ -42,5 +42,13 @@ Use case: illustration-story. Asset type: transparent botanical corner for a fin
 
 ## Movimiento
 
-Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Veintiocho mariposas raster repartidas por toda la página, con ritmos de 12 a 25 segundos y alas de 5 segundos. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
+Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Dieciocho mariposas raster suben de 110vh a -20vh, con ritmos lineales de 22 a 38 segundos y alas de 5 segundos. Nunca oscilan verticalmente ni invierten el sentido. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
+
+## Notas que se descubren
+
+La cuenta y el formulario se muestran después de pulsar una mariposa con frase manuscrita. Los paneles usan `hidden` inicialmente y conservan sus controles de foco, `aria-expanded` y `aria-controls`. Los mensajes siguen siendo HTML editable. El mapa y el envío usan frases manuscritas y mariposas, sin botones rectangulares. La confirmación sigue siendo local y demostrativa.
+
+## Galería
+
+La portada del hub es `public/gallery/andrea-15/portada-jardin-v2.webp`, encuadre vertical 4:5 de la portada abierta de esta versión. La tarjeta abre `/andrea-15-v2/`. La antigua invitación y sus recursos permanecen sin cambios en `/andrea-15/`, únicamente accesible por su URL directa desde fuera de la galería.
 
