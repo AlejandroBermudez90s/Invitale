@@ -16,7 +16,7 @@ export default function Navbar() {
         <a href="#top" className="brand" aria-label="Invitale, inicio" onClick={() => setMenuOpen(false)}>
           <Image src="/brand/isotipo-claro.png" alt="" width={707} height={715} className="brand-symbol brand-light" />
           <Image src="/brand/isotipo-oscuro.png" alt="" width={320} height={300} className="brand-symbol brand-dark" />
-          <span>Invitale<span className="brand-period">.</span></span>
+          <span>Invitale</span>
         </a>
         <div className="nav-links">{links.map(({ href, label }) => <a href={href} key={href}>{label}</a>)}</div>
         <div className="nav-actions">

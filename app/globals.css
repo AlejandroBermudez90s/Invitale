@@ -58,7 +58,6 @@ h1 em, h2 em { font-style: normal; color: var(--gold-text); }
 .nav-shell { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 91px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .brand > span { font-family: var(--font-prata), serif; font-size: 29px; letter-spacing: -.045em; }
-.brand-period { color: var(--gold); }
 .brand-symbol { width: 36px; height: 39px; object-fit: contain; }
 .brand-dark { display: none; }
 .dark .brand-light { display: none; }
@@ -177,7 +176,6 @@ h2 { font-size: clamp(34px, 3.25vw, 49px); line-height: 1.28; letter-spacing: -.
 .site-footer { padding-block: 27px; background: #252527; color: #fdfaf5; border-top: 1px solid #fdfaf526; }
 .footer-inner { display: flex; align-items: center; gap: 30px; }
 .footer-brand { font-family: var(--font-prata), serif; font-size: 25px; letter-spacing: -.04em; }
-.footer-brand span { color: #c9a300; }
 .footer-inner > p { font-family: var(--font-script), cursive; font-size: 24px; color: #bab4aa; }
 .footer-copyright { margin-left: auto; font-size: 10px; color: #bab4aa; }
 .back-top { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #fdfaf530; border-radius: 50%; }
