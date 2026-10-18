@@ -4,10 +4,10 @@
 
 La portada ahora importa EXACTAMENTE la misma fotografía que utiliza el CSS de la invitación original publicada: `../assets/portada.jfif` (2444 × 3673). La anterior selección `portada.webp` correspondía a otra toma y se retiró de este diseño. Coincidencia byte por byte con https://invitale.es/andrea-15/assets/portada-DAnXD3y_.jfif. SHA-256: d97596b57d0f4b4713612af949eaf6bc64495e9e12321e3b96ce1fa53b929880.
 
-Texto y foto ocupan espacios separados, también en móvil. `Written.jsx` usa máscaras por palabra, con pasos por carácter y máximo 4,5 segundos por fragmento. Conserva las uniones de Pinyon Script y el texto completo para lectores de pantalla. Se inicia al entrar cada texto en pantalla; los resultados nuevos del formulario se incorporan con MutationObserver. Movimiento reducido muestra todo directamente.
+Texto y foto ocupan espacios separados, también en móvil. `Written.jsx` revela la tinta mediante opacidad por palabra y un máximo de 2,6 segundos de secuencia por fragmento. Conserva el flujo inline normal, sin máscaras ni márgenes negativos, y una única copia accesible del texto. Se inicia al entrar cada texto en pantalla; los resultados nuevos del formulario se incorporan con MutationObserver. Movimiento reducido muestra todo directamente.
 
 - `assets/hotel-playa-grande-acuarela.webp`: 1450 × 967, ilustración raster del hotel. Se revela en 14 pinceladas CSS alternas durante 4,8 segundos, sin SVG.
-- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Aleteo suave y vuelo por el margen.
+- `assets/mariposa-azul.webp`: 320 × 320 con alpha; reemplaza todas las mariposas SVG. Veintiocho mariposas repartidas aleatoriamente por el ancho y la altura de la página, con ritmos distintos. La portada protege la fotografía.
 - Las flores respiran mediante una rotación CSS menor de un grado, sin mover la composición.
 
 ### Referencias arquitectónicas
@@ -42,5 +42,5 @@ Use case: illustration-story. Asset type: transparent botanical corner for a fin
 
 ## Movimiento
 
-Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Cuatro mariposas raster decorativas vuelan durante 30 segundos por el margen derecho; sus alas oscilan suavemente durante 5 segundos. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
+Apertura de solapa y disolución de 2,4 segundos. Revelado de secciones y escritura con IntersectionObserver, una sola vez. Veintiocho mariposas raster repartidas por toda la página, con ritmos de 12 a 25 segundos y alas de 5 segundos. Sin captura de puntero. El hotel se dibuja en 14 pinceladas alternas. Con movimiento reducido, apertura inmediata, imágenes y textos visibles sin animación. Música original activada solo por el visitante.
 

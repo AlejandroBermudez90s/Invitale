@@ -3,7 +3,8 @@
 La invitación original sigue en `/andrea-15/`, con su formulario existente y su galería.
 El rediseño comparativo vive en `src/v2/` y se construye con `npm run build:artistic`
 en `dist-v2/`, para `/andrea-15-v2/`. No convertirlo en la ruta definitiva sin elección
-del usuario. `npm run dev:artistic` permite revisarlo localmente.
+del usuario. El usuario ha autorizado publicarla en la ruta v2, conservando la original.
+`npm run dev:artistic` permite revisarlo localmente.
 
 ## Contenido que conservar
 - La fotografía original es la que carga `.cabecera::before`: `src/assets/portada.jfif`.
@@ -22,11 +23,13 @@ Papel marfil, azul noche #101e49, azul acuarela #416b9a y oro viejo #a48b60.
 Cormorant Garamond y Pinyon Script. Sobre con sello de mariposa, apertura lenta,
 fotografía protagonista con los textos en áreas separadas, flores azules señoriales, monograma, carta, fecha,
 lugar, vestimenta, regalos y formulario a la vista. Sin acordeones ni Bootstrap.
-Todo el texto y los controles son HTML editable. `Written.jsx` revela cada palabra por
-pasos sin romper las ligaduras manuscritas y deja el texto completo accesible.
+Todo el texto y los controles son HTML editable. `Written.jsx` revela la tinta por
+opacidad y conserva un único texto en flujo inline. No usar máscaras, bloques por
+palabra ni márgenes negativos que recorten o rompan las letras.
 Flores, mariposas y hotel son imágenes WebP. No recuperar las ilustraciones SVG.
 El Hotel Playa Grande se pintó con fotos oficiales; se revela en 14 pinceladas alternas.
-Las mariposas vuelan por el margen derecho para no atravesar la cara ni los textos.
+Veintiocho mariposas se reparten aleatoriamente por el ancho y la altura de toda la
+invitación, con diferentes ritmos de vuelo. La portada protege la fotografía.
 Respetar movimiento reducido, navegación por teclado y pantallas de 360 px.
 
 El formulario de la versión comparativa es explícitamente de prueba: no envía ni

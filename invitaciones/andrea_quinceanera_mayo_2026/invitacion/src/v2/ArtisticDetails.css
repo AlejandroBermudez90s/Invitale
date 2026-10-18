@@ -56,8 +56,10 @@
 /* Las mariposas son acuarelas raster; su vuelo conserva libre la foto. */
 .a-butterfly { display: inline-block; vertical-align: middle; }
 .a-butterfly > img { width: 100%; height: auto; animation: a-painted-wings 5s ease-in-out infinite; }
-.a-flight { inset: 0 0 0 auto; width: 25px; }
-.a-flight > .a-butterfly { left: auto; right: -5px; width: 32px; animation-name: a-margin-flight; }
+.a-invitation main { position: relative; }
+.a-flight { position: absolute; inset: 0; width: auto; height: 100%; z-index: 1; }
+.a-flight > .a-butterfly { left: var(--x); right: auto; top: var(--y); width: var(--size); opacity: .42; animation: a-garden-drift var(--duration) var(--delay) ease-in-out infinite alternate; }
+.a-hero, .a-footer { z-index: 2; }
 .a-bouquet { transform-origin: 50% 90%; animation: a-botanical-breeze 12s ease-in-out infinite alternate; }
 .a-seal > .a-butterfly { width: 55px; }
 .a-seal .a-butterfly > img { filter: brightness(1.7) saturate(.45); }
@@ -68,18 +70,18 @@
 .a-flourish::after { transform: rotate(180deg); }
 .a-flourish > i { width: 6px; height: 6px; border: 1px solid var(--gold); transform: rotate(45deg); }
 
-/* Escritura por pasos, sin romper las ligaduras de la letra manuscrita.
-   El texto completo está disponible desde el principio para lectores de pantalla. */
+/* Tinta progresiva sobre texto normal: no recorta letras ni fragmenta líneas.
+   Una única copia del texto sirve también a los lectores de pantalla. */
 .a-written { display: inline; }
-.a-ink-word { display: inline-block; padding-inline: .08em; margin-inline: -.08em; }
-.a-write-ready .a-ink-word { clip-path: inset(-15% 100% -15% 0); }
+.a-ink-word { display: inline; padding: 0; margin: 0; clip-path: none; }
+.a-write-ready .a-ink-word { opacity: 0; }
 .a-writing .a-ink-word {
-  animation: a-ink-write var(--ink-duration) steps(var(--letters), end) calc(var(--ink-delay) + var(--writing-wait, 100ms)) both;
+  animation: a-ink-arrival .24s calc(var(--ink-delay) + var(--writing-wait, 100ms)) ease-out both;
 }
-.a-hero-title h1 { --writing-wait: 500ms; }
-.a-hero-title .a-xv { --writing-wait: 1100ms; }
-.a-hero-copy { --writing-wait: 1500ms; }
-.a-hero-date { --writing-wait: 2100ms; }
+.a-hero-title h1 { --writing-wait: 200ms; }
+.a-hero-title .a-xv { --writing-wait: 500ms; }
+.a-hero-copy { --writing-wait: 600ms; }
+.a-hero-date { --writing-wait: 1000ms; }
 .a-topline .a-written { --writing-wait: 300ms; }
 
 /* Catorce pasadas alternas revelan una imagen, sin ilustración SVG. */
@@ -109,7 +111,7 @@
 .a-painted.a-visible .a-paint-strokes { animation: a-strokes-done 1ms 4.8s forwards; }
 .a-hotel-butterfly { position: absolute; width: 60px; left: 3%; top: -20px; animation: a-hotel-drift 11s ease-in-out infinite alternate; }
 
-@keyframes a-ink-write { from { clip-path: inset(-15% 100% -15% 0); } to { clip-path: inset(-15% -12% -15% -12%); } }
+@keyframes a-ink-arrival { from { opacity: 0; } to { opacity: 1; } }
 @keyframes a-brush-right { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -1%); } }
 @keyframes a-brush-left { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 -1%); } }
 @keyframes a-paint-finish { to { opacity: 1; } }
@@ -117,7 +119,7 @@
 @keyframes a-painted-wings { 0%, 100% { transform: perspective(300px) rotateY(-14deg) scaleX(.9); } 50% { transform: perspective(300px) rotateY(14deg) scaleX(1); } }
 @keyframes a-botanical-breeze { from { rotate: -.8deg; } to { rotate: .8deg; } }
 @keyframes a-hotel-drift { from { translate: 0 0; rotate: -12deg; } to { translate: 25px -12px; rotate: 6deg; } }
-@keyframes a-margin-flight { 0% { transform: translateY(105vh) rotate(-15deg); opacity: 0; } 12%, 80% { opacity: .55; } 100% { transform: translateY(-15vh) rotate(15deg); opacity: 0; } }
+@keyframes a-garden-drift { from { transform: translate(-12px, 24px) rotate(-12deg); } to { transform: translate(15px, -38px) rotate(10deg); } }
 
 @media(max-width: 900px) {
   .a-hero { min-height: 790px; padding: 85px 5vw 75px; gap: 0 5vw; }
@@ -150,7 +152,7 @@
   .a-hero-date > span { font-size: 12px; }
   .a-scroll { margin-top: 23px; }
   .a-hero-footnote { display: none; }
-  .a-flight > .a-butterfly { width: 23px; right: -5px; }
+  .a-flight > .a-butterfly { width: calc(var(--size) * .8); }
   .a-music-hint { display: none; }
   .a-venue { padding-inline: 23px; gap: 45px; }
   .a-venue-art { width: 100%; max-width: 560px; min-height: 0; }
@@ -159,7 +161,7 @@
   .a-hotel-butterfly { width: 43px; top: -10px; }
 }
 @media(prefers-reduced-motion: reduce) {
-  .a-write-ready .a-ink-word { clip-path: none; }
+  .a-write-ready .a-ink-word { opacity: 1; }
   .a-painted.a-pending > img { opacity: 1; }
   .a-paint-strokes { display: none; }
 }

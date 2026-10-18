@@ -16,6 +16,17 @@ function Butterfly({ className = '', style }) {
   return <span className={`a-butterfly ${className}`} style={style} aria-hidden="true"><img src={butterfly} width="320" height="320" alt="" /></span>
 }
 
+function FloatingButterflies() {
+  const [positions] = useState(() => Array.from({ length: 28 }, (_, index) => ({
+    '--x': `${5 + Math.random() * 90}%`,
+    '--y': `${3 + index * 94 / 28 + Math.random() * 2}%`,
+    '--size': `${25 + Math.random() * 14}px`,
+    '--duration': `${12 + Math.random() * 13}s`,
+    '--delay': `${-Math.random() * 25}s`,
+  })))
+  return <div className="a-flight" aria-hidden="true">{positions.map((style, i) => <Butterfly key={i} style={style} />)}</div>
+}
+
 function Flourish() {
   return <span className="a-flourish" aria-hidden="true"><i /></span>
 }
@@ -159,8 +170,9 @@ export default function ArtisticApp() {
   }, [opened, reduced])
   return <div className="a-invitation" ref={root}>
     {!opened && <Envelope reduced={reduced} onOpen={() => setOpened(true)} />}
-    {opened && <><Music /><div className="a-flight" aria-hidden="true">{[0, 1, 2, 3].map(i => <Butterfly key={i} style={{ '--i': i }} />)}</div></>}
+    {opened && <Music />}
     <main inert={!opened} className={opened ? 'a-is-open' : 'a-is-closed'}>
+      {opened && !reduced && <FloatingButterflies />}
       <a className="a-skip" href="#confirmar">Ir a la confirmación</a>
       <header className="a-hero" id="inicio">
         <div className="a-topline"><span><Written>Una noche para florecer</Written></span><span><Written>Puerto de Mazarrón</Written></span></div>
